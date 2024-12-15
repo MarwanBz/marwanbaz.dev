@@ -74,10 +74,9 @@ module.exports = {
 		  "accordion-down": "accordion-down 0.2s ease-out",
 		  "accordion-up": "accordion-up 0.2s ease-out",
 		  "pop-blob": "pop-blob 7s infinite",
+		  'spin-slow': 'spin 8s linear infinite',
 		},
 	  },
 	},
 	plugins: [require("tailwindcss-animate")],
   }
-  
-  
