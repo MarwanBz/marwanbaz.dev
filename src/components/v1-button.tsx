@@ -1,6 +1,6 @@
 'use client'
 
-import { ArrowBigRight, ExternalLink, Sparkles } from 'lucide-react'
+import { ExternalLink, Sparkles } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { useState } from 'react'
