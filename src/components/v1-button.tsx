@@ -33,7 +33,7 @@ export default function V1Button({ href = "https://marwanbaz.netlify.app/" }: V1
           />
           <span className="relative">
             <span className="relative z-10 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-blue-400 transition-all duration-300">
-              Visit v1 Website
+              Visit v1
             </span>
             <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-gradient-to-r from-purple-400 to-blue-400 group-hover:w-full transition-all duration-300" />
           </span>
