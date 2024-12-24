@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { DotPattern } from "../components/magicui/components_magicui_dot-pattern"
 import { MdEmail } from 'react-icons/md';
 import { ThemeToggle } from "./components_theme-toggle"
+import V1Button from './v1-button';
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 
@@ -39,6 +40,7 @@ export default function ComingSoon() {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
+      <V1Button />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
         <BlurryBlob firstBlobColor="bg-yellow-400 transition-blobs fade-in" secondBlobColor="bg-pink-400 transition-blobs fade-in" className="dark:hidden" />
         <BlurryBlob firstBlobColor="bg-purple-700 transition-blobs fade-in" secondBlobColor="bg-blue-700 transition-blobs fade-in" className="hidden dark:block" />
