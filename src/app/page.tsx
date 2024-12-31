@@ -5,7 +5,7 @@ import ComingSoon from "@/components/components_coming-soon";
 export default function Home() {
   return (
     <div>
-      <ComingSoon />
+     
     </div>
   );
 }
