@@ -2,10 +2,12 @@
 
 import React, { useRef } from 'react';
 
+import MatrixRain from './MatrixRain';
 import ParallaxImage from '@/components/parallax-image';
 import Reveal from '@/components/reveal'
 import { TextLoop } from '@/components/text-loop';
 import TextReveal from '@/components/text-reveal';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const heroContent = [
   { role: 'developer', action: 'code', emoji: '💻', bgColor: 'bg-green-100' },
@@ -32,6 +34,13 @@ const textLoopTransition = {
 
 function Hero() {
   const container = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: container,
+    offset: ['start end', 'end start']
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
   return (
     <section
@@ -87,19 +96,46 @@ function Hero() {
         </div>
       </div>
 
-      <ParallaxImage
-        src="/images/hero.jpg"
-        containerRef={container}
-        alt="Hero image"
-        containerClassName="aspect-[4/2] w-screen lg:mt-28"
-        priority
-        parallaxOptions={{
-          yStart: '-10%',
-          yEnd: '10%',
-          scaleStart: 1,
-          scaleEnd: 1.5
-        }}
-      />
+      <div className="relative aspect-[4/2] w-screen lg:mt-28">
+        <ParallaxImage
+          src="/images/hero.jpg"
+          containerRef={container}
+          alt="Hero image"
+          priority
+          className="mix-blend-overlay"
+          parallaxOptions={{
+            yStart: '-10%',
+            yEnd: '10%',
+            scaleStart: 1,
+            scaleEnd: 1.5
+          }}
+        />
+        <motion.div 
+          className="absolute inset-0 z-10"
+          style={{ y, scale }}
+        >
+          <div className="relative w-full h-full">
+            <div className="absolute inset-0 z-20 bg-gradient-to-t from-background via-transparent to-background opacity-90" />
+            <div className="absolute inset-0 z-20 bg-gradient-to-r from-background via-transparent to-background opacity-80" />
+            <motion.div 
+              className="h-full w-full"
+              style={{
+                opacity: useTransform(scrollYProgress, 
+                  [0, 0.2, 0.8, 1], 
+                  [0.8, 1, 1, 0.8]
+                )
+              }}
+            >
+              <MatrixRain
+                width={typeof window !== 'undefined' ? window.innerWidth : 1920}
+                height={typeof window !== 'undefined' ? window.innerWidth * (2/4) : 1080}
+                fontSize={16}
+                speed={2}
+              />
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 }
