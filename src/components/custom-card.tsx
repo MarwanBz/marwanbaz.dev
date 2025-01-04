@@ -14,7 +14,7 @@ interface CustomCardProps {
 export function CustomCard({
   children,
   className,
-  // hover = true,
+  hover = true,
   onClick,
 }: CustomCardProps) {
   return (
@@ -23,7 +23,7 @@ export function CustomCard({
       <div className="absolute inset-[3px] rounded-2xl bg-white dark:bg-black" />
       
       <Card className={cn(
-        "relative rounded-2xl border-0 bg-transparent",
+        "relative rounded-2xl bg-transparent",
         {
           "cursor-pointer": onClick,
         },
