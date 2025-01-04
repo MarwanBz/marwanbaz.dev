@@ -20,7 +20,7 @@ export function LinkedInLink({ url }: LinkedInLinkProps) {
         animate={{ rotate: [0, 10, -10, 0] }}
         transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
       >
-        <Linkedin className="w-10 h-10 text-black dark:text-white" />
+        <Linkedin className="w-20 h-20 text-black dark:text-white" />
       </motion.div>
     </CustomCard>
   )

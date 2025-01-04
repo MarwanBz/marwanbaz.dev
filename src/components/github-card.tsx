@@ -23,7 +23,7 @@ export function GitHubLink({ url }: GitHubLinkProps) {
           transition: { duration: 0.8, ease: "easeInOut" }
         }}
       >
-        <Github className="w-10 h-10 text-black dark:text-white" />
+        <Github className="w-20 h-20 text-black dark:text-white" />
       </motion.div>
     </CustomCard>
   )
