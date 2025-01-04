@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 import MatrixRain from './MatrixRain';
 import ParallaxImage from '@/components/parallax-image';
 import Reveal from '@/components/reveal'
 import { TextLoop } from '@/components/text-loop';
 import TextReveal from '@/components/text-reveal';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
 const heroContent = [
   { role: 'developer', action: 'code', emoji: '💻', bgColor: 'bg-green-100' },
@@ -96,7 +96,7 @@ function Hero() {
         </div>
       </div>
 
-      <div className="relative aspect-[4/2] w-screen lg:mt-28">
+      {/* <div className="relative aspect-[4/2] w-screen lg:mt-28">
         <ParallaxImage
           src="/images/hero.jpg"
           containerRef={container}
@@ -135,7 +135,7 @@ function Hero() {
             </motion.div>
           </div>
         </motion.div>
-      </div>
+      </div> */}
     </section>
   );
 }
