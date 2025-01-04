@@ -41,7 +41,7 @@ export function CustomCard({
         className="absolute -inset-[2px] rounded-2xl overflow-hidden"
       >
         <motion.div
-          className="w-[200%] h-full bg-gradient-to-r from-transparent via-[#0EA5E9] to-transparent"
+          className="w-[200%] h-full bg-gradient-to-r from-transparent via-[#0EA5E9] to-transparent dark:via-[#0EA5E9]"
           animate={{
             x: ["-100%", "100%"],
           }}
@@ -58,14 +58,14 @@ export function CustomCard({
         />
       </motion.div>
       <motion.div 
-        className="absolute -inset-[2px] rounded-2xl bg-[#0EA5E9]"
+        className="absolute -inset-[2px] rounded-2xl bg-[#0EA5E9] dark:bg-[#0EA5E9]"
         style={{
           boxShadow: '0 0 10px rgba(14, 165, 233, 0.5), inset 0 0 10px rgba(14, 165, 233, 0.5)'
         }}
       />
       <Card className={cn(
         "relative p-6 rounded-2xl border-0",
-        "before:absolute before:inset-[2px] before:rounded-xl before:bg-black",
+        "before:absolute before:inset-[2px] before:rounded-xl before:bg-white dark:before:bg-black",
         "hover:shadow-lg transition-shadow duration-200",
         {
           "cursor-pointer": onClick,
