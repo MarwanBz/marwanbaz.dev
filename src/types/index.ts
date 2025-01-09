@@ -17,7 +17,7 @@ export interface ProfileData {
   description: string
   imageUrl: string
   location?: string
-  availability?: 'available' | 'unavailable' | 'limited'
+  availability?: string
   socials: SocialLink[]
   email: string
   cvUrl: string

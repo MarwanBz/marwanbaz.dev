@@ -1,9 +1,10 @@
 "use client"
 
+import { Calendar1Icon, MessageCircle } from 'lucide-react'
+
 import { Button } from "@/components/ui/button"
 import type { ConnectOption } from "@/types"
 import { CustomCard } from "./custom-card"
-import { MessageCircle } from 'lucide-react'
 import { motion } from "framer-motion"
 
 interface ConnectSectionProps {
@@ -25,15 +26,15 @@ const defaultOptions: ConnectOption[] = [
 
 export function ConnectSection({ options = defaultOptions }: ConnectSectionProps) {
   return (
-    <CustomCard className="p-8 text-center">
+    <CustomCard className="p-8 text-center h-full flex flex-col items-center justify-center">
       <motion.div 
-        className="flex justify-center mb-4"
+        className="flex justify-center mb-4 "
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ type: "spring", stiffness: 260, damping: 20 }}
       >
         <div className="w-16 h-16 rounded-full bg-[#0EA5E9]/10 flex items-center justify-center">
-          <MessageCircle className="w-8 h-8 text-[#0EA5E9]" />
+          <MessageCircle className="w-8 h-8 " />
         </div>
       </motion.div>
       <motion.div
@@ -53,20 +54,17 @@ export function ConnectSection({ options = defaultOptions }: ConnectSectionProps
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
       >
-        {options.map((option, index) => (
-          <Button
-            key={index}
-            variant={option.variant}
-            className={
-              option.variant === 'outline'
-                ? "border-[#0EA5E9] text-[#0EA5E9] hover:bg-[#0EA5E9] hover:text-white dark:text-white dark:hover:bg-[#0EA5E9] dark:hover:text-black transition-colors"
-                : "bg-gray-200 text-gray-800 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
-            }
-            asChild
-          >
-            <a href={option.href}>{option.label}</a>
-          </Button>
-        ))}
+        <CustomCard className="px-4 py-2 hover:text-black dark:hover:text-white transition-colors">
+          <div className='flex items-center gap-1'>
+            <a href={options[0].href}>{options[0].label}</a>
+            <Calendar1Icon className='h-5 w-5'/>
+          </div>
+        </CustomCard>
+        <Button className="">
+          <div className='flex items-center gap-1'>
+            <a href={options[1].href}>{options[1].label}</a>
+          </div>
+        </Button>
       </motion.div>
     </CustomCard>
   )

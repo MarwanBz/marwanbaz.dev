@@ -44,28 +44,26 @@ export default function Home() {
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <ProjectCard
-          title="The Future of Web Development"
-          description="A full-stack e-commerce solution with real-time inventory management and secure payment processing"
-          imageUrl=""
-          technologies={["React", "Next.js", "TypeScript"]}
+          title="Leapat Web App"
+          description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
+          imageUrl="/assets/leapat.png"
+          technologies={["NextJs", "Tailwind CSS", "Supabase"]}
+          githubUrl="https://github.com/MarwanBz/Leapat"
+          liveUrl="https://leapat.vercel.app"
         />
         <ProjectCard
-          title="The Future of Web Development"
-          description="A full-stack e-commerce solution with real-time inventory management and secure payment processing"
-          imageUrl=""
-          technologies={["React", "Next.js", "TypeScript"]}
+          title="Deemat Mobile App Admin Dashboard"
+          description="Mobile application for children and parents, offering audio stories and visual stories. Includes comprehensive admin dashboard."
+          imageUrl="/assets/deemat.png"
+          technologies={["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"]}
+          liveUrl="https://admin.deemat.com"
         />
         <ProjectCard
-          title="The Future of Web Development"
-          description="A full-stack e-commerce solution with real-time inventory management and secure payment processing"
-          imageUrl=""
-          technologies={["React", "Next.js", "TypeScript"]}
-        />
-        <ProjectCard
-          title="The Future of Web Development"
-          description="A full-stack e-commerce solution with real-time inventory management and secure payment processing"
-          imageUrl=""
-          technologies={["React", "Next.js", "TypeScript"]}
+          title="MIS Pay Web App"
+          description="Website showcasing MISpay's 'Shop Now, Pay Later' service, featured stores, and merchant solutions."
+          imageUrl="/assets/misPay.png"
+          technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
+          liveUrl="https://mispay.sa"
         />
       </div>
     </main>
