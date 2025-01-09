@@ -4,6 +4,7 @@ import { Download, Eye } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import { CustomCard } from "./custom-card"
+import Link from 'next/link'
 import { motion } from "framer-motion"
 
 interface CVCardProps {
@@ -27,40 +28,34 @@ export function CVCard({ cvUrl }: CVCardProps) {
           </motion.h3>
           <p className="text-[15px] text-gray-600 dark:text-gray-400">Download or View</p>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 items-center">
           <motion.div
             initial={{ opacity: 0.6 }}
             whileHover={{ opacity: 1, scale: 1.1 }}
             transition={{ duration: 0.2 }}
           >
-            <Button
-              variant="ghost"
-              size="icon"
-              className="w-10 h-10 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
-              asChild
+            <div
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
               aria-label="Download CV"
             >
-              <a href={cvUrl} download>
-                <Download className="w-6 h-6" />
-              </a>
-            </Button>
+                <Link href={cvUrl} download>
+                <Download height={40} width={40}/>
+              </Link>
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0.6 }}
             whileHover={{ opacity: 1, scale: 1.1 }}
             transition={{ duration: 0.2 }}
           >
-            <Button
-              variant="ghost"
-              size="icon"
-              className="w-10 h-10 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
-              asChild
+            <div
+              className=" text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
               aria-label="View CV"
             >
-              <a href={cvUrl} target="_blank" rel="noopener noreferrer">
-                <Eye className="w-6 h-6" />
-              </a>
-            </Button>
+              <Link href={cvUrl} target="_blank" rel="noopener noreferrer">
+                <Eye height={40} width={40} />
+              </Link>
+            </div>
           </motion.div>
         </div>
       </div>

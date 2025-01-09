@@ -11,7 +11,7 @@ interface LinkedInLinkProps {
 export function LinkedInLink({ url }: LinkedInLinkProps) {
   return (
     <CustomCard
-      className="p-8 aspect-square"
+      className="py-7 flex items-center justify-center border-none"
       hover={true}
       onClick={() => window.open(url, '_blank')}
     >

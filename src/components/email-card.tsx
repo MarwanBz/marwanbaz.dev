@@ -11,7 +11,7 @@ interface EmailCardProps {
 export function EmailCard({ email }: EmailCardProps) {
   return (
     <CustomCard
-      className="p-8 "
+      className="p-8 border-none"
       hover={true}
       onClick={() => window.location.href = `mailto:${email}`}
     >
