@@ -11,7 +11,7 @@ interface GitHubLinkProps {
 export function GitHubLink({ url }: GitHubLinkProps) {
   return (
     <CustomCard
-      className="p-8 aspect-square"
+      className="p-6 mb-1 flex items-center justify-center border-none"
       hover={true}
       onClick={() => window.open(url, '_blank')}
     >
