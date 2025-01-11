@@ -18,7 +18,7 @@ export default function Home() {
       {/* Profile and Social Links Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-8 gap-6 justify-items-center items-center">
         <div className="lg:col-span-5 ">
-          <ProfileInfo {...profileData} />
+          <ProfileInfo name={""} imageUrl={""} {...profileData} />
         </div>
         <div className="lg:col-span-3">
           <div className="grid grid-cols-4 gap-4 align-items-end max-[400px]:grid-cols-1 max-[400px]:gap-0 max-[400px]:align-items-center max-[400px]:gap-y-2">

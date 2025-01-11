@@ -42,10 +42,10 @@ export function ConnectSection({ options = defaultOptions }: ConnectSectionProps
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <h2 className="text-2xl font-medium mb-2 text-gray-900 dark:text-white">Let's Connect and Talk Tech!</h2>
+        <h2 className="text-2xl font-medium mb-2 text-gray-900 dark:text-white">Let&apos;s Connect and Talk Tech!</h2>
         <p className="text-gray-600 dark:text-gray-400 mb-6">
           Passionate about technology? or just want to talk?<br />
-          Let's grab a virtual coffee!
+          Let&apos;s grab a virtual coffee!
         </p>
       </motion.div>
       <motion.div 

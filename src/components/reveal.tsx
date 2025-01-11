@@ -1,9 +1,7 @@
 'use client';
 
-import { HTMLMotionProps, motion, useAnimation, useInView } from 'motion/react';
-import React, { useEffect, useRef, useState } from 'react';
-
-import { Button } from '@/components/ui/button';
+import { HTMLMotionProps, motion, useAnimation, useInView } from 'framer-motion';
+import React, { useEffect, useRef } from 'react';
 
 interface RevealProps extends HTMLMotionProps<'span'> {
   children: React.ReactNode;
