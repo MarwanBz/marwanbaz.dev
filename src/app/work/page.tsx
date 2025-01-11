@@ -1,10 +1,8 @@
 "use client"
 
-import { ArrowLeft } from 'lucide-react'
-import { Button } from "@/components/ui/button"
-import { CustomCard } from "@/components/custom-card"
+// import { CustomCard } from "@/components/custom-card"
 import { FilterBar } from "@/components/filter-bar"
-import Link from "next/link"
+// import Link from "next/link"
 import { ProjectCard } from "@/components/project-card"
 import { useState } from 'react'
 
@@ -55,17 +53,9 @@ export default function WorkPage() {
   )
 
   return (
-    <main className="min-h-screen  p-4 flex flex-col items-center justify-start">
+    <main className="min-h-screen  p-4 pt-44 flex flex-col items-center justify-start">
       <div className="w-full max-w-6xl">
-        <div className="flex justify-between items-center mb-8">
-          <Link href="/">
-            <Button variant="ghost" className="flex items-center gap-2 text-white">
-              <ArrowLeft size={20} />
-              Back to Profile
-            </Button>
-          </Link>
-          
-        </div>
+        
         
         <div className="p-8 mb-8">
           <h1 className="text-3xl font-bold mb-4 text-white">Work</h1>

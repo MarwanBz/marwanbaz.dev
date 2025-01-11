@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Button } from "@/components/ui/button"
+
 import { cn } from "@/lib/utils"
 import { motion } from "framer-motion"
 
@@ -18,7 +18,7 @@ const filterItems = [
 
 export function FilterBar({ currentFilter, onFilterChange }: FilterBarProps) {
   return (
-    <div className="relative flex rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-gray-200/50 dark:bg-gray-600/50 p-1 backdrop-blur-md">
+    <div className="relative w-fit max-w-full flex rounded-full border border-black/[0.08] dark:border-white/[0.08] bg-gray-200/50 dark:bg-gray-600/50 p-1 backdrop-blur-md">
       {filterItems.map((item) => (
         <motion.button
           key={item.name}

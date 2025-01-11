@@ -2,7 +2,6 @@
 
 import { Download, Eye } from 'lucide-react'
 
-import { Button } from "@/components/ui/button"
 import { CustomCard } from "./custom-card"
 import Link from 'next/link'
 import { motion } from "framer-motion"

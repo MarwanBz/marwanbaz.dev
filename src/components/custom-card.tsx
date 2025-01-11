@@ -14,7 +14,7 @@ interface CustomCardProps {
 export function CustomCard({
   children,
   className,
-  hover = true,
+  // hover = true,
   onClick,
 }: CustomCardProps) {
   return (

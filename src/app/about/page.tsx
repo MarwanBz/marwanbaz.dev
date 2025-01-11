@@ -1,4 +1,4 @@
-import { ArrowLeft } from 'lucide-react'
+/* eslint-disable react/no-unescaped-entities */
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { CustomCard } from "@/components/custom-card"
@@ -9,14 +9,7 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen p-4 pt-44 flex flex-col items-center justify-center transition-colors duration-300">
       <div className="w-full max-w-4xl">
-        <div className="flex justify-between items-center mb-8">
-          <Link href="/">
-            <Button variant="ghost" className="flex items-center gap-2">
-              <ArrowLeft size={20} />
-              Back to Home
-            </Button>
-          </Link>
-        </div>
+        
         
         <CustomCard className="p-8 mb-8">
           <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">About Me</h1>
