@@ -3,7 +3,17 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { CustomCard } from "@/components/custom-card"
 import Link from "next/link"
+import { Metadata } from "next"
 import { profileData } from "@/app/data/profile-data"
+
+export const metadata: Metadata = {
+  title: "About",
+  description: "Learn more about Marwan Baz - A passionate Full Stack Developer with experience in React, Next.js, and modern web technologies",
+  openGraph: {
+    title: "About Marwan Baz - Web Developer",
+    description: "Learn more about Marwan Baz - A passionate Full Stack Developer with experience in React, Next.js, and modern web technologies",
+  }
+};
 
 export default function AboutPage() {
   return (

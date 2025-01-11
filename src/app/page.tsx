@@ -5,9 +5,19 @@ import { ExperienceSection } from "@/components/experiance-card";
 import { GitHubLink } from "@/components/github-card";
 import Hero from "@/components/hero";
 import { LinkedInLink } from "@/components/linkedin-card";
+import type { Metadata } from 'next';
 import { ProfileInfo } from "@/components/profile-info";
 import { ProjectCard } from "@/components/project-card";
 import { profileData } from "./data/profile-data";
+
+export const metadata: Metadata = {
+  title: "Home",
+  description: "Welcome to Marwan Baz's portfolio - Frontend Developer specializing in modern web technologies",
+  openGraph: {
+    title: "Marwan Baz - Frontend Developer Portfolio",
+    description: "Welcome to Marwan Baz's portfolio - Frontend Developer specializing in modern web technologies",
+  }
+};
 
 export default function Home() {
   return (
