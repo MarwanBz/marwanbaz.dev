@@ -45,7 +45,7 @@ const ParallaxImage = ({
       className={cn('relative w-full overflow-hidden', containerClassName)}
       style={{ y, scale }}
     >
-      <Image className={cn('object-cover', className)} fill {...props} />
+      <Image className={cn('object-cover', className)} fill {...props}  alt=''/>
     </motion.div>
   );
 };

@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useScroll, useTransform } from 'framer-motion';
 
-import MatrixRain from './MatrixRain';
-import ParallaxImage from '@/components/parallax-image';
-import Reveal from '@/components/reveal'
+// import MatrixRain from './MatrixRain';
+// import ParallaxImage from '@/components/parallax-image';
+// import Reveal from '@/components/reveal'
 import { TextLoop } from '@/components/text-loop';
-import TextReveal from '@/components/text-reveal';
+
+// import TextReveal from '@/components/text-reveal';
 
 const heroContent = [
   { role: 'developer', action: 'code', emoji: '💻', bgColor: 'bg-green-100' },

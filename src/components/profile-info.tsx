@@ -40,11 +40,11 @@ export function ProfileInfo({
     <CustomCard
       className="p-8 overflow-hidden"
       hover={false}
-      animation={{
-        initial: true,
-        hover: false,
-        tap: false,
-      }}
+      // animation={{
+      //   initial: true,
+      //   hover: false,
+      //   tap: false,
+      // }}
     >
       <div className="flex items-start gap-6">
         <motion.div
