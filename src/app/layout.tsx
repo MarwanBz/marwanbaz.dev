@@ -4,8 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/components_theme-provider";
 import { PageTransition } from "@/components/page-transition";
+import { ThemeProvider } from "@/components/components_theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,11 +19,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Marwan Baz | Full Stack Developer",
+    default: "Marwan Baz | Frontend Developer",
     template: "%s | Marwan Baz"
   },
-  description: "Full Stack Developer specializing in React, Next.js, and modern web technologies. Check out my portfolio and projects.",
-  keywords: ["Full Stack Developer", "React", "Next.js", "Web Development", "Software Engineer"],
+  description: "Frontend Developer specializing in React, Next.js, and modern web technologies. Check out my portfolio and projects.",
+  keywords: ["Frontend Developer", "React", "Next.js", "Web Development", "Software Engineer"],
   authors: [{ name: "Marwan Baz" }],
   creator: "Marwan Baz",
   metadataBase: new URL("https://marwanbaz.dev"),
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://marwanbaz.dev",
-    title: "Marwan Baz | Full Stack Developer",
-    description: "Full Stack Developer specializing in React, Next.js, and modern web technologies. Check out my portfolio and projects.",
+    title: "Marwan Baz | Frontend Developer",
+    description: "Frontend Developer specializing in React, Next.js, and modern web technologies. Check out my portfolio and projects.",
     siteName: "Marwan Baz Portfolio"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marwan Baz | Full Stack Developer",
-    description: "Full Stack Developer specializing in React, Next.js, and modern web technologies",
+    title: "Marwan Baz | Frontend Developer",
+    description: "Frontend Developer specializing in React, Next.js, and modern web technologies",
     creator: "@marwanbaz"
   },
   robots: {

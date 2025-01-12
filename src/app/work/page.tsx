@@ -9,39 +9,33 @@ import { useState } from 'react'
 const projects = [
   {
     id: 1,
-    title: "Ticknask",
-    description: "Note taking application designed to amplify users' productivity and streamline their workflow and revolutionizes the way you capture ideas, communicate, generate visuals with DALL-E, share notes with friends, organize your schedule with a calendar view, and effortlessly rearrange note content using a dragger.",
+    title: "Leapat Web App",
+    description: "Youth-led tech initiative aims to create digital transformation in culture, art, education, economy, and more.",
     imageUrl: "/assets/leapat.png",
-    technologies: ["Next.js", "Tailwind CSS", "Node.js", "DALL-E", "OpenAI", "LLM", "GPT"],
+    technologies: ["NextJS", "Tailwind CSS", "Supabase"],
     category: "web",
-    learnMoreUrl: "#"
+    githubUrl: "https://github.com/leapat-mukalla/leapat/",
+    liveUrl: "https://leapat.org"
   },
   {
     id: 2,
-    title: "Natsapp",
-    description: "End to end encrypted messaging application with a focus on privacy and security, offering a way to chat with friends, send photos, videos, and files.",
-    imageUrl: "/assets/misPay.png",
-    technologies: ["Node.js", "DialogFlow", "Firebase", "Express.js", "React.js", "Redux"],
+    title: "Deemat Mobile App",
+    description: "Mobile application intended for children and parents, offering audio stories and visual stories.",
+    imageUrl: "/assets/deemat1.jpg",
+    technologies: ["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"],
     category: "mobile",
-    learnMoreUrl: "#"
+    // githubUrl: "https://github.com/leapat-mukalla/deemat",
+    liveUrl: "https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633"
   },
   {
     id: 3,
-    title: "Nalaso Website",
-    description: "A personal website to introduce myself, showcase my work, and to share my thoughts, providing a way to contact me.",
+    title: "MIS Pay Web App",
+    description: "A Website showcasing MISpay's \"Shop Now, Pay Later\" service, featured stores, and merchant solutions.",
     imageUrl: "/assets/misPay.png",
-    technologies: ["Next.js", "Tailwind CSS"],
+    technologies: ["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"],
     category: "web",
-    learnMoreUrl: "#"
-  },
-  {
-    id: 4,
-    title: "MisPay",
-    description: "All in one file management application. Integrate with Google Drive, Dropbox, and OneDrive.",
-    imageUrl: "/assets/misPay.png",
-    technologies: ["Node.js", "React.js", "Redux", "Express.js", "Firebase", "Google Drive", "Dropbox"],
-    category: "web",
-    learnMoreUrl: "#"
+    // githubUrl: "https://github.com/leapat-mukalla/mis-pay",
+    // liveUrl: "https://mispay.co"
   }
 ]
 
@@ -53,16 +47,22 @@ export default function WorkPage() {
   )
 
   return (
-    <main className="min-h-screen  p-4 pt-44 flex flex-col items-center justify-start">
+    <main className="min-h-screen p-4 pt-44 flex flex-col items-center justify-start">
       <div className="w-full max-w-6xl">
-        
-        
         <div className="p-8 mb-8">
           <h1 className="text-3xl font-bold mb-4 text-white">Work</h1>
           <FilterBar currentFilter={filter} onFilterChange={setFilter} />
-          <div className="grid gap-6 mt-8 grid-cols-1">
+          <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map(project => (
-              <ProjectCard key={project.id} {...project} />
+              <ProjectCard 
+                key={project.id}
+                title={project.title}
+                description={project.description}
+                imageUrl={project.imageUrl}
+                technologies={project.technologies}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+              />
             ))}
           </div>
         </div>
@@ -70,4 +70,3 @@ export default function WorkPage() {
     </main>
   )
 }
-
