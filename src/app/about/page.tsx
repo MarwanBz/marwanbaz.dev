@@ -8,10 +8,10 @@ import { profileData } from "@/app/data/profile-data"
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Learn more about Marwan Baz - A passionate Full Stack Developer with experience in React, Next.js, and modern web technologies",
+  description: "Learn more about Marwan Baz - A web Developer with experience in React, Next.js, and modern web technologies",
   openGraph: {
     title: "About Marwan Baz - Web Developer",
-    description: "Learn more about Marwan Baz - A passionate Full Stack Developer with experience in React, Next.js, and modern web technologies",
+    description: "Learn more about Marwan Baz - A web Developer with experience in React, Next.js, and modern web technologies",
   }
 };
 
