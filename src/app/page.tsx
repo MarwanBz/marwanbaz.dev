@@ -58,22 +58,22 @@ export default function Home() {
           description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
           imageUrl="/assets/leapat.png"
           technologies={["NextJs", "Tailwind CSS", "Supabase"]}
-          githubUrl="https://github.com/MarwanBz/Leapat"
-          liveUrl="https://leapat.vercel.app"
+          githubUrl="https://github.com/leapat-mukalla/leapat/"
+          liveUrl="https://leapat.org"
         />
         <ProjectCard
-          title="Deemat Mobile App Admin Dashboard"
+          title="Deemat Mobile App"
           description="Mobile application for children and parents, offering audio stories and visual stories. Includes comprehensive admin dashboard."
           imageUrl="/assets/deemat.png"
           technologies={["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"]}
-          liveUrl="https://admin.deemat.com"
+          // liveUrl="https://admin.deemat.com"
         />
         <ProjectCard
           title="MIS Pay Web App"
           description="Website showcasing MISpay's 'Shop Now, Pay Later' service, featured stores, and merchant solutions."
           imageUrl="/assets/misPay.png"
           technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
-          liveUrl="https://mispay.sa"
+          // liveUrl="https://mispay.co"
         />
       </div>
     </main>

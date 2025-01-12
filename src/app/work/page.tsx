@@ -9,37 +9,28 @@ import { useState } from 'react'
 const projects = [
   {
     id: 1,
-    title: "Ticknask",
-    description: "Note taking application designed to amplify users' productivity and streamline their workflow and revolutionizes the way you capture ideas, communicate, generate visuals with DALL-E, share notes with friends, organize your schedule with a calendar view, and effortlessly rearrange note content using a dragger.",
+    title: "Leapat Web App",
+    description: "Youth-led tech initiative aims to create digital transformation in culture, art, education, economy, and more.",
     imageUrl: "/assets/leapat.png",
-    technologies: ["Next.js", "Tailwind CSS", "Node.js", "DALL-E", "OpenAI", "LLM", "GPT"],
+    technologies: ["NextJS", "Tailwind CSS", "Supabase"],
     category: "web",
     learnMoreUrl: "#"
   },
   {
     id: 2,
-    title: "Natsapp",
-    description: "End to end encrypted messaging application with a focus on privacy and security, offering a way to chat with friends, send photos, videos, and files.",
-    imageUrl: "/assets/misPay.png",
-    technologies: ["Node.js", "DialogFlow", "Firebase", "Express.js", "React.js", "Redux"],
+    title: "Deemat Mobile App Admin Dashboard",
+    description: "Mobile application intended for children and parents, offering audio stories and visual stories.",
+    imageUrl: "/assets/deemat.png", 
+    technologies: ["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"],
     category: "mobile",
     learnMoreUrl: "#"
   },
   {
     id: 3,
-    title: "Nalaso Website",
-    description: "A personal website to introduce myself, showcase my work, and to share my thoughts, providing a way to contact me.",
+    title: "MIS Pay Web App",
+    description: "A Website showcasing MISpay's \"Shop Now, Pay Later\" service, featured stores, and merchant solutions.",
     imageUrl: "/assets/misPay.png",
-    technologies: ["Next.js", "Tailwind CSS"],
-    category: "web",
-    learnMoreUrl: "#"
-  },
-  {
-    id: 4,
-    title: "MisPay",
-    description: "All in one file management application. Integrate with Google Drive, Dropbox, and OneDrive.",
-    imageUrl: "/assets/misPay.png",
-    technologies: ["Node.js", "React.js", "Redux", "Express.js", "Firebase", "Google Drive", "Dropbox"],
+    technologies: ["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"],
     category: "web",
     learnMoreUrl: "#"
   }
@@ -70,4 +61,3 @@ export default function WorkPage() {
     </main>
   )
 }
-
