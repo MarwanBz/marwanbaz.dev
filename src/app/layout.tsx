@@ -4,7 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
-import { PageTransition } from "@/components/page-transition";
+// import { PageTransition } from "@/components/page-transition";
 import { ThemeProvider } from "@/components/components_theme-provider";
 
 const geistSans = Geist({
