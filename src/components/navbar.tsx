@@ -70,7 +70,7 @@ export default function Navbar() {
           variant="ghost"
           size="icon"
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          className="rounded-full size-16  bg-black/[0.08] dark:bg-white/[0.08] text-black dark:text-white"
+          className="rounded-full size-16   text-black dark:text-white bg-gray-200/50 dark:bg-gray-600/50 p-1 backdrop-blur-md"
         >
           <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 " />
           <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
