@@ -1,4 +1,4 @@
-import { ArrowLeft, Code, Github, Instagram, Linkedin, Palette, Sparkles, Twitter, Wrench } from 'lucide-react'
+import { ArrowLeft, Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -63,48 +63,7 @@ const smallProjects = [
   }
 ]
 
-const creativeProjects = [
-  {
-    title: "Fractal Explorer",
-    description: "An interactive fractal generator using WebGL shaders.",
-    tech: ["WebGL", "GLSL", "JavaScript"],
-    link: "https://github.com/yourusername/fractal-explorer",
-    media: {
-      type: "gif",
-      url: "/placeholder.gif"
-    }
-  },
-  {
-    title: "Audio Visualizer",
-    description: "A real-time audio visualizer using Web Audio API and Canvas.",
-    tech: ["Web Audio API", "Canvas", "JavaScript"],
-    link: "https://github.com/yourusername/audio-visualizer",
-    media: {
-      type: "video",
-      url: "/placeholder.mp4"
-    }
-  },
-  {
-    title: "3D City Generator",
-    description: "Procedurally generated 3D city using Three.js.",
-    tech: ["Three.js", "JavaScript"],
-    link: "https://github.com/yourusername/3d-city-generator",
-    media: {
-      type: "gif",
-      url: "/placeholder.gif"
-    }
-  },
-  {
-    title: "Interactive 3D Character",
-    description: "A 3D character with real-time animation controls.",
-    tech: ["Three.js", "React", "TypeScript"],
-    link: "https://github.com/yourusername/interactive-3d-character",
-    media: {
-      type: "video",
-      url: "/placeholder.mp4"
-    }
-  }
-]
+
 
 export default function AboutPage() {
   return (
