@@ -1,6 +1,5 @@
-import { LucideIcon, TypeIcon as type } from 'lucide-react'
-
 import { Button } from "@/components/ui/button"
+import { LucideIcon, } from 'lucide-react'
 
 interface SocialLink {
   icon: LucideIcon
