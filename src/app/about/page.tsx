@@ -158,7 +158,7 @@ export default function AboutPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {(smallProjects ?? []).map((project, index) => (
-              <ProjectCard key={index} {...project} technologies={["NextJs", "Tailwind CSS", "Supabase"]} />
+              <ProjectCard imageUrl={''} key={index} {...project} technologies={["NextJs", "Tailwind CSS", "Supabase"]} />
             ))}
             {smallProjects?.length === 0 && <p>No projects available</p>}
           </div>
