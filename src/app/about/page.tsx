@@ -1,4 +1,4 @@
-import { ArrowLeft, Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
+import { Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -67,27 +67,19 @@ const smallProjects = [
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-gray-100 dark:bg-gray-900 p-4 flex flex-col items-center justify-center transition-colors duration-300">
+    <main className="min-h-screen  p-4 pt-44  flex flex-col items-center justify-center transition-colors duration-300">
       <div className="w-full max-w-6xl">
-        <div className="flex justify-between items-center mb-8">
-          <Link href="/">
-            <Button variant="ghost" className="flex items-center gap-2">
-              <ArrowLeft size={20} />
-              Back to Profile
-            </Button>
-          </Link>
-          
-        </div>
+        
         
         <CustomCard className="p-8 mb-8">
           <div className="flex flex-col lg:flex-row gap-8 items-center">
-            <div className="w-full lg:w-1/2">
+            <div className="w-full  lg:w-1/2">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/assets/marwan_img.png"
                 alt="Your Name"
                 width={600}
                 height={600}
-                className="rounded-full object-cover shadow-lg"
+                className="rounded-full object-cover shadow-lg border"
               />
             </div>
             <div className="w-full lg:w-1/2 space-y-4">
