@@ -5,6 +5,7 @@ import { Clock, MapPin } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import { CustomCard } from "./custom-card"
 import { motion } from "framer-motion"
+import { useEffect, useState } from "react"
 
 interface ProfileInfoProps {
   name: string
@@ -12,7 +13,6 @@ interface ProfileInfoProps {
   description: string
   imageUrl: string
   location?: string
-  availability?: 'available' | 'unavailable' | 'limited'
   skills?: string[]
 }
 
@@ -22,9 +22,30 @@ export function ProfileInfo({
   description,
   imageUrl,
   location,
-  availability,
   skills
 }: ProfileInfoProps) {
+  const [currentTime, setCurrentTime] = useState<string>(
+    new Date().toLocaleTimeString([], { 
+      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, 
+      hour: '2-digit', 
+      minute: '2-digit' 
+    })
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(
+        new Date().toLocaleTimeString([], { 
+          timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, 
+          hour: '2-digit', 
+          minute: '2-digit' 
+        })
+      );
+    }, 60000); // Update every minute
+
+    return () => clearInterval(timer); // Cleanup on unmount
+  }, []);
+
   const getAvailabilityColor = (status: string) => {
     switch(status) {
       case 'available':
@@ -59,12 +80,6 @@ export function ProfileInfo({
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.8 }}
           />
-          {availability && (
-            <span 
-              className={`absolute bottom-0 right-0 w-4 h-4 rounded-full border-2 border-white dark:border-black ${getAvailabilityColor(availability)}`}
-              title={`Status: ${availability}`}
-            />
-          )}
         </motion.div>
         <div className="space-y-4 flex-1">
           <div>
@@ -100,12 +115,10 @@ export function ProfileInfo({
                 <span className="text-sm">{location}</span>
               </div>
             )}
-            {availability && (
-              <div className="flex items-center gap-1">
-                <Clock className="w-4 h-4" />
-                <span className="text-sm capitalize">{availability}</span>
-              </div>
-            )}
+            <div className="flex items-center gap-1">
+              <Clock className="w-4 h-4" />
+              <span className="text-sm">{currentTime}</span>
+            </div>
           </motion.div>
 
           <motion.p 
@@ -140,4 +153,3 @@ export function ProfileInfo({
     </CustomCard>
   )
 }
-

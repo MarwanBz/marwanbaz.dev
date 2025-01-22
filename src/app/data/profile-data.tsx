@@ -6,7 +6,6 @@ export const profileData: ProfileData = {
   description: "Web developer with a passion for technology, skilled in HTML, CSS, JavaScript, and various web development frameworks and libraries, including ReactJS. Solid understanding of computer networks and operating systems.",
   imageUrl: "/assets/marwan_img.png",
   location: "127.0.0.1 | Remote",
-  availability: new Date().toLocaleTimeString([], { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, hour: '2-digit', minute: '2-digit' }),
   socials: [
     {
       platform: "linkedin",
