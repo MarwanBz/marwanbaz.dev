@@ -116,12 +116,12 @@ const projects = [
 
 export default function ProjectDetailPage() {
   const params = useParams()
-  const [project, setProject] = useState(null)
+  const [project, setProject] = useState<typeof projects[0] | null>(null)
 
   useEffect(() => {
     const projectId = parseInt(params.id as string)
     const foundProject = projects.find(p => p.id === projectId)
-    setProject(foundProject)
+    setProject(foundProject || null)
   }, [params.id])
 
   if (!project) {

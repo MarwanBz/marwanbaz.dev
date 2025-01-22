@@ -1,11 +1,11 @@
 "use client"
 
 import { Clock, MapPin } from 'lucide-react'
+import { useEffect, useState } from "react"
 
 import { Badge } from "@/components/ui/badge"
 import { CustomCard } from "./custom-card"
 import { motion } from "framer-motion"
-import { useEffect, useState } from "react"
 
 interface ProfileInfoProps {
   name: string
@@ -46,16 +46,6 @@ export function ProfileInfo({
     return () => clearInterval(timer); // Cleanup on unmount
   }, []);
 
-  const getAvailabilityColor = (status: string) => {
-    switch(status) {
-      case 'available':
-        return 'bg-green-500'
-      case 'limited':
-        return 'bg-yellow-500'
-      default:
-        return 'bg-red-500'
-    }
-  }
 
   return (
     <CustomCard
