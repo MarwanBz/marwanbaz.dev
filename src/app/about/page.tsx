@@ -1,4 +1,4 @@
-import { ArrowLeft, Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
+import { Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
