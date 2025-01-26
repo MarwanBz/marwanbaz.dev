@@ -27,6 +27,7 @@ const defaultOptions: ConnectOption[] = [
   }
 ]
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function ConnectSection({ options = defaultOptions }: ConnectSectionProps) {
   const [isCollabModalOpen, setIsCollabModalOpen] = useState(false)
   const [isChatModalOpen, setIsChatModalOpen] = useState(false)

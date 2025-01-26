@@ -35,7 +35,7 @@ export function CollaborationModal({ isOpen, onClose }: CollaborationModalProps)
           <DialogHeader>
             <DialogTitle>Thank you for reaching out!</DialogTitle>
             <DialogDescription>
-              I'll get back to you as soon as possible.
+              I&apos;ll get back to you as soon as possible.
             </DialogDescription>
           </DialogHeader>
           <div className="flex justify-end">
