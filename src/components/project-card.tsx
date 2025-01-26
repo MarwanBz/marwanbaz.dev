@@ -20,8 +20,8 @@ interface ProjectCardProps {
 export function ProjectCard({ title, description, imageUrl, technologies, githubUrl, liveUrl }: ProjectCardProps) {
   return (
     
-    <CustomCard className="flex flex-col overflow-hidden group">
-      <ShineBorder className='' borderWidth={3} borderRadius={16} >
+    <CustomCard className="flex flex-col overflow-hidden group " showing={false}>
+      <ShineBorder className='' duration={50} borderWidth={3} borderRadius={16} color={['#808080', '#000000', '#FFFFFF', '#808080']}>
       <div className="relative h-48 w-full overflow-hidden">
         <div className="absolute inset-0 transition-transform duration-[3s] ease-in-out group-hover:-translate-y-[calc(100%-192px)]">
           <Image
