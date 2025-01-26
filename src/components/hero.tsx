@@ -105,9 +105,17 @@ function Hero() {
                   repeatDelay: 1
                 }}
               >
-                <span className="bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
-                  Discover More
-                </span>
+                <TextLoop
+                className="overflow-y-clip"
+                transition={textLoopTransition}
+                variants={textLoopVariants}
+              >
+                {heroContent.map((content, index) => (
+                  <span key={index} className="bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
+                    Discover {content.text}
+                  </span>
+                ))}
+              </TextLoop>
               </motion.div>
               <motion.div
                 className="relative w-8 h-14 rounded-full border-2 border-muted-foreground/30 p-1.5 group-hover:border-muted-foreground/50 transition-colors"
