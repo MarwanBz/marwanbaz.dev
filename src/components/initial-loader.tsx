@@ -1,11 +1,13 @@
 "use client"
 
+import { AnimatePresence, motion } from "framer-motion"
 import { useEffect, useState } from "react"
-import { motion, AnimatePresence } from "framer-motion"
+
 import { DottedProgressLoader } from "@/components/ui/dotted-progress-loader"
 
 export function InitialLoader() {
   const [isLoading, setIsLoading] = useState(true)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [progress, setProgress] = useState(0)
 
   useEffect(() => {

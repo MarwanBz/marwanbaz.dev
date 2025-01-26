@@ -1,8 +1,9 @@
 "use client"
 
+import { AnimatePresence, motion, useAnimation } from "framer-motion"
+import { useEffect, useState } from "react"
+
 import type React from "react"
-import { useState, useEffect } from "react"
-import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import { useTheme } from "next-themes"
 
 interface DottedProgressLoaderProps {
@@ -30,6 +31,7 @@ export const DottedProgressLoader: React.FC<DottedProgressLoaderProps> = ({
   useEffect(() => {
     setMounted(true)
     startAnimation()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const startAnimation = () => {
@@ -40,6 +42,7 @@ export const DottedProgressLoader: React.FC<DottedProgressLoaderProps> = ({
         if (prevProgress >= 100) {
           clearInterval(timer)
           setIsComplete(true)
+          // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           onComplete && onComplete()
           return 100
         }
