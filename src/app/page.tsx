@@ -4,6 +4,7 @@ import { EmailCard } from "@/components/email-card";
 import { ExperienceSection } from "@/components/experiance-card";
 import { GitHubLink } from "@/components/github-card";
 import Hero from "@/components/hero";
+import Link from "next/link";
 import { LinkedInLink } from "@/components/linkedin-card";
 import type { Metadata } from 'next';
 import { ProfileInfo } from "@/components/profile-info";
@@ -53,30 +54,33 @@ export default function Home() {
 
       {/* Projects Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <ProjectCard
-          title="Leapat Web App"
-          description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
-          imageUrl="/assets/leapat.png"
-          technologies={["NextJs", "Tailwind CSS", "Supabase"]}
-          githubUrl="https://github.com/leapat-mukalla/leapat/"
-          liveUrl="https://leapat.org"
-        />
-        <ProjectCard
-          title="Deemat Mobile App"
-          description="Mobile application for children and parents, offering audio stories and visual stories. Includes comprehensive admin dashboard."
-          imageUrl="/assets/deemat1.jpg"
-          technologies={["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"]}
-          // githubUrl="https://github.com/leapat-mukalla/deemat"
-          liveUrl="https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633"
-        />
-        <ProjectCard
-          title="MIS Pay Web App"
-          description="Website showcasing MISpay's 'Shop Now, Pay Later' service, featured stores, and merchant solutions."
-          imageUrl="/assets/misPay.png"
-          technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
-          
-          // liveUrl="https://mispay.co"
-        />
+        <Link href="/work/1">
+          <ProjectCard
+            title="Leapat Web App"
+            description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
+            imageUrl="/assets/leapat.png"
+            technologies={["NextJs", "Tailwind CSS", "Supabase"]}
+            githubUrl="https://github.com/leapat-mukalla/leapat/"
+            liveUrl="https://leapat.org"
+          />
+        </Link>
+        <Link href="/work/2">
+          <ProjectCard
+            title="Deemat Mobile App"
+            description="Mobile application for children and parents, offering audio stories and visual stories. Includes comprehensive admin dashboard."
+            imageUrl="/assets/deemat1.jpg"
+            technologies={["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"]}
+            liveUrl="https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633"
+          />
+        </Link>
+        <Link href="/work/3">
+          <ProjectCard
+            title="MIS Pay Web App"
+            description="Website showcasing MISpay's 'Shop Now, Pay Later' service, featured stores, and merchant solutions."
+            imageUrl="/assets/misPay.png"
+            technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
+          />
+        </Link>
       </div>
     </main>
   );
