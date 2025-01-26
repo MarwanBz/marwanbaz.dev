@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react"
 
+import Loading from "@/app/loading"
 // import { ThemeToggle } from "@/components/theme-toggle"
 // import { CustomCard } from "@/components/custom-card"
 // import Link from "next/link"
@@ -20,7 +21,7 @@ export default function ProjectDetailPage() {
   }, [params.id])
 
   if (!project) {
-    return <div>Loading...</div>
+    return <Loading />
   }
 
   return (
