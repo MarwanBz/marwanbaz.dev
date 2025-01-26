@@ -1,9 +1,10 @@
 "use client"
 
 import { Calendar1Icon, MessageCircle } from 'lucide-react'
+
 import { Button } from "@/components/ui/button"
-import { CollaborationModal } from './connect-model'
 import { ChatModal } from './chat-modal'
+import { CollaborationModal } from './connect-model'
 import type { ConnectOption } from "@/types"
 import { CustomCard } from "./custom-card"
 import { motion } from "framer-motion"
@@ -54,7 +55,8 @@ export function ConnectSection({ options = defaultOptions }: ConnectSectionProps
       >
         <h2 className="text-2xl font-bold tracking-tight">Let&apos;s Connect</h2>
         <p className="text-muted-foreground">
-          Have a project in mind or just want to chat? I&apos;d love to hear from you!
+          Passionate about technology? or just want to chat?
+Let&apos;s grab a virtual coffee!
         </p>
         
         <div className="flex flex-col gap-4 sm:flex-row sm:gap-6 justify-center">
