@@ -5,6 +5,7 @@ import { ExternalLink, Github } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import { CustomCard } from "./custom-card"
 import Image from 'next/image'
+import { ShineBorder } from './border-shine'
 import { motion } from "framer-motion"
 
 interface ProjectCardProps {
@@ -18,7 +19,9 @@ interface ProjectCardProps {
 
 export function ProjectCard({ title, description, imageUrl, technologies, githubUrl, liveUrl }: ProjectCardProps) {
   return (
-    <CustomCard className="flex flex-col overflow-hidden group">
+    
+    <CustomCard className="flex flex-col overflow-hidden group " showing={false}>
+      <ShineBorder className='' duration={50} borderWidth={3} borderRadius={16} color={['#808080', '#000000', '#FFFFFF', '#808080']}>
       <div className="relative h-48 w-full overflow-hidden">
         <div className="absolute inset-0 transition-transform duration-[3s] ease-in-out group-hover:-translate-y-[calc(100%-192px)]">
           <Image
@@ -26,7 +29,7 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
             alt={title}
             width={800}
             height={1200}
-            className="w-full object-cover object-top"
+            className="w-full object-cover object-top rounded-2xl"
           />
         </div>
       </div>
@@ -67,6 +70,9 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
           )}
         </div>
       </div>
+      </ShineBorder >
     </CustomCard>
+   
   )
 }
+  
