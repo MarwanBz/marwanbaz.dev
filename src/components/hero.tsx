@@ -5,6 +5,7 @@ import { ChevronDown, Mouse, MousePointer } from 'lucide-react';
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+import { BackgroundBeams } from './hero-background';
 import { TextLoop } from '@/components/text-loop';
 
 const heroContent = [
@@ -179,6 +180,7 @@ function Hero() {
           </div>
         </div>
       </div>
+      <BackgroundBeams />
     </section>
   );
 }
