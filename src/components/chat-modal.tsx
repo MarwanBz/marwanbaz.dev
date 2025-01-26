@@ -48,7 +48,7 @@ export function ChatModal({ isOpen, onClose }: ChatModalProps) {
             Or send me an email to find a time that works for both of us.
           </p>
           <Button variant="outline" className="w-full" asChild>
-            <a href="mailto:your.email@example.com?subject=Schedule%20a%20Virtual%20Coffee">
+            <a href="mailto:marouane.bazghifan@gmail.com">
               <Mail className="mr-2 h-4 w-4" /> Send Email
             </a>
           </Button>

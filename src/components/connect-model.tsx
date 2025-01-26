@@ -1,7 +1,6 @@
 "use client"
 
 import { AnimatePresence, motion } from "framer-motion"
-import { Github, Linkedin, Send } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -10,6 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
+import { Github, Linkedin, Send } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -87,14 +87,14 @@ export function CollaborationModal({ isOpen, onClose }: CollaborationModalProps)
             {activeTab === "social" && (
               <div className="flex justify-center space-x-4 py-4">
                 <Button variant="outline" size="lg" asChild>
-                  <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://github.com/marwanbz" target="_blank" rel="noopener noreferrer">
                     <Github className="mr-2 h-4 w-4" /> GitHub
-                  </a>
+                  </Link>
                 </Button>
                 <Button variant="outline" size="lg" asChild>
-                  <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://linkedin.com/in/marwanbz" target="_blank" rel="noopener noreferrer">
                     <Linkedin className="mr-2 h-4 w-4" /> LinkedIn
-                  </a>
+                 </Link>
                 </Button>
               </div>
             )}
