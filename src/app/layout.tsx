@@ -7,6 +7,8 @@ import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 // import { PageTransition } from "@/components/page-transition";
 import { ThemeProvider } from "@/components/components_theme-provider";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -75,7 +77,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
         </ThemeProvider>
       </body>
       <Analytics />
