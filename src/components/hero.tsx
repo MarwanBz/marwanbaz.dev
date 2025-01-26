@@ -1,24 +1,20 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
+import { ChevronDown, Mouse, MousePointer } from 'lucide-react';
 import React, { useRef } from 'react';
-import { useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-// import MatrixRain from './MatrixRain';
-// import ParallaxImage from '@/components/parallax-image';
-// import Reveal from '@/components/reveal'
+import { BackgroundBeams } from './hero-background';
 import { TextLoop } from '@/components/text-loop';
 
-// import TextReveal from '@/components/text-reveal';
-
 const heroContent = [
-  { role: 'developer', action: 'code', emoji: '💻', bgColor: 'bg-green-100' },
-  { role: 'gamer', action: 'win', emoji: '🎮', bgColor: 'bg-blue-100' },
-  { role: 'thinker', action: 'solve', emoji: '🤔', bgColor: 'bg-yellow-100' },
-  { role: 'learner', action: 'grow', emoji: '📚', bgColor: 'bg-purple-100' },
-  { role: 'creator', action: 'build', emoji: '✨', bgColor: 'bg-pink-100' },
-  { role: 'teammate', action: 'collab', emoji: '🤝', bgColor: 'bg-orange-100' },
-  { role: 'fixer', action: 'repair', emoji: '🛠️', bgColor: 'bg-gray-100' }
+  { text: 'space', emoji: '🚀', bgColor: 'bg-purple-100', description: 'where ideas take flight' },
+  { text: 'world', emoji: '🌍', bgColor: 'bg-blue-100', description: 'of endless possibilities' },
+  { text: 'journey', emoji: '🎯', bgColor: 'bg-green-100', description: 'through technology' },
+  { text: 'playground', emoji: '🎮', bgColor: 'bg-pink-100', description: 'of innovation' },
+  { text: 'laboratory', emoji: '⚡', bgColor: 'bg-yellow-100', description: 'of creativity' },
+  { text: 'garden', emoji: '🌱', bgColor: 'bg-emerald-100', description: 'of growth' },
 ];
 
 const textLoopVariants = {
@@ -44,100 +40,147 @@ function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ['-10%', '10%']);
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
+  const handleScrollDown = () => {
+    window.scrollTo({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <section
       className="relative w-full overflow-hidden bg-background/[0.96]"
       ref={container}
     >
-      <div className="relative z-10 h-[42.5dvh] md:h-[51.2dvh] md:min-h-[50dvh] xl:h-[61.2dvh]">
+      <div className="relative h-screen z-10 ">
         <div className="relative flex h-full flex-col items-center justify-center">
-          <div className="flex w-full items-center justify-center px-4 md:px-6">
-            <h1 className="text-4xl font-light sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-              <span>A </span>
+          <div className="flex w-full flex-col items-center justify-center px-4 md:px-6 space-y-4">
+            <h1 className="text-4xl font-bold text-center sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+              Welcome to my
+            </h1>
+            <div className="flex items-center gap-4 text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
               <TextLoop
                 className="overflow-y-clip"
                 transition={textLoopTransition}
                 variants={textLoopVariants}
               >
                 {heroContent.map((content, index) => (
-                  <span key={index}>{content.role}</span>
+                  <span key={index} className="flex items-center gap-3 pt-20 pb-4">
+                    <span className='text-4xl font-bold text-center sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl'>{content.text}</span>
+                    <span className={`inline-flex items-center justify-center rounded-full ${content.bgColor} w-22 h-22 md:w-32 md:h-32`}>
+                      {content.emoji}
+                    </span>
+                  </span>
                 ))}
               </TextLoop>
-              <br />
-              <span className="flex items-center gap-2 md:gap-4">
-                <span>Who</span>
+            </div>
+            <p className="text-muted-foreground text-lg md:text-xl mt-4 text-center max-w-2xl">
+              <TextLoop
+                className="overflow-y-clip"
+                transition={textLoopTransition}
+                variants={textLoopVariants}
+              >
+                {heroContent.map((content, index) => (
+                  <span key={index} className="block text-4xl ">
+                    {content.description}
+                  </span>
+                ))}
+              </TextLoop>
+            </p>
+          </div>
+          <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+            <motion.div
+              className="relative cursor-pointer group flex items-center flex-col pb-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              onClick={handleScrollDown}
+            >
+              <motion.div
+                className=" -top-8 left-1/2 -translate-x-1/2 text-sm font-medium bg-background/80 backdrop-blur-sm px-4 py-1 rounded-full "
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: [0, 1, 1, 0], y: [-10, 0, 0, 10] }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 1
+                }}
+              >
                 <TextLoop
-                  className="my-auto inline-block h-[3.25rem] overflow-hidden overflow-y-clip md:h-[7.8rem]"
-                  transition={textLoopTransition}
-                  variants={textLoopVariants}
+                className="overflow-y-clip"
+                transition={textLoopTransition}
+                variants={textLoopVariants}
+              >
+                {heroContent.map((content, index) => (
+                  <span key={index} className="bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 bg-clip-text text-transparent">
+                    Discover {content.text}
+                  </span>
+                ))}
+              </TextLoop>
+              </motion.div>
+              <motion.div
+                className="relative w-8 h-14 rounded-full border-2 border-muted-foreground/30 p-1.5 group-hover:border-muted-foreground/50 transition-colors"
+                whileHover={{ scale: 1.1 }}
+              >
+                <motion.div
+                  className="w-2 h-2 bg-gradient-to-r from-purple-500 via-blue-500 to-green-500 rounded-full mx-auto"
+                  animate={{
+                    y: [0, 20, 0],
+                    scale: [1, 0.8, 1]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.div
+                  className="absolute inset-0 rounded-full border-2 border-transparent"
+                  animate={{
+                    borderColor: ['rgba(255,255,255,0)', 'rgba(255,255,255,0.2)', 'rgba(255,255,255,0)'],
+                    scale: [1, 1.1, 1]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </motion.div>
+              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1">
+                <motion.div
+                  animate={{
+                    y: [0, 3, 0],
+                    opacity: [0.5, 1, 0.5]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 >
-                  {heroContent.map((content, index) => (
-                    <span
-                      key={index}
-                      className={`relative mx-2 my-auto inline-block aspect-[1.5/1] h-[3.25rem] overflow-hidden rounded-full md:mx-4 md:h-[7.8rem] ${content.bgColor}`}
-                    >
-                      <span className="absolute inset-0 flex select-none items-center justify-center text-4xl md:text-7xl">
-                        {content.emoji}
-                      </span>
-                    </span>
-                  ))}
-                </TextLoop>
-                <span>to</span>
-                <TextLoop
-                  className="overflow-y-clip"
-                  transition={textLoopTransition}
-                  variants={textLoopVariants}
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                </motion.div>
+                <motion.div
+                  animate={{
+                    y: [0, 3, 0],
+                    opacity: [0.3, 0.7, 0.3]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.2
+                  }}
                 >
-                  {heroContent.map((content, index) => (
-                    <span key={index}>{content.action}</span>
-                  ))}
-                </TextLoop>
-              </span>
-            </h1>
+                  <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
-
-      {/* <div className="relative aspect-[4/2] w-screen lg:mt-28">
-        <ParallaxImage
-          src="/images/hero.jpg"
-          containerRef={container}
-          alt="Hero image"
-          priority
-          className="mix-blend-overlay"
-          parallaxOptions={{
-            yStart: '-10%',
-            yEnd: '10%',
-            scaleStart: 1,
-            scaleEnd: 1.5
-          }}
-        />
-        <motion.div 
-          className="absolute inset-0 z-10"
-          style={{ y, scale }}
-        >
-          <div className="relative w-full h-full">
-            <div className="absolute inset-0 z-20 bg-gradient-to-t from-background via-transparent to-background opacity-90" />
-            <div className="absolute inset-0 z-20 bg-gradient-to-r from-background via-transparent to-background opacity-80" />
-            <motion.div 
-              className="h-full w-full"
-              style={{
-                opacity: useTransform(scrollYProgress, 
-                  [0, 0.2, 0.8, 1], 
-                  [0.8, 1, 1, 0.8]
-                )
-              }}
-            >
-              <MatrixRain
-                width={typeof window !== 'undefined' ? window.innerWidth : 1920}
-                height={typeof window !== 'undefined' ? window.innerWidth * (2/4) : 1080}
-                fontSize={16}
-                speed={2}
-              />
-            </motion.div>
-          </div>
-        </motion.div>
-      </div> */}
+      <BackgroundBeams />
     </section>
   );
 }
