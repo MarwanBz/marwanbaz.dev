@@ -1,6 +1,7 @@
 "use client"
 
 import { AnimatePresence, motion } from "framer-motion"
+import { Github, Linkedin, Send } from "lucide-react"
 import {
   Dialog,
   DialogContent,
@@ -9,7 +10,6 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog"
-import { Github, Linkedin, Send, } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -104,4 +104,3 @@ export function CollaborationModal({ isOpen, onClose }: CollaborationModalProps)
     </Dialog>
   )
 }
-
