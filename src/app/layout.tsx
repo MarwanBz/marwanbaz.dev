@@ -2,6 +2,7 @@ import "./globals.css";
 
 import { Geist, Geist_Mono } from "next/font/google";
 
+import { Analytics } from "@vercel/analytics/react"
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
 // import { PageTransition } from "@/components/page-transition";
@@ -77,6 +78,7 @@ export default function RootLayout({
           {children}
         </ThemeProvider>
       </body>
+      <Analytics />
     </html>
   );
 }

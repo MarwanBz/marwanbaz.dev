@@ -2,11 +2,9 @@
 
 import { useEffect, useState } from "react"
 
-import { ArrowLeft } from "lucide-react"
-import { Button } from "@/components/ui/button"
 // import { ThemeToggle } from "@/components/theme-toggle"
-import { CustomCard } from "@/components/custom-card"
-import Link from "next/link"
+// import { CustomCard } from "@/components/custom-card"
+// import Link from "next/link"
 import { ProjectShowcase } from "@/components/project-showcase"
 import { projects } from "@/app/data/projects"
 import { useParams } from "next/navigation"

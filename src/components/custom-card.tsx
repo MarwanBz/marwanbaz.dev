@@ -9,6 +9,7 @@ interface CustomCardProps {
   className?: string
   hover?: boolean
   onClick?: () => void
+  showing?: boolean
 }
 
 export function CustomCard({
@@ -16,12 +17,16 @@ export function CustomCard({
   className,
   // hover = true,
   onClick,
+  showing = true,
 }: CustomCardProps) {
   return (
     <div className="relative ">
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-gray-500 to-black dark:from-white dark:to-gray-500" />
-      <div className="absolute inset-[3px] rounded-2xl bg-white dark:bg-black" />
-      
+      {showing && (
+        <>
+          <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-gray-500 to-black dark:from-white dark:to-gray-500" />
+          <div className="absolute inset-[3px] rounded-2xl bg-white dark:bg-black" />
+        </>
+      )}
       <Card className={cn(
         "relative rounded-2xl bg-transparent border-none shadow-none",
         {
