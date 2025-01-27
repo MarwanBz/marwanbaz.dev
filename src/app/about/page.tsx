@@ -11,8 +11,8 @@ import { ProjectCard } from "@/components/project-card"
 import { SocialLinks } from "@/components/social-links"
 
 const interests = ["Web Development", "UI/UX Design", "Animation", "AI & Machine Learning", "Open Source", "Code Arts", "3D Animations"]
-const techStack = ["React", "Next.js", "TypeScript", "Node.js", "GraphQL", "Tailwind CSS", "Three.js", "WebGL", "GLSL"]
-const currentTools = ["VS Code", "Figma", "GitHub", "Vercel", "Framer Motion", "Storybook", "Blender", "Unity"]
+const techStack = ["React", "Next.js", "TypeScript",  "Tailwind CSS", ]
+const currentTools = ["VS Code", "Figma", "GitHub", "Vercel", ]
 
 const socialLinks = [
   { icon: Github, url: "https://github.com/marwanebaz", label: "GitHub" },
