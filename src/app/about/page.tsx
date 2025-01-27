@@ -1,13 +1,13 @@
-import { Code, Github, Instagram, Linkedin, Palette, Sparkles, Twitter, Wrench } from 'lucide-react'
+import { Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 // import { CreativeCodeCard } from "@/components/creative-code-card"
 import { CustomCard } from "@/components/custom-card"
-import { DesignGallery } from '@/components/design-gallery'
+// import { DesignGallery } from '@/components/design-gallery'
 import Image from 'next/image'
 import Link from "next/link"
-import { ProjectCard } from "@/components/project-card"
+// import { ProjectCard } from "@/components/project-card"
 import { SocialLinks } from "@/components/social-links"
 
 const interests = ["Web Development", "UI/UX Design", "Animation", "AI & Machine Learning", "Open Source", "Code Arts", "3D Animations"]
@@ -21,81 +21,81 @@ const socialLinks = [
   { icon: Instagram, url: "https://instagram.com/marwan_dev_", label: "Instagram" },
 ]
 
-const smallProjects = [
-  {
-    title: "Interactive Portfolio",
-    description: "A personal portfolio website with smooth animations and interactive elements.",
-    tech: ["React", "Framer Motion", "Tailwind CSS"],
-    link: "https://github.com/yourusername/interactive-portfolio",
-    media: {
-      type: "gif",
-      url: "/placeholder.gif"
-    }
-  },
-  {
-    title: "Real-time Drawing App",
-    description: "A collaborative drawing application using WebSockets for real-time updates.",
-    tech: ["Node.js", "Socket.io", "Canvas API"],
-    link: "https://github.com/yourusername/realtime-drawing-app",
-    media: {
-      type: "video",
-      url: "/placeholder.mp4"
-    }
-  },
-  {
-    title: "CSS Animation Library",
-    description: "A custom CSS animation library for creating engaging micro-interactions.",
-    tech: ["CSS", "JavaScript"],
-    link: "https://github.com/yourusername/css-animation-library",
-    media: {
-      type: "gif",
-      url: "/placeholder.gif"
-    }
-  },
-  {
-    title: "React Particle Effects",
-    description: "A React component for creating customizable particle effects.",
-    tech: ["React", "TypeScript"],
-    link: "https://github.com/yourusername/react-particle-effects",
-    media: {
-      type: "video",
-      url: "/placeholder.mp4"
-    }
-  }
-]
+// const smallProjects = [
+//   {
+//     title: "Interactive Portfolio",
+//     description: "A personal portfolio website with smooth animations and interactive elements.",
+//     tech: ["React", "Framer Motion", "Tailwind CSS"],
+//     link: "https://github.com/yourusername/interactive-portfolio",
+//     media: {
+//       type: "gif",
+//       url: "/placeholder.gif"
+//     }
+//   },
+//   {
+//     title: "Real-time Drawing App",
+//     description: "A collaborative drawing application using WebSockets for real-time updates.",
+//     tech: ["Node.js", "Socket.io", "Canvas API"],
+//     link: "https://github.com/yourusername/realtime-drawing-app",
+//     media: {
+//       type: "video",
+//       url: "/placeholder.mp4"
+//     }
+//   },
+//   {
+//     title: "CSS Animation Library",
+//     description: "A custom CSS animation library for creating engaging micro-interactions.",
+//     tech: ["CSS", "JavaScript"],
+//     link: "https://github.com/yourusername/css-animation-library",
+//     media: {
+//       type: "gif",
+//       url: "/placeholder.gif"
+//     }
+//   },
+//   {
+//     title: "React Particle Effects",
+//     description: "A React component for creating customizable particle effects.",
+//     tech: ["React", "TypeScript"],
+//     link: "https://github.com/yourusername/react-particle-effects",
+//     media: {
+//       type: "video",
+//       url: "/placeholder.mp4"
+//     }
+//   }
+// ]
 
-const designGallery = [
-  {
-    id: 1,
-    title: "Modern E-commerce Dashboard",
-    description: "A sleek and intuitive dashboard design for an e-commerce platform",
-    imageUrl: "/assets/leapat.png",
-  },
-  {
-    id: 2,
-    title: "Minimalist Blog Layout",
-    description: "Clean and focused design for a personal blog",
-    imageUrl: "/assets/leapat.png",
-  },
-  {
-    id: 3,
-    title: "Vibrant Mobile App UI",
-    description: "Colorful and engaging user interface for a lifestyle mobile app",
-    imageUrl: "/assets/leapat.png",
-  },
-  {
-    id: 4,
-    title: "Corporate Website Redesign",
-    description: "Professional and modern redesign for a corporate website",
-    imageUrl: "/assets/leapat.png",
-  },
-  {
-    id: 5,
-    title: "Interactive Data Visualization",
-    description: "Complex data presented in an easy-to-understand visual format",
-    imageUrl: "/assets/leapat.png",
-  },
-]
+// const designGallery = [
+//   {
+//     id: 1,
+//     title: "Modern E-commerce Dashboard",
+//     description: "A sleek and intuitive dashboard design for an e-commerce platform",
+//     imageUrl: "/assets/leapat.png",
+//   },
+//   {
+//     id: 2,
+//     title: "Minimalist Blog Layout",
+//     description: "Clean and focused design for a personal blog",
+//     imageUrl: "/assets/leapat.png",
+//   },
+//   {
+//     id: 3,
+//     title: "Vibrant Mobile App UI",
+//     description: "Colorful and engaging user interface for a lifestyle mobile app",
+//     imageUrl: "/assets/leapat.png",
+//   },
+//   {
+//     id: 4,
+//     title: "Corporate Website Redesign",
+//     description: "Professional and modern redesign for a corporate website",
+//     imageUrl: "/assets/leapat.png",
+//   },
+//   {
+//     id: 5,
+//     title: "Interactive Data Visualization",
+//     description: "Complex data presented in an easy-to-understand visual format",
+//     imageUrl: "/assets/leapat.png",
+//   },
+// ]
 
 
 export default function AboutPage() {
@@ -118,10 +118,10 @@ export default function AboutPage() {
             <div className="w-full lg:w-1/2 space-y-4">
               <h1 className="text-4xl font-bold mb-4">About Me</h1>
               <p className="text-lg text-gray-700 dark:text-gray-300">
-                Hi there! I&apos;m a passionate web developer with a love for creating beautiful, interactive, and performant web applications. I thrive on turning complex problems into simple, elegant solutions.
+                Hi there! I&apos;m a passionate web developer with a love for creating beautiful, interactive, and performant web interfaces. I thrive on turning complex problems into simple, elegant solutions.
               </p>
               <p className="text-lg text-gray-700 dark:text-gray-300">
-                My journey in tech has led me to explore various aspects of web development, from front-end frameworks to back-end architectures. I&apos;m particularly excited about code arts and 3D animations, pushing the boundaries of what&lsquo;s possible on the web.
+                My journey in tech has led me to explore various aspects of web development, from front-end frameworks. 
               </p>
               {socialLinks && socialLinks.length > 0 && <SocialLinks links={socialLinks} />}
             </div>
@@ -173,7 +173,7 @@ export default function AboutPage() {
           </div>
         </CustomCard>
 
-        <CustomCard className="p-8 mb-8" showing={false}>
+        {/* <CustomCard className="p-8 mb-8" showing={false}>
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
             <Github className="text-purple-500" />
             Small Projects
@@ -200,7 +200,7 @@ export default function AboutPage() {
             and are easy to use.
           </p>
           <DesignGallery designs={designGallery} />
-        </CustomCard>
+        </CustomCard> */}
 
         <CustomCard className="p-8">
           <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect!</h2>
@@ -211,7 +211,8 @@ export default function AboutPage() {
           </p>
           <div className="flex gap-4">
             <Button asChild>
-              <Link href="/contact">Get in Touch</Link>
+              <Link href="mailto:marouane.bazghifan@gmail.com
+">Get in Touch</Link>
             </Button>
             <Button variant="outline" asChild>
               <Link href="/work">View My Work</Link>
