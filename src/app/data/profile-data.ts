@@ -29,14 +29,14 @@ export const profileData: ProfileData = {
     "Git",
     "RESTful APIs"
   ],
-  email: "",
+  email: "marouane.bazghifan@gmail.com",
   socials: [
-    { platform: "linkedin", url: "" },
-    { platform: "github", url: "" },
+    { platform: "linkedin", url: "https://linkedin.com/in/marwanbz" },
+    { platform: "github", url: "https://github.com/marwanbz" },
     { platform: "twitter", url: "" }
   ],
-  githubUrl: "",
-  linkedinUrl: "",
-  cvUrl: "",
+  githubUrl: "https://github.com/marwanbz",
+  linkedinUrl: "https://linkedin.com/in/marwanbz",
+  cvUrl: "https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
   experiences: []
 }

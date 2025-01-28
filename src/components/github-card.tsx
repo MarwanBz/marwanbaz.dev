@@ -13,7 +13,8 @@ export function GitHubLink({ url }: GitHubLinkProps) {
     <CustomCard
       className="p-6 mb-1 flex items-center justify-center border-none"
       hover={true}
-      onClick={() => window.open(url, '_blank')}
+      // onClick={() => window.open(url, '_blank')}
+       onClick={() => window.location.href = `${url}`}
     >
       <motion.div
         className="w-full h-full flex items-center justify-center"

@@ -9,11 +9,14 @@ interface EmailCardProps {
 }
 
 export function EmailCard({ email }: EmailCardProps) {
+  console.log(email);
+
   return (
     <CustomCard
       className="p-8 border-none"
       hover={true}
       onClick={() => window.location.href = `mailto:${email}`}
+      
     >
       <motion.div
         className="w-full h-full flex items-center justify-center"
