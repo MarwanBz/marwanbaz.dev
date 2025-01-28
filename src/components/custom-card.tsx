@@ -33,7 +33,8 @@ export function CustomCard({
           "cursor-pointer": onClick,
         },
         className
-      )}>
+      )}
+      onClick={onClick}>
         <div className="relative z-10">
           {children}
         </div>
