@@ -64,7 +64,7 @@ export function DesignGallery({ designs }: DesignGalleryProps) {
         <Button
           variant="outline"
           size="icon"
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white"
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-black"
           onClick={prevSlide}
         >
           <ChevronLeft className="h-6 w-6" />
@@ -72,7 +72,7 @@ export function DesignGallery({ designs }: DesignGalleryProps) {
         <Button
           variant="outline"
           size="icon"
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-black"
           onClick={nextSlide}
         >
           <ChevronRight className="h-6 w-6" />
