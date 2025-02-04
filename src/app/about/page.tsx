@@ -1,18 +1,18 @@
-import { Code, Github, Instagram, Linkedin, Sparkles, Twitter, Wrench } from 'lucide-react'
+import { Code, Github, Instagram, Linkedin, Palette, Sparkles, Twitter, Wrench } from 'lucide-react'
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 // import { CreativeCodeCard } from "@/components/creative-code-card"
 import { CustomCard } from "@/components/custom-card"
-// import { DesignGallery } from '@/components/design-gallery'
+import { DesignGallery } from '@/components/design-gallery'
 import Image from 'next/image'
 import Link from "next/link"
 // import { ProjectCard } from "@/components/project-card"
 import { SocialLinks } from "@/components/social-links"
 
-const interests = ["Web Development", "UI/UX Design", "Animation", "AI & Machine Learning", "Open Source", "Code Arts", "3D Animations"]
-const techStack = ["React", "Next.js", "TypeScript",  "Tailwind CSS", ]
-const currentTools = ["VS Code", "Figma", "GitHub", "Vercel", ]
+const interests = ["Web Development", "UI Design", "Animation", "AI", "Open Source", "Code Arts", "3D Animations"]
+const techStack = ["React", "Next.js", "Javascript","TypeScript",  "Tailwind CSS", ]
+const currentTools = ["VS Code", "Figma", "GitHub", "Vercel", "Ubuntu" ]
 
 const socialLinks = [
   { icon: Github, url: "https://github.com/marwanebaz", label: "GitHub" },
@@ -64,38 +64,38 @@ const socialLinks = [
 //   }
 // ]
 
-// const designGallery = [
-//   {
-//     id: 1,
-//     title: "Modern E-commerce Dashboard",
-//     description: "A sleek and intuitive dashboard design for an e-commerce platform",
-//     imageUrl: "/assets/leapat.png",
-//   },
-//   {
-//     id: 2,
-//     title: "Minimalist Blog Layout",
-//     description: "Clean and focused design for a personal blog",
-//     imageUrl: "/assets/leapat.png",
-//   },
-//   {
-//     id: 3,
-//     title: "Vibrant Mobile App UI",
-//     description: "Colorful and engaging user interface for a lifestyle mobile app",
-//     imageUrl: "/assets/leapat.png",
-//   },
-//   {
-//     id: 4,
-//     title: "Corporate Website Redesign",
-//     description: "Professional and modern redesign for a corporate website",
-//     imageUrl: "/assets/leapat.png",
-//   },
-//   {
-//     id: 5,
-//     title: "Interactive Data Visualization",
-//     description: "Complex data presented in an easy-to-understand visual format",
-//     imageUrl: "/assets/leapat.png",
-//   },
-// ]
+const designGallery = [
+  {
+    id: 1,
+    title: "Card Design",
+    description: "minimalist Card Design",
+    imageUrl: "/assets/design/card.png",
+  },
+  {
+    id: 2,
+    title: "AI Logo Concept",
+    description: "Logo design ",
+    imageUrl: "/assets/design/logo.png",
+  },
+  {
+    id: 3,
+    title: "Landing Page",
+    description: "Modern, design for web applications",
+    imageUrl: "/assets/design/08.png",
+  },
+  {
+    id: 4,
+    title: "AI Logo Design ",
+    description: "AI Logo design ",
+    imageUrl: "/assets/design/logo_design.jpg",
+  },
+  {
+    id: 5,
+    title: "Landing Page Design for Readers",
+    description: "Landing Page ",
+    imageUrl: "/assets/design/01.png",
+  },
+]
 
 
 export default function AboutPage() {
@@ -187,7 +187,7 @@ export default function AboutPage() {
             ))}
             {smallProjects?.length === 0 && <p>No projects available</p>}
           </div>
-        </CustomCard>
+        </CustomCard>*/}
 
         <CustomCard className="p-8 mb-8">
           <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2">
@@ -200,7 +200,7 @@ export default function AboutPage() {
             and are easy to use.
           </p>
           <DesignGallery designs={designGallery} />
-        </CustomCard> */}
+        </CustomCard> *
 
         <CustomCard className="p-8">
           <h2 className="text-2xl font-semibold mb-4">Let&apos;s Connect!</h2>

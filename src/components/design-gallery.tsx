@@ -21,7 +21,7 @@ interface DesignGalleryProps {
 
 export function DesignGallery({ designs }: DesignGalleryProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
-
+  const [openImage, setOpenImage] = useState(false)
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % designs.length)
   }
@@ -30,6 +30,10 @@ export function DesignGallery({ designs }: DesignGalleryProps) {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + designs.length) % designs.length)
   }
 
+  const handelImage = () => {
+    setOpenImage(true)
+    
+  } 
   return (
     <div className="space-y-8">
       <div className="relative w-full max-w-4xl mx-auto aspect-[16/9] rounded-lg overflow-hidden shadow-lg">
@@ -47,9 +51,10 @@ export function DesignGallery({ designs }: DesignGalleryProps) {
               alt={designs[currentIndex].title}
               layout="fill"
               objectFit="cover"
-              className="rounded-lg"
+              className="rounded-lg cursor-pointer"
+              onClick={handelImage}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
               <h3 className="text-2xl font-bold mb-2">{designs[currentIndex].title}</h3>
               <p className="text-sm">{designs[currentIndex].description}</p>
@@ -59,7 +64,7 @@ export function DesignGallery({ designs }: DesignGalleryProps) {
         <Button
           variant="outline"
           size="icon"
-          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white"
+          className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-black"
           onClick={prevSlide}
         >
           <ChevronLeft className="h-6 w-6" />
@@ -67,14 +72,14 @@ export function DesignGallery({ designs }: DesignGalleryProps) {
         <Button
           variant="outline"
           size="icon"
-          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white"
+          className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white/80 hover:bg-white dark:bg-black"
           onClick={nextSlide}
         >
           <ChevronRight className="h-6 w-6" />
         </Button>
-        <Dialog>
+        <Dialog open={openImage} onOpenChange={setOpenImage}>
           <DialogTrigger asChild>
-            <Button variant="outline" size="icon" className="absolute top-4 right-4 bg-white/80 hover:bg-white">
+            <Button variant="outline" size="icon" className="absolute top-4 right-4 dark:bg-black bg-white/80 hover:bg-white">
               <Maximize2 className="h-4 w-4" />
             </Button>
           </DialogTrigger>
