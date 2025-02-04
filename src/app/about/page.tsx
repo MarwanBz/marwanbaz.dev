@@ -81,13 +81,13 @@ const designGallery = [
     id: 3,
     title: "Vibrant Mobile App UI",
     description: "Colorful and engaging user interface for a lifestyle mobile app",
-    imageUrl: "/assets/design/03.png",
+    imageUrl: "/assets/design/08.png",
   },
   {
     id: 4,
     title: "Corporate Website Redesign",
     description: "Professional and modern redesign for a corporate website",
-    imageUrl: "/assets/design/02.png",
+    imageUrl: "/assets/design/logo_design.jpg",
   },
   {
     id: 5,
