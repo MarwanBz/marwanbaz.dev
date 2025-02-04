@@ -10,9 +10,9 @@ import Link from "next/link"
 // import { ProjectCard } from "@/components/project-card"
 import { SocialLinks } from "@/components/social-links"
 
-const interests = ["Web Development", "UI/UX Design", "Animation", "AI & Machine Learning", "Open Source", "Code Arts", "3D Animations"]
-const techStack = ["React", "Next.js", "TypeScript",  "Tailwind CSS", ]
-const currentTools = ["VS Code", "Figma", "GitHub", "Vercel", ]
+const interests = ["Web Development", "UI Design", "Animation", "AI", "Open Source", "Code Arts", "3D Animations"]
+const techStack = ["React", "Next.js", "Javascript","TypeScript",  "Tailwind CSS", ]
+const currentTools = ["VS Code", "Figma", "GitHub", "Vercel", "Ubuntu" ]
 
 const socialLinks = [
   { icon: Github, url: "https://github.com/marwanebaz", label: "GitHub" },
@@ -69,31 +69,31 @@ const socialLinks = [
 //     id: 1,
 //     title: "Modern E-commerce Dashboard",
 //     description: "A sleek and intuitive dashboard design for an e-commerce platform",
-//     imageUrl: "/assets/leapat.png",
+//     imageUrl: "/assets/design/05.png",
 //   },
 //   {
 //     id: 2,
 //     title: "Minimalist Blog Layout",
 //     description: "Clean and focused design for a personal blog",
-//     imageUrl: "/assets/leapat.png",
+//     imageUrl: "/assets/design/04.png",
 //   },
 //   {
 //     id: 3,
 //     title: "Vibrant Mobile App UI",
 //     description: "Colorful and engaging user interface for a lifestyle mobile app",
-//     imageUrl: "/assets/leapat.png",
+//     imageUrl: "/assets/design/03.png",
 //   },
 //   {
 //     id: 4,
 //     title: "Corporate Website Redesign",
 //     description: "Professional and modern redesign for a corporate website",
-//     imageUrl: "/assets/leapat.png",
+//     imageUrl: "/assets/design/02.png",
 //   },
 //   {
 //     id: 5,
 //     title: "Interactive Data Visualization",
 //     description: "Complex data presented in an easy-to-understand visual format",
-//     imageUrl: "/assets/leapat.png",
+//     imageUrl: "/assets/design/01.png",
 //   },
 // ]
 
