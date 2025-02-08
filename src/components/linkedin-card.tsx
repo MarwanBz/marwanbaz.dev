@@ -1,16 +1,12 @@
 "use client"
 
-import { Linkedin } from 'lucide-react'
 import Link from 'next/link'
+import { Linkedin } from 'lucide-react'
 import { motion } from "framer-motion"
 
-interface LinkedInLinkProps {
-  url: string
-}
-
-export function LinkedInLink({ url }: LinkedInLinkProps) {
+export function LinkedInLink() {
   return (
-    <Link href={""} target="_blank" rel="noopener noreferrer">
+    <Link href={"https://linkedin.com/in/marwanbz"} target="_blank" rel="noopener noreferrer">
       <motion.div
         className="relative p-6 mb-1 rounded-2xl transition-shadow duration-300 ease-in-out"
         whileHover={{ scale: 1.02 }}

@@ -4,13 +4,9 @@ import { Github } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from "framer-motion"
 
-interface GitHubLinkProps {
-  url: string
-}
-
-export function GitHubLink({ url }: GitHubLinkProps) {
+export function GitHubLink() {
   return (
-    <Link href={""} target="_blank" rel="noopener noreferrer">
+    <Link href={"https://github.com/marwanbz"} target="_blank" rel="noopener noreferrer">
       <motion.div
         className="relative p-6 mb-1 rounded-2xl transition-shadow duration-300 ease-in-out"
         whileHover={{ scale: 1.02 }}

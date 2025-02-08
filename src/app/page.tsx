@@ -37,8 +37,8 @@ export default function Home() {
           <div className="lg:col-span-3">
             <div className="grid grid-cols-4 gap-4 align-items-end max-[400px]:grid-cols-1 max-[400px]:gap-0 max-[400px]:align-items-center max-[400px]:gap-y-2">
               <div className="col-span-1">
-                <GitHubLink url={profileData.githubUrl} />
-                <LinkedInLink url={profileData.linkedinUrl} />
+                <GitHubLink  />
+                <LinkedInLink  />
               </div>
               <div className="col-span-3 flex flex-col justify-center gap-2">
                 <CVCard cvUrl={profileData.cvUrl} cvLink={profileData.cvLink} />
