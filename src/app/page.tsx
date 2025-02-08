@@ -61,7 +61,7 @@ export default function Home() {
               title="Leapat Web App"
               description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
               imageUrl="/assets/leapat.png"
-              technologies={["NextJs", "Tailwind CSS", "Supabase"]}
+              technologies={["NextJs","Shadcn", "Tailwind CSS", "Supabase"]}
               githubUrl="https://github.com/leapat-mukalla/leapat/"
               liveUrl="https://leapat.org"
             />
