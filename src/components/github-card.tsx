@@ -21,9 +21,20 @@ export function GitHubLink({ url }: GitHubLinkProps) {
         <motion.div
           className="relative w-full h-full flex items-center justify-center"
           whileHover={{
-            scale: 1.2,
-            rotate: 360,
-            transition: { duration: 0.8, ease: "easeInOut" }
+            y: -5,
+            transition: { 
+              type: "spring",
+              stiffness: 400,
+              damping: 10
+            }
+          }}
+          animate={{
+            scale: [1, 1.05, 1],
+            transition: {
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
           }}
         >
           <Github className="w-20 h-20 text-black dark:text-white" />
