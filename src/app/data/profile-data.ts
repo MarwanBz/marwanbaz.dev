@@ -9,6 +9,7 @@ interface ProfileData {
   githubUrl: string;
   linkedinUrl: string;
   cvUrl: string;
+  cvLink: string;
   experiences: Experience[];
   email: string;
   socials: SocialLink[];
@@ -38,5 +39,6 @@ export const profileData: ProfileData = {
   githubUrl: "https://github.com/marwanbz",
   linkedinUrl: "https://linkedin.com/in/marwanbz",
   cvUrl: "https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
+  cvLink: "https://https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
   experiences: []
 }

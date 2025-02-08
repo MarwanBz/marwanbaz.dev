@@ -37,11 +37,11 @@ export default function Home() {
           <div className="lg:col-span-3">
             <div className="grid grid-cols-4 gap-4 align-items-end max-[400px]:grid-cols-1 max-[400px]:gap-0 max-[400px]:align-items-center max-[400px]:gap-y-2">
               <div className="col-span-1">
-                <GitHubLink url={profileData.githubUrl} />
-                <LinkedInLink url={profileData.linkedinUrl} />
+                <GitHubLink  />
+                <LinkedInLink  />
               </div>
               <div className="col-span-3 flex flex-col justify-center gap-2">
-                <CVCard cvUrl={profileData.cvUrl} />
+                <CVCard cvUrl={profileData.cvUrl} cvLink={profileData.cvLink} />
                 <EmailCard email={profileData.email} />
               </div>
             </div>
@@ -61,7 +61,7 @@ export default function Home() {
               title="Leapat Web App"
               description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
               imageUrl="/assets/leapat.png"
-              technologies={["NextJs", "Tailwind CSS", "Supabase"]}
+              technologies={["NextJs","Shadcn", "Tailwind CSS", "Supabase"]}
               githubUrl="https://github.com/leapat-mukalla/leapat/"
               liveUrl="https://leapat.org"
             />
