@@ -41,7 +41,7 @@ export default function Home() {
                 <LinkedInLink url={profileData.linkedinUrl} />
               </div>
               <div className="col-span-3 flex flex-col justify-center gap-2">
-                <CVCard cvUrl={profileData.cvUrl} />
+                <CVCard cvUrl={profileData.cvUrl} cvLink={profileData.cvLink} />
                 <EmailCard email={profileData.email} />
               </div>
             </div>

@@ -13,7 +13,8 @@ export const profileData: ProfileData = {
     }
   ],
   email: "marouane.bazghifan@gmail.com",
-  cvUrl: "/cv.pdf",
+  cvLink: "https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
+  cvUrl: "/assets/Marwan_cv_2025.pdf",
   experiences: [
     // {
     //   role: "System Administrator",
