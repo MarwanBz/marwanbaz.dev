@@ -21,6 +21,7 @@ export interface ProfileData {
   socials: SocialLink[]
   email: string
   cvUrl: string
+  cvLink: string;
   experiences: Experience[]
   skills?: string[]
 }

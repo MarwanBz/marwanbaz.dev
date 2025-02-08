@@ -8,9 +8,10 @@ import { motion } from "framer-motion"
 
 interface CVCardProps {
   cvUrl: string
+  cvLink: string
 }
 
-export function CVCard({ cvUrl }: CVCardProps) {
+export function CVCard({ cvUrl,cvLink }: CVCardProps) {
   return (
     <CustomCard
       className="p-6"
@@ -51,7 +52,7 @@ export function CVCard({ cvUrl }: CVCardProps) {
               className=" text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
               aria-label="View CV"
             >
-              <Link href={cvUrl} target="_blank" rel="noopener noreferrer">
+              <Link href={cvLink} target="_blank" rel="noopener noreferrer">
                 <Eye height={40} width={40} />
               </Link>
             </div>

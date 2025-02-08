@@ -57,7 +57,7 @@ export function ProfileInfo({
       //   tap: false,
       // }}
     >
-      <div className="flex items-start gap-6">
+      <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
         <motion.div
           className="relative"
           whileHover={{ scale: 1.05 }}
@@ -66,15 +66,15 @@ export function ProfileInfo({
           <motion.img
             src={imageUrl}
             alt=""
-            className="w-20 h-20 rounded-full object-cover"
+            className="w-24 h-24 sm:w-20 sm:h-20 rounded-full object-cover"
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.8 }}
           />
         </motion.div>
-        <div className="space-y-4 flex-1">
+        <div className="space-y-4 flex-1 text-center sm:text-left">
           <div>
             <motion.h2 
-              className="text-[32px] font-medium text-gray-900 dark:text-white leading-tight"
+              className="text-2xl sm:text-[32px] font-medium text-gray-900 dark:text-white leading-tight"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.5 }}
@@ -83,7 +83,7 @@ export function ProfileInfo({
             </motion.h2>
             {title && (
               <motion.p 
-                className="text-[18px] text-gray-600 dark:text-gray-400"
+                className="text-base sm:text-[18px] text-gray-600 dark:text-gray-400"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3, duration: 0.5 }}
@@ -94,7 +94,7 @@ export function ProfileInfo({
           </div>
           
           <motion.div 
-            className="flex gap-4 text-gray-600 dark:text-gray-400"
+            className="flex justify-center sm:justify-start gap-4 text-gray-600 dark:text-gray-400"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.4, duration: 0.5 }}
@@ -112,7 +112,7 @@ export function ProfileInfo({
           </motion.div>
 
           <motion.p 
-            className="text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed"
+            className="text-sm sm:text-[15px] text-gray-600 dark:text-gray-400 leading-relaxed"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.5 }}
@@ -122,7 +122,7 @@ export function ProfileInfo({
 
           {skills && skills.length > 0 && (
             <motion.div
-              className="flex flex-wrap gap-2"
+              className="flex flex-wrap justify-center sm:justify-start gap-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.5 }}
