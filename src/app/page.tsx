@@ -1,4 +1,4 @@
-import { BlogComponent } from "@/components/blog-marque"
+// import { BlogComponent } from "@/components/blog-marque"
 import { CVCard } from "@/components/cv-card"
 import { ConnectSection } from "@/components/connect-section-card"
 import { EmailCard } from "@/components/email-card"
