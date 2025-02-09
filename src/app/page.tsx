@@ -55,7 +55,7 @@ export default function Home() {
           <ExperienceSection experiences={profileData.experiences} />
         </div>
         {/* blog section  */}
-        <BlogComponent />
+        {/* <BlogComponent /> */}
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Link href="/work/1">

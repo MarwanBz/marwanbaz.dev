@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { Calendar, Clock, ExternalLink } from "lucide-react"
@@ -98,7 +99,7 @@ export function BlogComponent() {
   const [error, setError] = useState<string | null>(null)
   const [isHovered, setIsHovered] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
-  const animationRef = useRef<number>()
+  // const animationRef = useRef<number>()
 
   useEffect(() => {
     const loadPosts = async () => {
