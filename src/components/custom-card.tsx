@@ -1,7 +1,7 @@
 "use client"
 
 import { Card } from "@/components/ui/card"
-import { ReactNode } from "react"
+import { ReactNode, MouseEventHandler } from "react"
 import { cn } from "@/lib/utils"
 
 interface CustomCardProps {
@@ -9,6 +9,8 @@ interface CustomCardProps {
   className?: string
   hover?: boolean
   onClick?: () => void
+  onMouseEnter?: MouseEventHandler
+  onMouseLeave?: MouseEventHandler
   showing?: boolean
 }
 
@@ -17,10 +19,15 @@ export function CustomCard({
   className,
   // hover = true,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
   showing = true,
 }: CustomCardProps) {
   return (
-    <div className="relative ">
+    <div className="relative " 
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {showing && (
         <>
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-gray-500 to-black dark:from-white dark:to-gray-500" />
@@ -33,7 +40,7 @@ export function CustomCard({
           "cursor-pointer": onClick,
         },
         className
-      )}
+      )} 
       onClick={onClick}>
         <div className="relative z-10">
           {children}
@@ -42,4 +49,3 @@ export function CustomCard({
     </div>
   )
 }
-
