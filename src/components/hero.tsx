@@ -6,6 +6,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 import { BackgroundBeams } from './hero-background';
+import SplashCursor from './cursor-splash';
 import { TextLoop } from '@/components/text-loop';
 
 const heroContent = [
@@ -55,6 +56,7 @@ function Hero() {
       ref={container}
     >
       <div className="relative h-screen z-10 ">
+        <SplashCursor/>
         <div className="relative flex h-full flex-col items-center justify-center">
           <div className="flex w-full flex-col items-center justify-center px-4 md:px-6 space-y-4">
             <h1 className="text-4xl font-bold text-center sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
