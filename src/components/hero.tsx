@@ -9,12 +9,14 @@ import { BackgroundBeams } from './hero-background';
 import { TextLoop } from '@/components/text-loop';
 
 const heroContent = [
-  { text: 'space', emoji: '🚀', bgColor: 'bg-purple-100', description: 'where ideas take flight' },
-  { text: 'world', emoji: '🌍', bgColor: 'bg-blue-100', description: 'of endless possibilities' },
-  { text: 'journey', emoji: '🎯', bgColor: 'bg-green-100', description: 'through technology' },
-  { text: 'playground', emoji: '🎮', bgColor: 'bg-pink-100', description: 'of innovation' },
-  { text: 'laboratory', emoji: '⚡', bgColor: 'bg-yellow-100', description: 'of creativity' },
-  { text: 'garden', emoji: '🌱', bgColor: 'bg-emerald-100', description: 'of growth' },
+  { text: 'portfolio', emoji: '💼', bgColor: 'bg-blue-100', description: 'showcasing my work' },
+  { text: 'playground', emoji: '🚀', bgColor: 'bg-indigo-100', description: 'for web innovations' },
+  { text: 'laboratory', emoji: '🧪', bgColor: 'bg-emerald-100', description: 'of digital experiments' },
+  { text: 'canvas', emoji: '🎨', bgColor: 'bg-amber-100', description: 'for creative coding' },
+  { text: 'hub', emoji: '🌐', bgColor: 'bg-rose-100', description: 'of frontend mastery' },
+  { text: 'studio', emoji: '🎨', bgColor: 'bg-purple-100', description: 'for digital creations' },
+  { text: 'gallery', emoji: '🖼️', bgColor: 'bg-teal-100', description: 'of web projects' },
+  { text: 'laboratory', emoji: '🧪', bgColor: 'bg-emerald-100', description: 'of web experiments' },
 ];
 
 const textLoopVariants = {
