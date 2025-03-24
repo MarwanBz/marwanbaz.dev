@@ -61,6 +61,16 @@ const projects = [
     category: "web",
     liveUrl: "https://alkhir-org.vercel.app/",
   },
+  {
+    id: 5,
+    title: "AWJ Legal Consultancy and Law Firm",
+    description:
+      "A legal, financial, and administrative firm committed to protecting your rights and achieving justice.",
+    imageUrl: "/assets/awj-legal.png",
+    technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+    category: "web",
+    liveUrl: "https://www.awj-u.sa/",
+  },
 ];
 
 export default function WorkPage() {
