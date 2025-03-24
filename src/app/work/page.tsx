@@ -52,15 +52,14 @@ const projects = [
     // liveUrl: "https://mispay.co"
   },
   {
-    id: 3,
-    title: "Alkhair foundation",
+    id: 4,
+    title: "Alkhair Foundation",
     description:
-      'A Website showcasing MISpay\'s "Shop Now, Pay Later" service, featured stores, and merchant solutions.',
-    imageUrl: "/assets/misPay.png",
+      "A charitable organization working towards a better future. Key initiatives include education for children, disaster relief, and orphan care.",
+    imageUrl: "/assets/alkhiar-found.png",
     technologies: ["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"],
     category: "web",
-    // githubUrl: "https://github.com/leapat-mukalla/mis-pay",
-    // liveUrl: "https://mispay.co"
+    liveUrl: "https://alkhir-org.vercel.app/",
   },
 ];
 
