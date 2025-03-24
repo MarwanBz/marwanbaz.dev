@@ -10,34 +10,59 @@ const projects = [
   {
     id: 1,
     title: "Leapat Web App",
-    description: "Youth-led tech initiative aims to create digital transformation in culture, art, education, economy, and more.",
+    description:
+      "Youth-led tech initiative aims to create digital transformation in culture, art, education, economy, and more.",
     imageUrl: "/assets/leapat.png",
     technologies: ["NextJS", "Tailwind CSS", "Supabase"],
     category: "web",
     githubUrl: "https://github.com/leapat-mukalla/leapat/",
-    liveUrl: "https://leapat.org"
+    liveUrl: "https://leapat.org",
   },
   {
     id: 2,
     title: "Deemat Mobile App",
-    description: "Mobile application intended for children and parents, offering audio stories and visual stories.",
+    description:
+      "Mobile application intended for children and parents, offering audio stories and visual stories.",
     imageUrl: "/assets/deemat1.jpg",
-    technologies: ["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"],
+    technologies: [
+      "NextJS",
+      "NextUI",
+      "React Native",
+      "Expo",
+      "i18Next",
+      "NodeJS",
+      "ExpressJS",
+      "PrismaORM",
+      "PostgreSQL",
+    ],
     category: "mobile",
     // githubUrl: "https://github.com/leapat-mukalla/deemat",
-    liveUrl: "https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633"
+    liveUrl:
+      "https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633",
   },
   {
     id: 3,
     title: "MIS Pay Web App",
-    description: "A Website showcasing MISpay's \"Shop Now, Pay Later\" service, featured stores, and merchant solutions.",
+    description:
+      'A Website showcasing MISpay\'s "Shop Now, Pay Later" service, featured stores, and merchant solutions.',
     imageUrl: "/assets/misPay.png",
     technologies: ["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"],
     category: "web",
     // githubUrl: "https://github.com/leapat-mukalla/mis-pay",
     // liveUrl: "https://mispay.co"
-  }
-]
+  },
+  {
+    id: 3,
+    title: "Alkhair foundation",
+    description:
+      'A Website showcasing MISpay\'s "Shop Now, Pay Later" service, featured stores, and merchant solutions.',
+    imageUrl: "/assets/misPay.png",
+    technologies: ["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"],
+    category: "web",
+    // githubUrl: "https://github.com/leapat-mukalla/mis-pay",
+    // liveUrl: "https://mispay.co"
+  },
+];
 
 export default function WorkPage() {
   const [filter, setFilter] = useState('all')
