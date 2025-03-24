@@ -77,7 +77,7 @@ const projects = [
     description:
       "Comprehensive transport solutions to meet your business needs. Services include land, air, and sea freight, as well as customs clearance.",
     imageUrl: "/assets/gulf.png",
-    technologies: ["HTML, CSS, JavaScript"],
+    technologies: ["HTML", "CSS", "JavaScript"],
     category: "web",
     liveUrl: "https://www.gulftadawultransport.com/",
   },
