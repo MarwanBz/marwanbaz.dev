@@ -71,6 +71,16 @@ const projects = [
     category: "web",
     liveUrl: "https://www.awj-u.sa/",
   },
+  {
+    id: 6,
+    title: "Gulf Tadawul Transport",
+    description:
+      "Comprehensive transport solutions to meet your business needs. Services include land, air, and sea freight, as well as customs clearance.",
+    imageUrl: "/assets/design/logo.png",
+    technologies: ["HTML, CSS, JavaScript"],
+    category: "web",
+    liveUrl: "https://www.gulftadawultransport.com/",
+  },
 ];
 
 export default function WorkPage() {
