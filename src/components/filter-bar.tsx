@@ -12,8 +12,8 @@ interface FilterBarProps {
 
 const filterItems = [
   { name: "all", label: "ALL" },
-  { name: "web", label: "WEB" },
-  { name: "mobile", label: "MOBILE" },
+  { name: "web", label: "WEB APPS" },
+  { name: "mobile", label: "MOBILE APPS" },
 ]
 
 export function FilterBar({ currentFilter, onFilterChange }: FilterBarProps) {
