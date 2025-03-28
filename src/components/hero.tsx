@@ -11,7 +11,6 @@ import { TextLoop } from '@/components/text-loop';
 
 const heroContent = [
   { text: 'portfolio', emoji: '💼', bgColor: 'bg-blue-100', description: 'showcasing my work' },
-  { text: 'playground', emoji: '🚀', bgColor: 'bg-indigo-100', description: 'for web innovations' },
   { text: 'laboratory', emoji: '🧪', bgColor: 'bg-emerald-100', description: 'of digital experiments' },
   { text: 'canvas', emoji: '🎨', bgColor: 'bg-amber-100', description: 'for creative coding' },
   { text: 'hub', emoji: '🌐', bgColor: 'bg-rose-100', description: 'of frontend mastery' },
