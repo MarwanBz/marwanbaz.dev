@@ -15,11 +15,12 @@ import { ProjectCard } from "@/components/project-card"
 import { profileData } from "./data/profile-data"
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "Welcome to Marwan Baz's portfolio - Frontend Developer specializing in modern web technologies",
+  title: "Marwan Baz - Web Engineer  | Next.js & React ",
+  description: "Explore the website of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies. View projects and learn about my skills in web development.",
+  keywords: ["Frontend Developer", "Next.js", "React", "Portfolio", "Web Development", "JavaScript", "TypeScript"],
   openGraph: {
-    title: "Marwan Baz - Frontend Developer",
-    description: "Welcome to Marwan Baz's portfolio - Frontend Developer specializing in modern web technologies",
+    title: "Marwan Baz - Frontend Developer Portfolio | Next.js Expert",
+    description: "Explore the portfolio of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies.",
   },
 }
 
