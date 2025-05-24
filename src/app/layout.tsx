@@ -3,12 +3,12 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Analytics } from "@vercel/analytics/react"
+import Loading from "./loading";
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
+import { Suspense } from "react";
 // import { PageTransition } from "@/components/page-transition";
 import { ThemeProvider } from "@/components/components_theme-provider";
-import { Suspense } from "react";
-import Loading from "./loading";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,6 +67,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="apple-mobile-web-app-title" content="Marwan Baz" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
