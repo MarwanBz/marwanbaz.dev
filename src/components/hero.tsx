@@ -51,7 +51,7 @@ function Hero() {
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-background/[0.96]"
+      className="relative w-full overflow-hidden bg-transparent"
       ref={container}
     >
       <div className="relative h-screen z-10 ">
