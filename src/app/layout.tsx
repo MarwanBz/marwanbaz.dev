@@ -3,12 +3,13 @@ import "./globals.css";
 import { Geist, Geist_Mono } from "next/font/google";
 
 import { Analytics } from "@vercel/analytics/react"
+import { AnimatedDotBackground } from "@/components/animated-dot-background";
+import Loading from "./loading";
 import type { Metadata } from "next";
 import Navbar from "@/components/navbar";
-// import { PageTransition } from "@/components/page-transition";
-import { ThemeProvider } from "@/components/components_theme-provider";
 import { Suspense } from "react";
-import Loading from "./loading";
+import { ThemeProvider } from "next-themes";
+import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,15 +62,25 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
+  className,
   children,
 }: Readonly<{
   children: React.ReactNode;
+  className?: string;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="apple-mobile-web-app-title" content="Marwan Baz" />
+      </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased relative min-h-screen`}
       >
+        <AnimatedDotBackground className={cn("min-h-screen", className)} >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -81,6 +92,7 @@ export default function RootLayout({
             {children}
           </Suspense>
         </ThemeProvider>
+          </AnimatedDotBackground>
       </body>
       <Analytics />
     </html>
