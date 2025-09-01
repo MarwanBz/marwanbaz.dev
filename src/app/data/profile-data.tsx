@@ -16,6 +16,13 @@ export const profileData: ProfileData = {
   cvLink: "https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
   cvUrl: "/assets/Marwan_cv_2025.pdf",
   experiences: [
+    {
+      role: "Junior Frontend Developer",
+      company: "Wahadat App",
+      period: "04-2025 - Present",
+      description: "Developed frontend features using React.js and Next.js; integrated RESTful APIs and handled data fetching; converted Figma designs into responsive components and layouts.",
+      technologies: ["React.js", "Next.js", "REST APIs", "Figma", "Responsive Design"]
+    },
     // {
     //   role: "System Administrator",
     //   company: "Bin-Mahfouz Org",
