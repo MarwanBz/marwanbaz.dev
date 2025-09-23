@@ -81,6 +81,17 @@ const projects = [
     category: "web",
     liveUrl: "https://www.gulftadawultransport.com/",
   },
+  {
+    id: 7,
+    title: "Harakeh Project Management Tool",
+    description:
+      "A comprehensive project management tool designed to streamline team collaboration and project tracking.",
+    imageUrl: "/assets/harakeh.png",
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS"],
+    category: "web",
+    // githubUrl: "",
+    // liveUrl: ""
+  },
 ];
 
 export default function WorkPage() {

@@ -157,5 +157,58 @@ export const projects = [
     screenshots: [
       { url: "/assets/misPay.png", caption: "MIS Pay Platform Interface" }
     ]
+  },
+  {
+    id: 4,
+    title: "Harakeh Project Management Tool",
+    summary: "A comprehensive project management tool designed to streamline team collaboration and project tracking.",
+    imageUrl: "/assets/harakeh.png", // You can replace this with the actual image path
+    coreFunctionalities: [
+      "Project tracking and management",
+      "Team collaboration features",
+      "Task assignment and monitoring",
+      "Progress reporting and analytics",
+      "User-friendly interface design"
+    ],
+    role: "Frontend Web Developer Intern",
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS"],
+    category: "web",
+    liveDemo: "",
+    sourceCode: "",
+    purpose: "Developed during internship to create an efficient project management solution that helps teams organize, track, and complete projects more effectively.",
+    expectedOutcome: "A robust project management platform that improves team productivity and project delivery timelines through intuitive design and powerful features.",
+    initialDesigns: ["/assets/harakeh.png"],
+    spotlightFeature: {
+      title: "Streamlined Project Management",
+      description: "Intuitive interface that makes project management accessible and efficient for teams of all sizes, featuring comprehensive tracking and collaboration tools."
+    },
+    technicalChallenges: [
+      "Building responsive user interface",
+      "Implementing complex state management",
+      "Creating reusable component architecture",
+      "Ensuring optimal performance"
+    ],
+    solutions: [
+      "Utilized Next.js for optimal performance and SEO",
+      "Implemented TypeScript for type safety",
+      "Created responsive design with Tailwind CSS",
+      "Developed modular component structure"
+    ],
+    currentStatus: {
+      users: "Developed during internship period",
+      feedback: "Successfully implemented responsive and user-friendly interface"
+    },
+    lessonsLearned: [
+      "Advanced React patterns and hooks",
+      "TypeScript implementation in large projects",
+      "Component architecture best practices",
+      "Responsive design principles"
+    ],
+    frameworkExperience: "Next.js provided excellent development experience with its built-in optimization features and TypeScript support.",
+    accessibilityLearnings: "Implemented accessibility best practices to ensure the tool is usable by all team members.",
+    impact: "Successfully contributed to creating a tool that improves project management efficiency and team collaboration.",
+    screenshots: [
+      { url: "/assets/harakeh.png", caption: "Harakeh Project Management Interface" }
+    ]
   }
 ];
