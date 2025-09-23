@@ -157,5 +157,64 @@ export const projects = [
     screenshots: [
       { url: "/assets/misPay.png", caption: "MIS Pay Platform Interface" }
     ]
+  },
+  {
+    id: 4,
+    title: "Haraka - AI Project Management Tool",
+    summary: "An AI-powered project management tool that intelligently assigns tasks based on team strengths, automates workflows, and optimizes productivity with real-time insights.",
+    imageUrl: "/assets/haraka.png",
+    coreFunctionalities: [
+      "AI-powered task generation and assignment",
+      "Intelligent task prioritization based on team strengths",
+      "Real-time project reports and insights",
+      "Context-aware AI assistance for task management",
+      "Automated workflow optimization",
+      "Team collaboration and communication tools",
+      "Instant report generation",
+      "User-friendly interface with minimal learning curve"
+    ],
+    role: "Frontend Web Developer Intern",
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "API Integration", "React Query"],
+    category: "web",
+    liveDemo: "https://www.haraka.pro/",
+    sourceCode: "",
+    purpose: "Developed during internship to create an AI-powered project management solution that maximizes efficiency, enhances team collaboration, and streamlines workflows through smart automation.",
+    expectedOutcome: "An intelligent project management platform that leverages AI to optimize team productivity, automate routine tasks, and provide real-time insights for better decision-making.",
+    initialDesigns: ["/assets/haraka.png"],
+    spotlightFeature: {
+      title: "AI-Powered Task Management",
+      description: "Revolutionary AI agent that understands team dynamics, automatically assigns tasks based on individual strengths, and provides context-aware assistance to maximize productivity and efficiency."
+    },
+    technicalChallenges: [
+      "Integrating AI capabilities into the user interface",
+      "Building responsive and intuitive design",
+      "Implementing complex state management for AI features",
+      "Creating seamless user experience with AI assistance",
+      "Ensuring optimal performance with AI processing"
+    ],
+    solutions: [
+      "Utilized Next.js for optimal performance and AI integration",
+      "Implemented TypeScript for type safety in AI workflows",
+      "Created responsive design with Tailwind CSS",
+      "Developed modular component architecture for AI features",
+      "Built efficient state management for real-time AI updates"
+    ],
+    currentStatus: {
+      users: "Live platform serving teams worldwide",
+      feedback: "Successfully launched AI-powered project management tool with positive user adoption"
+    },
+    lessonsLearned: [
+      "AI integration in web applications",
+      "Advanced React patterns for AI workflows",
+      "TypeScript implementation in AI-powered projects",
+      "User experience design for AI-assisted tools",
+      "Performance optimization for AI features"
+    ],
+    frameworkExperience: "Next.js provided excellent foundation for building AI-powered features with its optimization capabilities and TypeScript support for complex AI workflows.",
+    accessibilityLearnings: "Implemented accessibility best practices to ensure AI-powered features are usable by all team members, including proper AI feedback and assistance.",
+    impact: "Successfully contributed to creating an innovative AI-powered project management tool that revolutionizes how teams collaborate and manage projects through intelligent automation.",
+    screenshots: [
+      { url: "/assets/haraka.png", caption: "Haraka AI Project Management Interface" }
+    ]
   }
 ];
