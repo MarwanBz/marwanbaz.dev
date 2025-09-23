@@ -160,55 +160,61 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Harakeh Project Management Tool",
-    summary: "A comprehensive project management tool designed to streamline team collaboration and project tracking.",
-    imageUrl: "/assets/harakeh.png", // You can replace this with the actual image path
+    title: "Haraka - AI Project Management Tool",
+    summary: "An AI-powered project management tool that intelligently assigns tasks based on team strengths, automates workflows, and optimizes productivity with real-time insights.",
+    imageUrl: "/assets/haraka.png",
     coreFunctionalities: [
-      "Project tracking and management",
-      "Team collaboration features",
-      "Task assignment and monitoring",
-      "Progress reporting and analytics",
-      "User-friendly interface design"
+      "AI-powered task generation and assignment",
+      "Intelligent task prioritization based on team strengths",
+      "Real-time project reports and insights",
+      "Context-aware AI assistance for task management",
+      "Automated workflow optimization",
+      "Team collaboration and communication tools",
+      "Instant report generation",
+      "User-friendly interface with minimal learning curve"
     ],
     role: "Frontend Web Developer Intern",
-    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS"],
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "AI Integration"],
     category: "web",
-    liveDemo: "",
+    liveDemo: "https://www.haraka.pro/",
     sourceCode: "",
-    purpose: "Developed during internship to create an efficient project management solution that helps teams organize, track, and complete projects more effectively.",
-    expectedOutcome: "A robust project management platform that improves team productivity and project delivery timelines through intuitive design and powerful features.",
-    initialDesigns: ["/assets/harakeh.png"],
+    purpose: "Developed during internship to create an AI-powered project management solution that maximizes efficiency, enhances team collaboration, and streamlines workflows through smart automation.",
+    expectedOutcome: "An intelligent project management platform that leverages AI to optimize team productivity, automate routine tasks, and provide real-time insights for better decision-making.",
+    initialDesigns: ["/assets/haraka.png"],
     spotlightFeature: {
-      title: "Streamlined Project Management",
-      description: "Intuitive interface that makes project management accessible and efficient for teams of all sizes, featuring comprehensive tracking and collaboration tools."
+      title: "AI-Powered Task Management",
+      description: "Revolutionary AI agent that understands team dynamics, automatically assigns tasks based on individual strengths, and provides context-aware assistance to maximize productivity and efficiency."
     },
     technicalChallenges: [
-      "Building responsive user interface",
-      "Implementing complex state management",
-      "Creating reusable component architecture",
-      "Ensuring optimal performance"
+      "Integrating AI capabilities into the user interface",
+      "Building responsive and intuitive design",
+      "Implementing complex state management for AI features",
+      "Creating seamless user experience with AI assistance",
+      "Ensuring optimal performance with AI processing"
     ],
     solutions: [
-      "Utilized Next.js for optimal performance and SEO",
-      "Implemented TypeScript for type safety",
+      "Utilized Next.js for optimal performance and AI integration",
+      "Implemented TypeScript for type safety in AI workflows",
       "Created responsive design with Tailwind CSS",
-      "Developed modular component structure"
+      "Developed modular component architecture for AI features",
+      "Built efficient state management for real-time AI updates"
     ],
     currentStatus: {
-      users: "Developed during internship period",
-      feedback: "Successfully implemented responsive and user-friendly interface"
+      users: "Live platform serving teams worldwide",
+      feedback: "Successfully launched AI-powered project management tool with positive user adoption"
     },
     lessonsLearned: [
-      "Advanced React patterns and hooks",
-      "TypeScript implementation in large projects",
-      "Component architecture best practices",
-      "Responsive design principles"
+      "AI integration in web applications",
+      "Advanced React patterns for AI workflows",
+      "TypeScript implementation in AI-powered projects",
+      "User experience design for AI-assisted tools",
+      "Performance optimization for AI features"
     ],
-    frameworkExperience: "Next.js provided excellent development experience with its built-in optimization features and TypeScript support.",
-    accessibilityLearnings: "Implemented accessibility best practices to ensure the tool is usable by all team members.",
-    impact: "Successfully contributed to creating a tool that improves project management efficiency and team collaboration.",
+    frameworkExperience: "Next.js provided excellent foundation for building AI-powered features with its optimization capabilities and TypeScript support for complex AI workflows.",
+    accessibilityLearnings: "Implemented accessibility best practices to ensure AI-powered features are usable by all team members, including proper AI feedback and assistance.",
+    impact: "Successfully contributed to creating an innovative AI-powered project management tool that revolutionizes how teams collaborate and manage projects through intelligent automation.",
     screenshots: [
-      { url: "/assets/harakeh.png", caption: "Harakeh Project Management Interface" }
+      { url: "/assets/haraka.png", caption: "Haraka AI Project Management Interface" }
     ]
   }
 ];

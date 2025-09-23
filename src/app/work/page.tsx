@@ -83,14 +83,14 @@ const projects = [
   },
   {
     id: 7,
-    title: "Harakeh Project Management Tool",
+    title: "Haraka - AI Project Management Tool",
     description:
-      "A comprehensive project management tool designed to streamline team collaboration and project tracking.",
-    imageUrl: "/assets/harakeh.png",
-    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS"],
+      "An AI-powered project management tool that intelligently assigns tasks based on team strengths, automates workflows, and optimizes productivity with real-time insights.",
+    imageUrl: "/assets/haraka.png",
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "AI Integration"],
     category: "web",
     // githubUrl: "",
-    // liveUrl: ""
+    liveUrl: "https://www.haraka.pro/"
   },
 ];
 
