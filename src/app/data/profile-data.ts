@@ -42,11 +42,11 @@ export const profileData: ProfileData = {
   cvLink: "https://https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
   experiences: [
     {
-      role: "Junior Frontend Developer",
+      role: "Frontend Developer",
       company: "Wahadat App",
       period: "4 2025 to present",
       description: "Developed frontend features using React.js and Next.js for the company products. Integrated RESTful APIs and handled data fetching. Converted Figma designs into responsive components and layouts.",
-      technologies: ["React.js", "Next.js", "JavaScript", "CSS", "HTML", "RESTful APIs", "Figma"]
+      technologies: ["React.js", "Next.js", "JavaScript", "TypeScript", "Shadcn", "Tailwind CSS", "RESTful APIs"]
     },
     {
       role: "Frontend Web developer internship",

@@ -174,7 +174,7 @@ export const projects = [
       "User-friendly interface with minimal learning curve"
     ],
     role: "Frontend Web Developer Intern",
-    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "AI Integration"],
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "API Integration", "React Query"],
     category: "web",
     liveDemo: "https://www.haraka.pro/",
     sourceCode: "",
