@@ -40,5 +40,20 @@ export const profileData: ProfileData = {
   linkedinUrl: "https://linkedin.com/in/marwanbz",
   cvUrl: "https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
   cvLink: "https://https://drive.google.com/file/d/1EDrEKGQdEKTJzoNCJ-BiFzIWMV5UMSz9/view?usp=sharing",
-  experiences: []
+  experiences: [
+    {
+      role: "Frontend Developer",
+      company: "Wahadat App",
+      period: "4 2025 to present",
+      description: "Developed frontend features using React.js and Next.js for the company products. Integrated RESTful APIs and handled data fetching. Converted Figma designs into responsive components and layouts.",
+      technologies: ["React.js", "Next.js", "JavaScript", "TypeScript", "Shadcn", "Tailwind CSS", "RESTful APIs"]
+    },
+    {
+      role: "Frontend Web developer internship",
+      company: "Harkeh",
+      period: "11 2024 to 2025-4",
+      description: "Structured and developed the frontend of a Project Management Tool using Next.js. Implemented a responsive, user-friendly interface.",
+      technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Project Management"]
+    }
+  ]
 }

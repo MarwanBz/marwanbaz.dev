@@ -81,6 +81,17 @@ const projects = [
     category: "web",
     liveUrl: "https://www.gulftadawultransport.com/",
   },
+  {
+    id: 7,
+    title: "Haraka - AI Project Management Tool",
+    description:
+      "An AI-powered project management tool that intelligently assigns tasks based on team strengths, automates workflows, and optimizes productivity with real-time insights.",
+    imageUrl: "/assets/haraka.png",
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "API Integration"],
+    category: "web",
+    // githubUrl: "",
+    liveUrl: "https://www.haraka.pro/"
+  },
 ];
 
 export default function WorkPage() {
