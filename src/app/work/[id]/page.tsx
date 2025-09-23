@@ -7,7 +7,7 @@ import Loading from "@/app/loading"
 // import { CustomCard } from "@/components/custom-card"
 // import Link from "next/link"
 import { ProjectShowcase } from "@/components/project-showcase"
-import { projects } from "@/app/data/projects"
+import { projects } from "@/data"
 import { useParams } from "next/navigation"
 
 export default function ProjectDetailPage() {

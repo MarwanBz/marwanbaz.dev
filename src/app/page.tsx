@@ -12,7 +12,7 @@ import type { Metadata } from 'next'
 import { ProfileInfo } from "@/components/profile-info"
 // import { ProfileInfo } from "@/components/profile-card"
 import { ProjectCard } from "@/components/project-card"
-import { profileData } from "./data/profile-data"
+import { profileData } from "@/data"
 
 export const metadata: Metadata = {
   title: "Marwan Baz - Web Engineer  | Next.js & React ",
