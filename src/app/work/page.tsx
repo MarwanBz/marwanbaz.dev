@@ -87,7 +87,7 @@ const projects = [
     description:
       "An AI-powered project management tool that intelligently assigns tasks based on team strengths, automates workflows, and optimizes productivity with real-time insights.",
     imageUrl: "/assets/haraka.png",
-    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "AI Integration"],
+    technologies: ["NextJS", "React", "TypeScript", "Tailwind CSS", "API Integration"],
     category: "web",
     // githubUrl: "",
     liveUrl: "https://www.haraka.pro/"
