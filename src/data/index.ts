@@ -548,7 +548,7 @@ export const marwanData: UnifiedData = {
       role: "Frontend Developer",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       category: "web",
-      liveDemo: "https://www.awj-u.sa/",
+      liveDemo: "https://awj-website.vercel.app/",
       sourceCode: "",
       purpose:
         "Developed a professional website for a legal firm to establish credibility and attract clients seeking legal services.",
@@ -653,6 +653,76 @@ export const marwanData: UnifiedData = {
         "Successfully created professional digital presence that effectively communicates transport capabilities to business clients.",
       screenshots: [
         { url: "/assets/gulf.png", caption: "Gulf Tadawul Transport Website" },
+      ],
+    },
+    {
+      id: 8,
+      title: "Tadamn Development Forum 2025",
+      summary:
+        "A comprehensive Arabic RTL website for the Tadamn Development Forum 2025, featuring event information, speakers, agenda, and interactive engagement tools.",
+      imageUrl: "/assets/tadamn.png",
+      coreFunctionalities: [
+        "Event information and overview",
+        "Speakers directory and profiles",
+        "Event agenda and schedule",
+        "Google Forms integration for Q&A",
+        "Downloadable event guide",
+        "RTL (Right-to-Left) Arabic support",
+        "Responsive mobile design",
+        "Floating CTA button",
+      ],
+      role: "Frontend Developer",
+      technologies: ["HTML", "CSS", "JavaScript"],
+      category: "web",
+      liveDemo: "https://tadamn.vercel.app/",
+      sourceCode: "",
+      purpose:
+        "Developed a modern, accessible website for the Tadamn Development Forum 2025 to showcase event information, facilitate participant engagement, and provide easy access to forum resources.",
+      expectedOutcome:
+        "A professional, user-friendly platform that effectively communicates forum details and enables seamless participant interaction with event content and resources.",
+      initialDesigns: ["/assets/tadamn.png"],
+      spotlightFeature: {
+        title: "RTL Arabic Interface",
+        description:
+          "Fully responsive Arabic RTL website with elegant typography using Tajawal font, featuring intuitive navigation cards and seamless integration with Google Forms for interactive participant engagement.",
+      },
+      technicalChallenges: [
+        "Implementing proper RTL (Right-to-Left) layout for Arabic content",
+        "Ensuring cross-browser compatibility for RTL websites",
+        "Creating responsive design for Arabic typography",
+        "Integrating external services (Google Forms, Google Drive)",
+        "Optimizing font loading for Arabic fonts",
+      ],
+      solutions: [
+        "Used semantic HTML with dir='rtl' attribute",
+        "Implemented CSS Grid and Flexbox for RTL layouts",
+        "Integrated Google Fonts (Tajawal) for Arabic typography",
+        "Created modular CSS architecture for maintainability",
+        "Developed smooth animations and transitions",
+        "Implemented floating CTA with delayed visibility",
+      ],
+      currentStatus: {
+        users: "Live website serving forum participants and attendees",
+        feedback: "Positive user experience with Arabic RTL interface and easy navigation",
+      },
+      lessonsLearned: [
+        "RTL web development best practices",
+        "Arabic typography and font optimization",
+        "Building accessible multi-page websites with vanilla HTML/CSS/JS",
+        "Integrating third-party services (Google Forms, Drive)",
+        "Creating engaging user interfaces without frameworks",
+      ],
+      frameworkExperience:
+        "Vanilla HTML, CSS, and JavaScript provided complete control over RTL implementation and Arabic typography, demonstrating the power of foundational web technologies.",
+      accessibilityLearnings:
+        "Ensured proper RTL support and Arabic language accessibility, making the forum information accessible to Arabic-speaking participants.",
+      impact:
+        "Successfully created a professional forum website that effectively communicates event information and facilitates participant engagement through modern web technologies.",
+      screenshots: [
+        {
+          url: "/assets/tadamn.png",
+          caption: "Tadamn Development Forum 2025 Homepage",
+        },
       ],
     },
   ],
