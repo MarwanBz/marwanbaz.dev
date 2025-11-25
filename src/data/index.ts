@@ -548,7 +548,7 @@ export const marwanData: UnifiedData = {
       role: "Frontend Developer",
       technologies: ["HTML", "CSS", "JavaScript", "Bootstrap"],
       category: "web",
-      liveDemo: "https://www.awj-u.sa/",
+      liveDemo: "https://awj-website.vercel.app/",
       sourceCode: "",
       purpose:
         "Developed a professional website for a legal firm to establish credibility and attract clients seeking legal services.",
