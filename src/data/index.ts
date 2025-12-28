@@ -725,6 +725,82 @@ export const marwanData: UnifiedData = {
         },
       ],
     },
+    {
+      id: 9,
+      title: "TawreedPlus",
+      summary:
+        "A comprehensive supply chain and procurement platform connecting businesses with suppliers and streamlining procurement processes.",
+      imageUrl: "/assets/tawreedplus.png",
+      coreFunctionalities: [
+        "Supplier and vendor management",
+        "Procurement workflow automation",
+        "Product catalog and inventory",
+        "Order management system",
+        "Multi-language support (Arabic/English)",
+        "User authentication and authorization",
+        "Real-time notifications",
+        "Reporting and analytics",
+      ],
+      role: "Frontend Developer",
+      technologies: [
+        "NextJS",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "i18Next",
+        "API Integration",
+      ],
+      category: "web",
+      liveDemo: "https://www.tawreedplus.com/en",
+      sourceCode: "",
+      purpose:
+        "Developed to modernize supply chain operations and create an efficient digital platform connecting businesses with suppliers across multiple industries.",
+      expectedOutcome:
+        "A robust procurement platform that streamlines business operations, reduces procurement time, and provides transparency in the supply chain process.",
+      initialDesigns: ["/assets/tawreedplus.png"],
+      spotlightFeature: {
+        title: "Streamlined Procurement Platform",
+        description:
+          "Comprehensive digital solution that simplifies procurement processes with intuitive workflows, real-time updates, and seamless supplier management capabilities.",
+      },
+      technicalChallenges: [
+        "Building complex procurement workflows",
+        "Implementing robust multi-language support",
+        "Managing complex state across multiple features",
+        "Ensuring data consistency and real-time updates",
+        "Creating intuitive UX for complex business processes",
+      ],
+      solutions: [
+        "Utilized NextJS for optimal performance and SEO",
+        "Implemented TypeScript for type-safe development",
+        "Created reusable component library with Tailwind CSS",
+        "Developed comprehensive i18Next integration for bilingual support",
+        "Built efficient API integration architecture",
+      ],
+      currentStatus: {
+        users: "Active platform serving businesses and suppliers",
+        feedback: "Positive adoption with users appreciating the streamlined procurement experience",
+      },
+      lessonsLearned: [
+        "B2B platform development best practices",
+        "Complex state management in large applications",
+        "Building scalable multi-language systems",
+        "User experience design for business workflows",
+        "Integration patterns for complex APIs",
+      ],
+      frameworkExperience:
+        "NextJS with TypeScript provided excellent foundation for building a scalable, enterprise-level procurement platform with strong type safety and performance.",
+      accessibilityLearnings:
+        "Implemented accessibility standards to ensure the platform is usable by diverse business users across different technical skill levels.",
+      impact:
+        "Successfully delivered a modern procurement platform that digitizes and streamlines supply chain operations for businesses and suppliers.",
+      screenshots: [
+        {
+          url: "/assets/tawreedplus.png",
+          caption: "TawreedPlus Platform Interface",
+        },
+      ],
+    },
   ],
 };
 
