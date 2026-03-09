@@ -86,6 +86,15 @@ export default function Home() {
               technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
             />
           </Link>
+          <Link href="/work/9">
+            <ProjectCard
+              title="Tawreed Plus"
+              description="B2B e-commerce supply chain platform with bilingual AR/EN support, product catalog, cart, Tawreed Extra+ membership tier, and Google Maps integration."
+              imageUrl="/assets/tawreedplus.png"
+              technologies={["Next.js 15", "TypeScript", "Tailwind CSS v4", "TanStack Query", "next-intl", "Framer Motion", "Google Maps API"]}
+              liveUrl="https://www.tawreedplus.com/en"
+            />
+          </Link>
           <Link href="/work/10">
             <ProjectCard
               title="Basma — Maintenance Management System"
