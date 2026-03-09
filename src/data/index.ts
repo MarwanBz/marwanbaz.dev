@@ -674,7 +674,7 @@ export const marwanData: UnifiedData = {
       role: "Frontend Developer",
       technologies: ["HTML", "CSS", "JavaScript"],
       category: "web",
-      liveDemo: "https://tadamn.vercel.app/",
+      liveDemo: "https://marwanbz.github.io/tadamn/index.html#fromHistory",
       sourceCode: "",
       purpose:
         "Developed a modern, accessible website for the Tadamn Development Forum 2025 to showcase event information, facilitate participant engagement, and provide easy access to forum resources.",
@@ -722,6 +722,169 @@ export const marwanData: UnifiedData = {
         {
           url: "/assets/tadamn.png",
           caption: "Tadamn Development Forum 2025 Homepage",
+        },
+      ],
+    },
+    {
+      id: 9,
+      title: "Tawreed Plus",
+      summary:
+        "B2B e-commerce supply chain platform with bilingual (AR/EN) support, product categories, cart, 'Tawreed Extra+' membership tier, and Google Maps integration.",
+      imageUrl: "/assets/tawreedplus.png",
+      coreFunctionalities: [
+        "Bilingual (Arabic/English) product catalog",
+        "Product categories and search",
+        "Shopping cart and checkout",
+        "Tawreed Extra+ membership tier",
+        "Google Maps integration for delivery",
+        "RTL Arabic layout support",
+        "Responsive mobile design",
+        "Internationalization with next-intl",
+      ],
+      role: "Frontend Developer",
+      technologies: [
+        "Next.js 15",
+        "TypeScript",
+        "Tailwind CSS v4",
+        "TanStack Query",
+        "React Hook Form",
+        "Zod",
+        "next-intl",
+        "Framer Motion",
+        "Google Maps API",
+        "Shadcn/UI",
+        "Axios",
+      ],
+      category: "web",
+      liveDemo: "https://www.tawreedplus.com/en",
+      sourceCode: "",
+      purpose:
+        "Built the frontend for a B2B marketplace connecting businesses with suppliers across Saudi Arabia, featuring full bilingual support and a premium membership tier.",
+      expectedOutcome:
+        "A performant, bilingual B2B platform that streamlines supply chain operations for Saudi businesses with an intuitive purchasing experience.",
+      initialDesigns: ["/assets/tawreedplus.png"],
+      spotlightFeature: {
+        title: "Bilingual B2B Marketplace",
+        description:
+          "Full Arabic/English support with next-intl, RTL layout switching, and a dedicated 'Tawreed Extra+' membership tier offering unlimited free delivery and premium benefits.",
+      },
+      technicalChallenges: [
+        "Implementing seamless RTL/LTR switching for Arabic and English",
+        "Managing complex server state with TanStack Query across the catalog",
+        "Building type-safe forms with React Hook Form and Zod validation",
+        "Integrating Google Maps API for location-based delivery features",
+        "Migrating to Tailwind CSS v4 syntax and new configuration model",
+      ],
+      solutions: [
+        "Used next-intl for robust i18n routing and locale-aware layouts",
+        "Leveraged TanStack Query for caching and background refetching",
+        "Built reusable form components with Zod schema validation",
+        "Integrated Google Maps JavaScript API for address selection",
+        "Applied Framer Motion for smooth page transitions and animations",
+      ],
+      currentStatus: {
+        users: "Live platform serving B2B customers across Saudi Arabia",
+        feedback: "Positive reception for bilingual support and clean UI",
+      },
+      lessonsLearned: [
+        "Deep experience with Next.js 15 App Router and server components",
+        "Advanced i18n patterns with next-intl and RTL layout handling",
+        "TanStack Query v5 patterns for complex server state",
+        "Tailwind CSS v4 configuration and new utility patterns",
+        "Building accessible bilingual e-commerce interfaces",
+      ],
+      frameworkExperience:
+        "Next.js 15 with App Router enabled efficient server-side rendering and streaming for the product catalog, while TanStack Query managed client-side caching and mutations.",
+      accessibilityLearnings:
+        "Implemented full RTL support and bilingual accessibility, ensuring Arabic-speaking users receive a native experience with proper text direction and font rendering.",
+      impact:
+        "Delivered a production B2B marketplace that enables Saudi businesses to efficiently source supplies with a modern, accessible bilingual interface.",
+      screenshots: [
+        {
+          url: "/assets/tawreedplus.png",
+          caption: "Tawreed Plus Homepage — Extra+ membership banner",
+        },
+      ],
+    },
+    {
+      id: 10,
+      title: "Basma — Maintenance Management System",
+      summary:
+        "Full-stack maintenance request management system with an Express.js API, Next.js 15 admin dashboard, and Expo React Native mobile app for residents and technicians.",
+      imageUrl: "/assets/basma.png",
+      coreFunctionalities: [
+        "Maintenance request creation and tracking",
+        "Admin dashboard for request management",
+        "Technician assignment and scheduling",
+        "Image upload via AWS S3",
+        "Push notifications via Firebase",
+        "Role-based access control",
+        "Expo mobile app for residents",
+        "Swagger API documentation",
+      ],
+      role: "Full-Stack Developer",
+      technologies: [
+        "Express.js",
+        "Prisma ORM",
+        "PostgreSQL",
+        "AWS S3",
+        "Firebase Push Notifications",
+        "Swagger",
+        "Next.js 15",
+        "Radix UI",
+        "TanStack Query",
+        "TanStack Table",
+        "Expo",
+        "React Native",
+      ],
+      category: "web",
+      liveDemo: "https://basma-admin-dashboard.vercel.app/login",
+      sourceCode: "",
+      purpose:
+        "Built a comprehensive three-layer system to digitize and streamline maintenance request workflows for residential properties, replacing manual paper-based processes.",
+      expectedOutcome:
+        "A unified platform where residents submit requests via mobile, admins manage workflows via dashboard, and technicians receive assignments — all in real time.",
+      initialDesigns: ["/assets/basma.png"],
+      spotlightFeature: {
+        title: "Three-Layer Full-Stack Architecture",
+        description:
+          "A unified system spanning an Express.js REST API with Prisma and PostgreSQL, a Next.js 15 admin dashboard with TanStack Table, and an Expo React Native mobile app — all connected via Firebase push notifications and AWS S3 for media.",
+      },
+      technicalChallenges: [
+        "Designing a normalized PostgreSQL schema for multi-role workflows",
+        "Implementing secure file uploads to AWS S3 with presigned URLs",
+        "Delivering real-time push notifications across iOS and Android via Firebase",
+        "Building a data-dense admin table interface with TanStack Table",
+        "Coordinating API contracts between three separate client surfaces",
+      ],
+      solutions: [
+        "Used Prisma ORM for type-safe database access and migrations",
+        "Implemented S3 presigned URL pattern for secure direct uploads",
+        "Integrated Firebase Admin SDK for server-triggered push notifications",
+        "Built composable TanStack Table columns with sorting and filtering",
+        "Documented all endpoints with Swagger for cross-team alignment",
+      ],
+      currentStatus: {
+        users: "Deployed admin dashboard serving property management staff",
+        feedback: "Significantly reduced time to resolve maintenance requests",
+      },
+      lessonsLearned: [
+        "Full-stack system design across API, web, and mobile surfaces",
+        "PostgreSQL schema design for role-based multi-tenant workflows",
+        "AWS S3 integration patterns for file management",
+        "Firebase push notification delivery for mobile apps",
+        "Building complex data tables with TanStack Table v8",
+      ],
+      frameworkExperience:
+        "Express.js provided a lightweight, flexible API layer while Prisma enabled type-safe database operations. Next.js 15 App Router powered the admin dashboard with server components for fast initial loads.",
+      accessibilityLearnings:
+        "Used Radix UI primitives in the admin dashboard to ensure keyboard navigation and screen reader support for all management workflows.",
+      impact:
+        "Transformed a manual maintenance process into a fully digital workflow, reducing request resolution time and improving communication between residents, admins, and technicians.",
+      screenshots: [
+        {
+          url: "/assets/basma.png",
+          caption: "Basma Admin Dashboard — Maintenance Request List",
         },
       ],
     },
