@@ -9,7 +9,9 @@ export interface SocialLink {
 
 export interface Project {
   id: number;
+  slug: string;
   title: string;
+  isFeatured?: boolean;
   summary: string;
   imageUrl: string;
   coreFunctionalities: string[];
@@ -190,6 +192,7 @@ export const marwanData: UnifiedData = {
     {
       id: 4,
       title: "Haraka - AI Project Management Tool",
+      slug: "haraka-ai-project-management-tool",
       summary:
         "An AI-powered project management tool that intelligently assigns tasks based on team strengths, automates workflows, and optimizes productivity with real-time insights.",
       imageUrl: "/assets/haraka.png",
@@ -267,6 +270,8 @@ export const marwanData: UnifiedData = {
     {
       id: 1,
       title: "Leapat Web App",
+      slug: "leapat-web-app",
+      isFeatured: true,
       summary:
         "Youth-led tech initiative aims to create digital transformation in culture, art, education, economy, and more.",
       imageUrl: "/assets/leapat.png",
@@ -328,6 +333,8 @@ export const marwanData: UnifiedData = {
     {
       id: 2,
       title: "Deemat Mobile App",
+      slug: "deemat-mobile-app",
+      isFeatured: true,
       summary:
         "Mobile application intended for children and parents, offering audio stories and visual stories.",
       imageUrl: "/assets/deemat1.jpg",
@@ -400,6 +407,8 @@ export const marwanData: UnifiedData = {
     {
       id: 3,
       title: "MIS Pay Web App",
+      slug: "mis-pay-web-app",
+      isFeatured: true,
       summary:
         'A Website showcasing MISpay\'s "Shop Now, Pay Later" service, featured stores, and merchant solutions.',
       imageUrl: "/assets/misPay.png",
@@ -466,6 +475,7 @@ export const marwanData: UnifiedData = {
     {
       id: 5,
       title: "Alkhair Foundation",
+      slug: "alkhair-foundation",
       summary:
         "A charitable organization working towards a better future. Key initiatives include education for children, disaster relief, and orphan care.",
       imageUrl: "/assets/alkhiar-found.png",
@@ -535,6 +545,7 @@ export const marwanData: UnifiedData = {
     {
       id: 6,
       title: "AWJ Legal Consultancy and Law Firm",
+      slug: "awj-legal-consultancy-and-law-firm",
       summary:
         "A legal, financial, and administrative firm committed to protecting your rights and achieving justice.",
       imageUrl: "/assets/awj-legal.png",
@@ -598,6 +609,7 @@ export const marwanData: UnifiedData = {
     {
       id: 7,
       title: "Gulf Tadawul Transport",
+      slug: "gulf-tadawul-transport",
       summary:
         "Comprehensive transport solutions to meet your business needs. Services include land, air, and sea freight, as well as customs clearance.",
       imageUrl: "/assets/gulf.png",
@@ -658,6 +670,7 @@ export const marwanData: UnifiedData = {
     {
       id: 8,
       title: "Tadamn Development Forum 2025",
+      slug: "tadamn-development-forum-2025",
       summary:
         "A comprehensive Arabic RTL website for the Tadamn Development Forum 2025, featuring event information, speakers, agenda, and interactive engagement tools.",
       imageUrl: "/assets/tadamn.png",
@@ -728,6 +741,8 @@ export const marwanData: UnifiedData = {
     {
       id: 9,
       title: "Tawreed Plus",
+      slug: "tawreed-plus",
+      isFeatured: true,
       summary:
         "B2B e-commerce supply chain platform with bilingual (AR/EN) support, product categories, cart, 'Tawreed Extra+' membership tier, and Google Maps integration.",
       imageUrl: "/assets/tawreedplus.png",
@@ -811,6 +826,8 @@ export const marwanData: UnifiedData = {
     {
       id: 10,
       title: "Basma — Maintenance Management System",
+      slug: "basma-maintenance-management-system",
+      isFeatured: true,
       summary:
         "Full-stack maintenance request management system with an Express.js API, Next.js 15 admin dashboard, and Expo React Native mobile app for residents and technicians.",
       imageUrl: "/assets/basma.png",

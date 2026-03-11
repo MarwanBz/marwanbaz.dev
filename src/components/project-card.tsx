@@ -15,9 +15,10 @@ interface ProjectCardProps {
   technologies: string[]
   githubUrl?: string
   liveUrl?: string
+  isFeatured?: boolean
 }
 
-export function ProjectCard({ title, description, imageUrl, technologies, githubUrl, liveUrl }: ProjectCardProps) {
+export function ProjectCard({ title, description, imageUrl, technologies, githubUrl, liveUrl, isFeatured }: ProjectCardProps) {
   return (
     
     <CustomCard className="flex flex-col overflow-hidden group " showing={false}>
@@ -34,7 +35,14 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
         </div>
       </div>
       <div className="p-4 flex flex-col flex-grow">
-        <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
+        <div className="flex items-center gap-2 mb-2">
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h3>
+          {isFeatured && (
+            <Badge className="bg-gradient-to-r from-purple-500 to-blue-500 text-white border-0 py-0 text-[10px] leading-4 h-5 px-1.5 uppercase font-bold tracking-wider">
+              Featured
+            </Badge>
+          )}
+        </div>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">{description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {technologies.map((tech, index) => (
