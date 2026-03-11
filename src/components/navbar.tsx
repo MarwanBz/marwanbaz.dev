@@ -22,9 +22,15 @@ export default function Navbar() {
   const { setTheme, theme } = useTheme()
   const pathname = usePathname()
   const [active, setActive] = React.useState(() => {
-    const path = pathname === "/" ? "Home" : pathname.slice(1).charAt(0).toUpperCase() + pathname.slice(2)
-    return path
+    const activePath = pathname === "/" ? "Home" : pathname.split('/')[1]
+    return activePath ? activePath.charAt(0).toUpperCase() + activePath.slice(1) : "Home"
   })
+
+  React.useEffect(() => {
+    const activePath = pathname === "/" ? "Home" : pathname.split('/')[1]
+    const activeName = activePath ? activePath.charAt(0).toUpperCase() + activePath.slice(1) : "Home"
+    setActive(activeName)
+  }, [pathname])
 
   return (
     <header className="fixed top-0 z-50 w-full pt-4 md:pt-12 px-2 md:px-0">

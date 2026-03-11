@@ -59,7 +59,7 @@ export default function Home() {
          <BlogComponent /> 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/work/1">
+          <Link href="/work/leapat-web-app">
             <ProjectCard
               title="Leapat Web App"
               description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
@@ -69,7 +69,7 @@ export default function Home() {
               liveUrl="https://leapat.org"
             />
           </Link>
-          <Link href="/work/2">
+          <Link href="/work/deemat-mobile-app">
             <ProjectCard
               title="Deemat Mobile App"
               description="Mobile application for children and parents, offering audio stories and visual stories. Includes comprehensive admin dashboard."
@@ -78,7 +78,7 @@ export default function Home() {
               liveUrl="https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633"
             />
           </Link>
-          <Link href="/work/3">
+          <Link href="/work/mis-pay-web-app">
             <ProjectCard
               title="MIS Pay Web App"
               description="Website showcasing MISpay's 'Shop Now, Pay Later' service, featured stores, and merchant solutions."
@@ -86,7 +86,7 @@ export default function Home() {
               technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
             />
           </Link>
-          <Link href="/work/9">
+          <Link href="/work/tawreed-plus">
             <ProjectCard
               title="Tawreed Plus"
               description="B2B e-commerce supply chain platform with bilingual AR/EN support, product catalog, cart, Tawreed Extra+ membership tier, and Google Maps integration."
@@ -95,7 +95,7 @@ export default function Home() {
               liveUrl="https://www.tawreedplus.com/en"
             />
           </Link>
-          <Link href="/work/10">
+          <Link href="/work/basma-maintenance-management-system">
             <ProjectCard
               title="Basma — Maintenance Management System"
               description="Full-stack system for managing maintenance requests, with an Express.js API, Next.js admin dashboard, and Expo mobile app."
