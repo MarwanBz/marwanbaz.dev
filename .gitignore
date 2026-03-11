@@ -42,3 +42,6 @@ next-env.d.ts
 
 # unrelated local projects
 /my-website/
+
+# contentlayer
+.contentlayer

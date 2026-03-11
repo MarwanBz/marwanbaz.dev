@@ -7,12 +7,13 @@ import type { Metadata } from 'next'
 const siteUrl = 'https://marwanbaz.dev'
 
 interface Props {
-  params: Promise<{ id: string }>
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params
-  const project = projects.find(p => p.id === parseInt(id))
+  const { slug } = await params
+  const decodedSlug = decodeURIComponent(slug)
+  const project = projects.find(p => p.slug === decodedSlug)
 
   if (!project) return {}
 
@@ -22,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${project.title} | Project Case Study`,
       description: project.summary,
-      url: `${siteUrl}/work/${id}`,
+      url: `${siteUrl}/work/${slug}`,
       siteName: 'Marwan Baz Portfolio',
       images: [
         {
@@ -40,20 +41,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       images: [`${siteUrl}${project.imageUrl}`],
     },
     alternates: {
-      canonical: `${siteUrl}/work/${id}`,
+      canonical: `${siteUrl}/work/${slug}`,
     },
   }
 }
 
 export async function generateStaticParams() {
   return projects.map((project) => ({
-    id: project.id.toString(),
+    slug: project.slug,
   }))
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
-  const { id } = await params
-  const project = projects.find(p => p.id === parseInt(id))
+  const { slug } = await params
+  const decodedSlug = decodeURIComponent(slug)
+  const project = projects.find(p => p.slug === decodedSlug)
 
   if (!project) {
     notFound()

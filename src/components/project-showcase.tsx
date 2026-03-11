@@ -57,7 +57,7 @@ export function ProjectShowcase({
   screenshots,
 }: ProjectShowcaseProps) {
   return (
-    <article className="max-w-4xl mx-auto space-y-8 p-6">
+    <article className="max-w-4xl mx-auto space-y-8 p-6 pt-40 md:pt-48">
       <header className="text-center">
         <h1 className="text-4xl font-bold mb-4">{title}</h1>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">{summary}</p>
