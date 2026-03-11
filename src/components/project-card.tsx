@@ -38,7 +38,11 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
         <div className="flex items-center gap-2 mb-2">
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{title}</h3>
           {isFeatured && (
-            <Badge className="bg-gradient-to-r from-purple-500 to-blue-500 text-white border-0 py-0 text-[10px] leading-4 h-5 px-1.5 uppercase font-bold tracking-wider">
+            <Badge className="bg-black text-white dark:bg-white dark:text-black border-0 py-0 text-[10px] leading-4 h-5 px-1.5 uppercase font-bold tracking-wider flex items-center gap-1.5">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 bg-white dark:bg-black"></span>
+                <span className="relative inline-flex flex-shrink-0 rounded-full h-1.5 w-1.5 bg-white dark:bg-black"></span>
+              </span>
               Featured
             </Badge>
           )}

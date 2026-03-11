@@ -1,12 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
-  <text x="128" y="84" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle" xml:space="preserve"> ____  ____ __     __ </text>
-  <text x="128" y="106" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle" xml:space="preserve">|  _ \| ____\ \   / / </text>
-  <text x="128" y="128" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle" xml:space="preserve">| | | |  _|  \ \ / /  </text>
-  <text x="128" y="150" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle" xml:space="preserve">| |_| | |___  \ V /   </text>
-  <text x="128" y="172" font-family="'Courier New', Courier, monospace" font-size="18" font-weight="bold" fill="#000000" text-anchor="middle" xml:space="preserve">|____/|_____|  \_/    </text>
   <style>
-    @media (prefers-color-scheme: dark) {
-      text { fill: #ffffff; }
+    .ascii {
+      fill: #22c55e;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      font-weight: bold;
+      text-anchor: middle;
+      white-space: pre;
     }
   </style>
+  <text x="128" y="90" class="ascii">██████╗  ███████╗ ██╗   ██╗</text>
+  <text x="128" y="106" class="ascii">██╔══██╗ ██╔════╝ ██║   ██║</text>
+  <text x="128" y="122" class="ascii">██║  ██║ █████╗   ██║   ██║</text>
+  <text x="128" y="138" class="ascii">██║  ██║ ██╔══╝   ╚██╗ ██╔╝</text>
+  <text x="128" y="154" class="ascii">██████╔╝ ███████╗  ╚████╔╝ </text>
+  <text x="128" y="170" class="ascii">╚═════╝  ╚══════╝   ╚═══╝  </text>
 </svg>
