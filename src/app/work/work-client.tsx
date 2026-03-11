@@ -21,16 +21,31 @@ export function WorkClient() {
           <FilterBar currentFilter={filter} onFilterChange={setFilter} />
           <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {filteredProjects.map((project) => (
-              <Link key={project.id} href={`/work/${project.slug}`}>
-                <ProjectCard
-                  title={project.title}
-                  description={project.summary}
-                  imageUrl={project.imageUrl}
-                  technologies={project.technologies}
-                  githubUrl={project.sourceCode}
-                  liveUrl={project.liveDemo}
-                />
-              </Link>
+              project.isFeatured ? (
+                <Link key={project.id} href={`/work/${project.slug}`}>
+                  <ProjectCard
+                    title={project.title}
+                    description={project.summary}
+                    imageUrl={project.imageUrl}
+                    technologies={project.technologies}
+                    githubUrl={project.sourceCode}
+                    liveUrl={project.liveDemo}
+                    isFeatured={project.isFeatured}
+                  />
+                </Link>
+              ) : (
+                <div key={project.id}>
+                  <ProjectCard
+                    title={project.title}
+                    description={project.summary}
+                    imageUrl={project.imageUrl}
+                    technologies={project.technologies}
+                    githubUrl={project.sourceCode}
+                    liveUrl={project.liveDemo}
+                    isFeatured={project.isFeatured}
+                  />
+                </div>
+              )
             ))}
           </div>
         </div>
