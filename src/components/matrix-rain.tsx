@@ -74,7 +74,7 @@ export function MatrixRain() {
         className="absolute inset-0 z-0 h-full w-full opacity-60"
       />
       <span className="relative z-10 font-mono text-xs font-bold text-white tracking-widest drop-shadow-[0_0_8px_rgba(0,255,0,0.8)] group-hover:text-green-400">
-        MATRIX
+        
       </span>
     </a>
   )

@@ -101,8 +101,8 @@ export default function RootLayout({
           </Suspense>
         </ThemeProvider>
           </AnimatedDotBackground>
+          <Analytics />
       </body>
-      <Analytics />
     </html>
   );
 }
