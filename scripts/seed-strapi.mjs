@@ -140,6 +140,21 @@ function parseBoolean(raw) {
   return /^true$/i.test(raw.trim());
 }
 
+function normalizeDate(raw) {
+  const trimmed = stripQuotes(raw).trim();
+  if (!trimmed) {
+    return trimmed;
+  }
+
+  const match = trimmed.match(/^(\d{4})-(\d{1,2})-(\d{1,2})$/);
+  if (match) {
+    const [, year, month, day] = match;
+    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+  }
+
+  return trimmed;
+}
+
 async function loadPosts() {
   const files = (await walk(CONTENT_DIR)).filter((file) => file.endsWith(".mdx"));
 
@@ -151,7 +166,7 @@ async function loadPosts() {
       return {
         slug: path.relative(CONTENT_DIR, file).replace(/\\/g, "/").replace(/\.mdx$/, ""),
         title: stripQuotes(getFrontmatterValue(frontmatter, "title")),
-        date: stripQuotes(getFrontmatterValue(frontmatter, "date")),
+        date: normalizeDate(getFrontmatterValue(frontmatter, "date")),
         summary: stripQuotes(getFrontmatterValue(frontmatter, "summary")),
         tags: parseTags(getFrontmatterValue(frontmatter, "tags")),
         draft: parseBoolean(getFrontmatterValue(frontmatter, "draft") || "false"),
