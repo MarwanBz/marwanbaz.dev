@@ -73,7 +73,8 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
       ) : (
         cardContent
       )}
-      <div className="px-4 pb-4 flex gap-4">
+      {(githubUrl || liveUrl) && (
+        <div className="px-4 pb-4 flex gap-4">
           {githubUrl && (
             <motion.a
               href={githubUrl}
@@ -99,6 +100,7 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
             </motion.a>
           )}
         </div>
+      )}
       </ShineBorder >
     </CustomCard>
    
