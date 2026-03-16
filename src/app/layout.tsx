@@ -1,25 +1,14 @@
 import "./globals.css";
 
-import { Geist, Geist_Mono } from "next/font/google";
-
 import { Analytics } from "@vercel/analytics/react"
 import { AnimatedDotBackground } from "@/components/animated-dot-background";
 import { StructuredData } from "@/components/structured-data";
 import Loading from "./loading";
+import { SITE_URL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
 import Navbar from "@/components/navbar";
 import { Suspense } from "react";
 import { ThemeProvider } from "next-themes";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: {
@@ -28,13 +17,13 @@ export const metadata: Metadata = {
   },
   description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies. Software builder passionate about creating beautiful, performant web interfaces.",
   keywords: ["Frontend Developer", "Product Engineer", "React", "Next.js", "TypeScript", "Software Builder", "Web Development", "Linux", "Techie", "Software Wizard"],
-  authors: [{ name: "Marwan Baz", url: "https://marwanbaz.dev" }],
+  authors: [{ name: "Marwan Baz", url: SITE_URL }],
   creator: "Marwan Baz",
-  metadataBase: new URL("https://marwanbaz.dev"),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://marwanbaz.dev",
+    url: SITE_URL,
     title: "Marwan Baz | Frontend Developer & Product Engineer",
     description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies. Software builder passionate about creating beautiful, performant web interfaces.",
     siteName: "Marwan Baz Portfolio"
@@ -82,9 +71,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Marwan Baz" />
         <StructuredData />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased relative min-h-screen`}
-      >
+      <body className="font-sans antialiased relative min-h-screen">
         <AnimatedDotBackground className="min-h-screen">
         <ThemeProvider
           attribute="class"
