@@ -9,8 +9,6 @@ interface EmailCardProps {
 }
 
 export function EmailCard({ email }: EmailCardProps) {
-  console.log(email);
-
   return (
     <CustomCard
       className="p-8 border-none"
@@ -28,4 +26,3 @@ export function EmailCard({ email }: EmailCardProps) {
     </CustomCard>
   )
 }
-
