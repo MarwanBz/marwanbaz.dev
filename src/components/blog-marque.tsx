@@ -12,8 +12,12 @@ import type { CmsPost } from "@/lib/cms/types"
 export function BlogComponent({ posts }: { posts: CmsPost[] }) {
   const [isHovered, setIsHovered] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const shouldLoopPosts = posts.length > 1
+  const renderedPosts = shouldLoopPosts ? [...posts, ...posts] : posts
 
   useEffect(() => {
+    if (!shouldLoopPosts) return
+
     const scrollElement = scrollRef.current
     if (!scrollElement) return
 
@@ -33,7 +37,7 @@ export function BlogComponent({ posts }: { posts: CmsPost[] }) {
     animationId = requestAnimationFrame(scroll)
 
     return () => cancelAnimationFrame(animationId)
-  }, [isHovered])
+  }, [isHovered, shouldLoopPosts])
 
   return (
     <CustomCard
@@ -53,7 +57,7 @@ export function BlogComponent({ posts }: { posts: CmsPost[] }) {
       </div>
       <div className="relative overflow-hidden">
         <div ref={scrollRef} className="flex items-center gap-6 py-2 overflow-x-hidden">
-          {[...posts, ...posts].map((post, index) => (
+          {renderedPosts.map((post, index) => (
             <Link key={`${post.slug}-${index}`} href={post.url} className="group flex-shrink-0">
               <Card className="w-80 overflow-hidden rounded-2xl border border-blue-500/20  transition-all  group-hover:shadow-lg group-hover:scale-[1.02]">
                 <div className="p-4">
