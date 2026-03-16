@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "seed:strapi": "node ./scripts/seed-strapi.mjs",
+    "seed:strapi": "tsx ./scripts/seed-strapi.mjs",
     "cms:dev": "npm --prefix cms run develop",
     "cms:build": "npm --prefix cms run build",
     "cms:start": "npm --prefix cms run start"
@@ -50,6 +50,7 @@
     "eslint": "^9",
     "eslint-config-next": "15.1.0",
     "postcss": "^8",
+    "tsx": "^4.20.6",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
