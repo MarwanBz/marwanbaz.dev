@@ -1,24 +1,17 @@
-import { allPosts } from 'contentlayer/generated'
-import { format, parseISO } from 'date-fns'
-import { useMDXComponent } from 'next-contentlayer2/hooks'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import Image, { ImageProps } from 'next/image'
 import type { Metadata } from 'next'
 import { ArrowLeft } from 'lucide-react'
-import { MatrixRain } from '@/components/matrix-rain'
-
-export async function generateStaticParams() {
-  return allPosts
-    .filter((post) => !post.draft)
-    .map((post) => ({ slug: post.slug }))
-}
+import { RemoteMdx } from '@/components/remote-mdx'
+import { getPostBySlug } from '@/lib/cms/strapi'
+import { formatDateLabel } from '@/lib/date'
+import { absoluteUrl } from '@/lib/site'
 
 export async function generateMetadata(
   props: { params: Promise<{ slug: string }> }
 ): Promise<Metadata | undefined> {
   const params = await props.params
-  const post = allPosts.find((p) => p.slug === params.slug)
+  const post = await getPostBySlug(params.slug)
   if (!post) return
 
   return {
@@ -29,40 +22,32 @@ export async function generateMetadata(
       description: post.summary,
       type: 'article',
       publishedTime: post.date,
-      url: `https://marwanbaz.dev/blog/${post.slug}`,
+      url: absoluteUrl(`/blog/${post.slug}`),
+      images: post.coverImage
+        ? [
+            {
+              url: absoluteUrl(post.coverImage),
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.summary,
+      images: post.coverImage ? [absoluteUrl(post.coverImage)] : [],
     },
   }
-}
-
-const components = {
-  MatrixRain,
-  img: (props: ImageProps) => (
-    <Image
-      sizes="100vw"
-      style={{ width: '100%', height: 'auto' }}
-      width={1200}
-      height={630}
-      {...props}
-      alt={props.alt || ''}
-    />
-  ),
-}
-
-function MDXContent({ code }: { code: string }) {
-  const Component = useMDXComponent(code)
-  return <Component components={components} />
 }
 
 export default async function BlogPostPage(
   props: { params: Promise<{ slug: string }> }
 ) {
   const params = await props.params
-  const post = allPosts.find((p) => p.slug === params.slug)
+  const post = await getPostBySlug(params.slug)
 
   if (!post) {
     notFound()
@@ -85,7 +70,7 @@ export default async function BlogPostPage(
           </h1>
           <div className="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
             <time dateTime={post.date}>
-              {format(parseISO(post.date), 'MMMM d, yyyy')}
+              {formatDateLabel(post.date)}
             </time>
             <span>·</span>
             <span>{post.readingTime.text}</span>
@@ -105,7 +90,7 @@ export default async function BlogPostPage(
         </header>
 
         <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:rounded prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-pre:rounded-xl prose-pre:border prose-pre:border-border/50 prose-img:rounded-xl">
-          <MDXContent code={post.body.code} />
+          <RemoteMdx source={post.bodyMdx} />
         </div>
       </article>
     </main>

@@ -5,6 +5,7 @@ import { ExternalLink, Github } from 'lucide-react'
 import { Badge } from "@/components/ui/badge"
 import { CustomCard } from "./custom-card"
 import Image from 'next/image'
+import Link from 'next/link'
 import { ShineBorder } from './border-shine'
 import { motion } from "framer-motion"
 
@@ -16,17 +17,19 @@ interface ProjectCardProps {
   githubUrl?: string
   liveUrl?: string
   isFeatured?: boolean
+  projectUrl?: string
 }
 
-export function ProjectCard({ title, description, imageUrl, technologies, githubUrl, liveUrl, isFeatured }: ProjectCardProps) {
-  return (
-    
-    <CustomCard className="flex flex-col overflow-hidden group " showing={false}>
-      <ShineBorder className='' duration={50} borderWidth={3} borderRadius={16} color={['#808080', '#000000', '#FFFFFF', '#808080']}>
+export function ProjectCard({ title, description, imageUrl, technologies, githubUrl, liveUrl, isFeatured, projectUrl }: ProjectCardProps) {
+  const cardContent = (
+    <>
       <div className="relative h-48 w-full overflow-hidden">
-        <div className="absolute inset-0 transition-transform duration-[3s] ease-in-out group-hover:-translate-y-[calc(100%-192px)]">
+        <div
+          className="absolute inset-0 transition-transform ease-in-out group-hover:-translate-y-[calc(100%-192px)]"
+          style={{ transitionDuration: "3000ms" }}
+        >
           <Image
-            src={imageUrl}
+            src={imageUrl || "/placeholder.svg"}
             alt={title}
             width={800}
             height={1200}
@@ -48,14 +51,30 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
           )}
         </div>
         <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 flex-grow">{description}</p>
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2">
           {technologies.map((tech, index) => (
             <Badge key={index} variant="secondary" className="text-xs">
               {tech}
             </Badge>
           ))}
         </div>
-        <div className="flex gap-4">
+      </div>
+    </>
+  )
+
+  return (
+    
+    <CustomCard className="flex flex-col overflow-hidden group " showing={false}>
+      <ShineBorder className='' duration={50} borderWidth={3} borderRadius={16} color={['#808080', '#000000', '#FFFFFF', '#808080']}>
+      {projectUrl ? (
+        <Link href={projectUrl} className="block">
+          {cardContent}
+        </Link>
+      ) : (
+        cardContent
+      )}
+      {(githubUrl || liveUrl) && (
+        <div className="px-4 pb-4 flex gap-4">
           {githubUrl && (
             <motion.a
               href={githubUrl}
@@ -81,7 +100,7 @@ export function ProjectCard({ title, description, imageUrl, technologies, github
             </motion.a>
           )}
         </div>
-      </div>
+      )}
       </ShineBorder >
     </CustomCard>
    

@@ -1,6 +1,5 @@
-import { marwanData } from '@/data'
-
-const BASE_URL = 'https://marwanbaz.dev'
+import { profileData } from '@/data'
+import { SITE_URL, absoluteUrl } from '@/lib/site'
 
 const personSchema = {
   '@context': 'https://schema.org',
@@ -8,15 +7,15 @@ const personSchema = {
   name: 'Marwan Baz',
   alternateName: 'Marwan Bazghifan',
   jobTitle: 'Frontend Developer & Product Engineer',
-  url: BASE_URL,
-  image: `${BASE_URL}${marwanData.imageUrl}`,
-  email: marwanData.email,
+  url: SITE_URL,
+  image: absoluteUrl(profileData.imageUrl),
+  email: profileData.email,
   sameAs: [
-    marwanData.githubUrl,
-    marwanData.linkedinUrl,
+    profileData.githubUrl,
+    profileData.linkedinUrl,
   ],
-  knowsAbout: marwanData.skills,
-  description: marwanData.description,
+  knowsAbout: profileData.skills,
+  description: profileData.description,
 }
 
 export function StructuredData() {

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_screenshots",
+  "info": {
+    "displayName": "screenshot"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text",
+      "required": true
+    },
+    "caption": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

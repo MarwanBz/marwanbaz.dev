@@ -1,17 +1,17 @@
 import { ImageResponse } from 'next/og'
-import { projects } from '@/data'
+import { getProjectBySlug } from '@/lib/cms/strapi'
 
 export const alt = 'Project'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
 interface Props {
-  params: Promise<{ id: string }>
+  params: Promise<{ slug: string }>
 }
 
 export default async function Image({ params }: Props) {
-  const { id } = await params
-  const project = projects.find(p => p.id === parseInt(id))
+  const { slug } = await params
+  const project = await getProjectBySlug(slug)
 
   const summary = project?.summary || ''
   const truncatedSummary = summary.length > 100 ? summary.slice(0, 100) + '...' : summary

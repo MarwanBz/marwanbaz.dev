@@ -1,5 +1,8 @@
 import { WorkClient } from './work-client'
+import { getProjects } from '@/lib/cms/strapi'
 import { createPageMetadata } from '@/lib/seo'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata = createPageMetadata({
   title: 'Work | Projects Portfolio',
@@ -7,6 +10,8 @@ export const metadata = createPageMetadata({
   path: '/work',
 })
 
-export default function WorkPage() {
-  return <WorkClient />
+export default async function WorkPage() {
+  const projects = await getProjects()
+
+  return <WorkClient projects={projects} />
 }
