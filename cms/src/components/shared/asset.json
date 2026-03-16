@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_assets",
+  "info": {
+    "displayName": "asset"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

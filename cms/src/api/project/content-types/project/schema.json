@@ -1,0 +1,118 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "Project"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "isFeatured": {
+      "type": "boolean",
+      "default": false
+    },
+    "summary": {
+      "type": "text",
+      "required": true
+    },
+    "image": {
+      "type": "text",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "web",
+        "mobile"
+      ],
+      "required": true
+    },
+    "liveDemo": {
+      "type": "text"
+    },
+    "sourceCode": {
+      "type": "text"
+    },
+    "purpose": {
+      "type": "text",
+      "required": true
+    },
+    "expectedOutcome": {
+      "type": "text",
+      "required": true
+    },
+    "frameworkExperience": {
+      "type": "text"
+    },
+    "accessibilityLearnings": {
+      "type": "text"
+    },
+    "impact": {
+      "type": "text",
+      "required": true
+    },
+    "coreFunctionalities": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet"
+    },
+    "technologies": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet"
+    },
+    "technicalChallenges": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet"
+    },
+    "solutions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet"
+    },
+    "lessonsLearned": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bullet"
+    },
+    "initialDesigns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.asset"
+    },
+    "spotlightFeature": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.spotlight-feature"
+    },
+    "currentStatus": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.current-status"
+    },
+    "screenshots": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.screenshot"
+    }
+  }
+}
