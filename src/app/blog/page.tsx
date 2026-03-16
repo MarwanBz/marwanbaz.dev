@@ -1,17 +1,17 @@
-import { allPosts } from 'contentlayer/generated'
-import { format, parseISO } from 'date-fns'
+import { getPosts } from '@/lib/cms/strapi'
+import { formatDateLabel } from '@/lib/date'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Blog',
   description: 'Read my latest thoughts on web development, React, Next.js, and more.',
 }
 
-export default function BlogPage() {
-  const posts = allPosts
-    .filter((post) => !post.draft)
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+export default async function BlogPage() {
+  const posts = await getPosts()
 
   return (
     <main className="container mx-auto max-w-4xl px-4 pb-24 pt-36">
@@ -29,7 +29,7 @@ export default function BlogPage() {
               <div className="rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-border hover:bg-accent/30 hover:shadow-lg">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <time dateTime={post.date}>
-                    {format(parseISO(post.date), 'MMMM d, yyyy')}
+                    {formatDateLabel(post.date)}
                   </time>
                   <span>·</span>
                   <span>{post.readingTime.text}</span>

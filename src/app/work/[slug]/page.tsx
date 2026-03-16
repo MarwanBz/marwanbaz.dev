@@ -1,10 +1,9 @@
 import { notFound } from 'next/navigation'
 import { ProjectShowcase } from '@/components/project-showcase'
 import { ProjectStructuredData } from '@/components/project-structured-data'
-import { projects } from '@/data'
+import { getProjectBySlug } from '@/lib/cms/strapi'
+import { absoluteUrl } from '@/lib/site'
 import type { Metadata } from 'next'
-
-const siteUrl = 'https://marwanbaz.dev'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -12,8 +11,7 @@ interface Props {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  const decodedSlug = decodeURIComponent(slug)
-  const project = projects.find(p => p.slug === decodedSlug)
+  const project = await getProjectBySlug(slug)
 
   if (!project) return {}
 
@@ -23,39 +21,34 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${project.title} | Project Case Study`,
       description: project.summary,
-      url: `${siteUrl}/work/${slug}`,
+      url: absoluteUrl(`/work/${project.slug}`),
       siteName: 'Marwan Baz Portfolio',
-      images: [
-        {
-          url: `${siteUrl}${project.imageUrl}`,
-          width: 1200,
-          height: 630,
-          alt: project.title,
-        },
-      ],
+      images: project.imageUrl
+        ? [
+            {
+              url: absoluteUrl(project.imageUrl),
+              width: 1200,
+              height: 630,
+              alt: project.title,
+            },
+          ]
+        : [],
     },
     twitter: {
       card: 'summary_large_image',
       title: `${project.title} | Project Case Study`,
       description: project.summary,
-      images: [`${siteUrl}${project.imageUrl}`],
+      images: project.imageUrl ? [absoluteUrl(project.imageUrl)] : [],
     },
     alternates: {
-      canonical: `${siteUrl}/work/${slug}`,
+      canonical: absoluteUrl(`/work/${project.slug}`),
     },
   }
 }
 
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }))
-}
-
 export default async function ProjectDetailPage({ params }: Props) {
   const { slug } = await params
-  const decodedSlug = decodeURIComponent(slug)
-  const project = projects.find(p => p.slug === decodedSlug)
+  const project = await getProjectBySlug(slug)
 
   if (!project) {
     notFound()
@@ -64,7 +57,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <>
       <ProjectStructuredData project={project} />
-      <ProjectShowcase {...project} />
+      <ProjectShowcase project={project} />
     </>
   )
 }

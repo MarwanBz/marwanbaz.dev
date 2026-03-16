@@ -1,130 +1,27 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { Calendar, Clock, ExternalLink } from "lucide-react"
 import { useEffect, useRef, useState } from "react"
-
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
 import { CustomCard } from "./custom-card"
 import Link from "next/link"
+import { formatDateLabel } from "@/lib/date"
+import type { CmsPost } from "@/lib/cms/types"
 
-interface RSSItem {
-  title: string;
-  link: string;
-  description: string;
-  pubDate: string;
-  category: string;
-}
-
-interface BlogPost {
-  title: string
-  date: string
-  readTime: string
-  href: string
-  tags: string[]
-}
-
-// function to parse RSS => "Really Simple Syndication" XML data 
-async function parseRSSFeed(xml: string): Promise<BlogPost[]> {
-  const parser = new DOMParser();
-  const xmlDoc = parser.parseFromString(xml, "text/xml");
-  const items = xmlDoc.querySelectorAll("item")
-
-  return Array.from(items).map(item => {
-    // get all category tags for this item 
-    const categories = Array.from(item.getElementsByTagName("category")).map(
-      cat => cat.textContent || ""
-    ).filter(Boolean)
-
-    // estimate time to read calculation
-    const description = item.querySelector("description")?.textContent || ""
-    const wordCount = description.split(/\s/).length
-    const readTimeMinutes = Math.max(1, Math.ceil(wordCount / 200))
-    
-    return {
-      title: item.querySelector("title")?.textContent || "",
-      date: new Date(item.querySelector("pubDate")?.textContent || "").toISOString().split("T")[0],
-      readTime: `${readTimeMinutes} min read`,
-      href: item.querySelector("link")?.textContent || "",
-      tags: categories.slice(0,3) //3 tags
-    }
-  })
-}
-
-// function to fetch RSS feed 
-async function fetchBlogPosts(): Promise<BlogPost[]> {
-  try {
-    const response = await fetch("https://blog.marwanbaz.dev/feed.xml")
-    if (!response.ok) {
-      throw new Error("Failed to fetch RSS feed")
-    }
-
-    const xmlText = await response.text()
-    return await parseRSSFeed(xmlText)
-  } catch (error) {
-    console.log("error couldn't'fetch RSS feed",error);
-    return []
-  }
-}
-
-// const latestPosts: BlogPost[] = [
-//   {
-//     title: "Building Modern Web Applications",
-//     date: "2023-12-30",
-//     readTime: "5 min read",
-//     href: "#",
-//     tags: ["Web Dev", "React", "Next.js"],
-//   },
-//   {
-//     title: "The Future of Web Development",
-//     date: "2023-12-28",
-//     readTime: "7 min read",
-//     href: "#",
-//     tags: ["Trends", "AI", "WebAssembly"],
-//   },
-//   {
-//     title: "Mastering React Patterns",
-//     date: "2023-12-25",
-//     readTime: "6 min read",
-//     href: "#",
-//     tags: ["React", "Patterns", "Performance"],
-//   },
-// ]
-
-export function BlogComponent() {
-  
-  const [posts, setPosts] = useState<BlogPost[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+export function BlogComponent({ posts }: { posts: CmsPost[] }) {
   const [isHovered, setIsHovered] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
-  // const animationRef = useRef<number>()
-
-  useEffect(() => {
-    const loadPosts = async () => {
-      try {
-        setIsLoading(true)
-        const fetchedPosts = await fetchBlogPosts()
-        setPosts(fetchedPosts)
-      } catch (err) {
-        setError('Failed to load blog posts')
-        console.error(err)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    loadPosts()
-  }, [])
   const scrollRef = useRef<HTMLDivElement>(null)
+  const shouldLoopPosts = posts.length > 1
+  const renderedPosts = shouldLoopPosts ? [...posts, ...posts] : posts
 
   useEffect(() => {
+    if (!shouldLoopPosts) return
+
     const scrollElement = scrollRef.current
     if (!scrollElement) return
 
     const scrollWidth = scrollElement.scrollWidth
-    const clientWidth = scrollElement.clientWidth
 
     let animationId: number
 
@@ -140,7 +37,7 @@ export function BlogComponent() {
     animationId = requestAnimationFrame(scroll)
 
     return () => cancelAnimationFrame(animationId)
-  }, [isHovered])
+  }, [isHovered, shouldLoopPosts])
 
   return (
     <CustomCard
@@ -151,10 +48,8 @@ export function BlogComponent() {
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-2xl font-semibold ">Latest Articles</h2>
         <Link
-          href="https://blog.marwanbaz.dev"
+          href="/blog"
           className="group flex items-center text-sm hover:underline"
-          target="_blank"
-          rel="noopener noreferrer"
         >
           Visit Blog
           <ExternalLink className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -162,18 +57,18 @@ export function BlogComponent() {
       </div>
       <div className="relative overflow-hidden">
         <div ref={scrollRef} className="flex items-center gap-6 py-2 overflow-x-hidden">
-          {[...posts, ...posts].map((post, index) => (
-            <Link key={index} href={post.href} target="_blank" rel="noopener noreferrer" className="group flex-shrink-0">
+          {renderedPosts.map((post, index) => (
+            <Link key={`${post.slug}-${index}`} href={post.url} className="group flex-shrink-0">
               <Card className="w-80 overflow-hidden rounded-2xl border border-blue-500/20  transition-all  group-hover:shadow-lg group-hover:scale-[1.02]">
                 <div className="p-4">
                   <div className="mb-2 flex items-center justify-between text-sm text-gray-400">
                     <div className="flex items-center">
                       <Calendar className="mr-1 h-4 w-4" />
-                      {post.date}
+                      {formatDateLabel(post.date, "MMM d, yyyy")}
                     </div>
                     <div className="flex items-center">
                       <Clock className="mr-1 h-4 w-4" />
-                      {post.readTime}
+                      {post.readingTime.text}
                     </div>
                   </div>
                   <h3 className="mb-2 text-lg font-semibold   line-clamp-2">
@@ -192,8 +87,12 @@ export function BlogComponent() {
             </Link>
           ))}
         </div>
+        {posts.length === 0 && (
+          <p className="py-6 text-sm text-muted-foreground">
+            No posts published yet.
+          </p>
+        )}
       </div>
     </CustomCard>
   )
 }
-

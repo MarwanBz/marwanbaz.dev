@@ -1,9 +1,8 @@
-import type { Project } from '@/data'
-
-const BASE_URL = 'https://marwanbaz.dev'
+import type { CmsProject } from '@/lib/cms/types'
+import { absoluteUrl } from '@/lib/site'
 
 interface ProjectStructuredDataProps {
-  project: Project
+  project: CmsProject
 }
 
 export function ProjectStructuredData({ project }: ProjectStructuredDataProps) {
@@ -12,8 +11,8 @@ export function ProjectStructuredData({ project }: ProjectStructuredDataProps) {
     '@type': 'CreativeWork' as const,
     name: project.title,
     description: project.summary,
-    image: `${BASE_URL}${project.imageUrl}`,
-    url: `${BASE_URL}/work/${project.id}`,
+    image: project.imageUrl ? absoluteUrl(project.imageUrl) : undefined,
+    url: absoluteUrl(`/work/${project.slug}`),
     author: {
       '@type': 'Person' as const,
       name: 'Marwan Baz',

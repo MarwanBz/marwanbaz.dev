@@ -2,60 +2,32 @@ import { ExternalLink, Github } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import type { CmsProject } from "@/lib/cms/types"
 import Image from "next/image"
 
-interface ProjectShowcaseProps {
-  title: string
-  summary: string
-  coreFunctionalities: string[]
-  role: string
-  technologies: string[]
-  liveDemo?: string
-  sourceCode?: string
-  purpose: string
-  expectedOutcome: string
-  initialDesigns: string[]
-  spotlightFeature: {
-    title: string
-    description: string
-  }
-  technicalChallenges: string[]
-  solutions: string[]
-  currentStatus?: {
-    users: string
-    feedback: string
-  }
-  lessonsLearned: string[]
-  frameworkExperience?: string
-  accessibilityLearnings?: string
-  impact: string
-  screenshots: {
-    url: string
-    caption: string
-  }[]
-}
+export function ProjectShowcase({ project }: { project: CmsProject }) {
+  const {
+    title,
+    summary,
+    coreFunctionalities,
+    role,
+    technologies,
+    liveDemo,
+    sourceCode,
+    purpose,
+    expectedOutcome,
+    initialDesigns,
+    spotlightFeature,
+    technicalChallenges,
+    solutions,
+    currentStatus,
+    lessonsLearned,
+    frameworkExperience,
+    accessibilityLearnings,
+    impact,
+    screenshots,
+  } = project
 
-export function ProjectShowcase({
-  title,
-  summary,
-  coreFunctionalities,
-  role,
-  technologies,
-  liveDemo,
-  sourceCode,
-  purpose,
-  expectedOutcome,
-  initialDesigns,
-  spotlightFeature,
-  technicalChallenges,
-  solutions,
-  currentStatus,
-  lessonsLearned,
-  frameworkExperience,
-  accessibilityLearnings,
-  impact,
-  screenshots,
-}: ProjectShowcaseProps) {
   return (
     <article className="max-w-4xl mx-auto space-y-8 p-6 pt-40 md:pt-48">
       <header className="text-center">
@@ -193,4 +165,3 @@ export function ProjectShowcase({
     </article>
   )
 }
-

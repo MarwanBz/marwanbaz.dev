@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_current_statuses",
+  "info": {
+    "displayName": "current-status"
+  },
+  "options": {},
+  "attributes": {
+    "users": {
+      "type": "string",
+      "required": true
+    },
+    "feedback": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

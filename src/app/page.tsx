@@ -1,17 +1,18 @@
 import { CVCard } from "@/components/cv-card"
+import { BlogComponent } from "@/components/blog-marque"
 import { ConnectSection } from "@/components/connect-section-card"
 import { EmailCard } from "@/components/email-card"
 import { ExperienceSection } from "@/components/experiance-card"
 import { GitHubLink } from "@/components/github-card"
 import Hero from "@/components/hero"
 import { HomeLoaderWrapper } from "@/components/home-loader-wrapper"
-import Link from "next/link"
 import { LinkedInLink } from "@/components/linkedin-card"
 import type { Metadata } from 'next'
 import { ProfileInfo } from "@/components/profile-info"
 // import { ProfileInfo } from "@/components/profile-card"
 import { ProjectCard } from "@/components/project-card"
 import { profileData } from "@/data"
+import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/strapi"
 
 export const metadata: Metadata = {
   title: "Marwan Baz - Web Engineer  | Next.js & React ",
@@ -23,7 +24,12 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Home() {
+export default async function Home() {
+  const [featuredProjects, latestPosts] = await Promise.all([
+    getFeaturedProjects(6),
+    getLatestPosts(6),
+  ])
+
   return (
     <HomeLoaderWrapper>
       <main className="container mx-auto px-4 py-8 space-y-12">
@@ -54,60 +60,22 @@ export default function Home() {
           <ConnectSection />
           <ExperienceSection experiences={profileData.experiences} />
         </div>
-        {/* blog section  */}
-         {/* <BlogComponent />  */}
+        <BlogComponent posts={latestPosts} />
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/work/leapat-web-app">
+          {featuredProjects.map((project) => (
             <ProjectCard
-              title="Leapat Web App"
-              isFeatured={true}
-              description="Youth-led tech initiative aimed at creating digital transformation in culture, art, education, economy, and more."
-              imageUrl="/assets/leapat.png"
-              technologies={["NextJs","Shadcn", "Tailwind CSS", "Supabase"]}
-              githubUrl="https://github.com/leapat-mukalla/leapat/"
-              liveUrl="https://leapat.org"
+              key={project.id}
+              title={project.title}
+              isFeatured={project.isFeatured}
+              description={project.summary}
+              imageUrl={project.imageUrl}
+              technologies={project.technologies}
+              githubUrl={project.sourceCode || undefined}
+              liveUrl={project.liveDemo || undefined}
+              projectUrl={`/work/${project.slug}`}
             />
-          </Link>
-          <Link href="/work/deemat-mobile-app">
-            <ProjectCard
-              title="Deemat Mobile App"
-              isFeatured={true}
-              description="Mobile application for children and parents, offering audio stories and visual stories. Includes comprehensive admin dashboard."
-              imageUrl="/assets/deemat1.jpg"
-              technologies={["NextJS", "NextUI", "React Native", "Expo", "i18Next", "NodeJS", "ExpressJS", "PrismaORM", "PostgreSQL"]}
-              liveUrl="https://apps.apple.com/in/app/deemat-%D8%AF%D9%8A%D9%85%D8%A7%D8%AA/id6467549633"
-            />
-          </Link>
-          <Link href="/work/mis-pay-web-app">
-            <ProjectCard
-              title="MIS Pay Web App"
-              isFeatured={true}
-              description="Website showcasing MISpay's 'Shop Now, Pay Later' service, featured stores, and merchant solutions."
-              imageUrl="/assets/misPay.png"
-              technologies={["NextJS", "Tailwind CSS", "Shadcn", "i18Next", "TypeScript"]}
-            />
-          </Link>
-          <Link href="/work/tawreed-plus">
-            <ProjectCard
-              title="Tawreed Plus"
-              isFeatured={true}
-              description="B2B e-commerce supply chain platform with bilingual AR/EN support, product catalog, cart, Tawreed Extra+ membership tier, and Google Maps integration."
-              imageUrl="/assets/tawreedplus.png"
-              technologies={["Next.js 15", "TypeScript", "Tailwind CSS v4", "TanStack Query", "next-intl", "Framer Motion", "Google Maps API"]}
-              liveUrl="https://www.tawreedplus.com/en"
-            />
-          </Link>
-          <Link href="/work/basma-maintenance-management-system">
-            <ProjectCard
-              title="Basma — Maintenance Management System"
-              isFeatured={true}
-              description="Full-stack system for managing maintenance requests, with an Express.js API, Next.js admin dashboard, and Expo mobile app."
-              imageUrl="/assets/basma.png"
-              technologies={["Express.js", "Prisma", "PostgreSQL", "Next.js", "Expo", "AWS S3", "Firebase"]}
-              liveUrl="https://basma-admin-dashboard.vercel.app/login"
-            />
-          </Link>
+          ))}
         </div>
       </main>
     </HomeLoaderWrapper>

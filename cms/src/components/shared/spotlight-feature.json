@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_spotlight_features",
+  "info": {
+    "displayName": "spotlight-feature"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

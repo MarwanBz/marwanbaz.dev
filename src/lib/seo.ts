@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
-
-const siteUrl = 'https://marwanbaz.dev'
+import { SITE_URL } from './site'
 
 export const baseMetadata = {
   title: {
@@ -9,13 +8,13 @@ export const baseMetadata = {
   },
   description: 'Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies. Software builder passionate about creating beautiful, performant web interfaces.',
   keywords: ['Frontend Developer', 'Product Engineer', 'React', 'Next.js', 'TypeScript', 'Software Builder', 'Web Development', 'Linux', 'Techie'],
-  authors: [{ name: 'Marwan Baz', url: siteUrl }],
+  authors: [{ name: 'Marwan Baz', url: SITE_URL }],
   creator: 'Marwan Baz',
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: siteUrl,
+    url: SITE_URL,
     siteName: 'Marwan Baz Portfolio',
   },
   twitter: {
@@ -31,7 +30,7 @@ export function createPageMetadata(config: {
   ogImage?: string
 }): Metadata {
   const { title, description, path, ogImage } = config
-  const url = path ? `${siteUrl}${path}` : siteUrl
+  const url = path ? `${SITE_URL}${path}` : SITE_URL
 
   return {
     ...baseMetadata,
