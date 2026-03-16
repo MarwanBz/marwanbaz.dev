@@ -1,3 +1,4 @@
+import { timingSafeEqual } from "node:crypto";
 import { revalidatePath, revalidateTag } from "next/cache";
 import { NextResponse } from "next/server";
 
@@ -28,9 +29,21 @@ function getProvidedSecret(request: Request) {
   return headerSecret?.trim() || "";
 }
 
+function secretsMatch(providedSecret: string, expectedSecret: string) {
+  const provided = Buffer.from(providedSecret);
+  const expected = Buffer.from(expectedSecret);
+
+  if (provided.length !== expected.length) {
+    return false;
+  }
+
+  return timingSafeEqual(provided, expected);
+}
+
 export async function POST(request: Request) {
   const expectedSecret = getExpectedSecret();
-  if (!expectedSecret || getProvidedSecret(request) !== expectedSecret) {
+  const providedSecret = getProvidedSecret(request);
+  if (!expectedSecret || !secretsMatch(providedSecret, expectedSecret)) {
     return NextResponse.json({ ok: false, error: "Unauthorized" }, { status: 401 });
   }
 
