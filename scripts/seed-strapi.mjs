@@ -1,4 +1,4 @@
-import { promises as fs } from "node:fs";
+import { existsSync, promises as fs, readFileSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
@@ -7,11 +7,50 @@ const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, "..");
 const CONTENT_DIR = path.join(ROOT_DIR, "content", "blog");
 
+function loadEnvFile(filepath) {
+  if (!existsSync(filepath)) {
+    return;
+  }
+
+  if (typeof process.loadEnvFile === "function") {
+    process.loadEnvFile(filepath);
+    return;
+  }
+
+  const source = readFileSync(filepath, "utf8");
+  for (const line of source.split(/\r?\n/)) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith("#")) {
+      continue;
+    }
+
+    const separatorIndex = trimmed.indexOf("=");
+    if (separatorIndex === -1) {
+      continue;
+    }
+
+    const key = trimmed.slice(0, separatorIndex).trim();
+    if (!key || key in process.env) {
+      continue;
+    }
+
+    let value = trimmed.slice(separatorIndex + 1).trim();
+    value = value.replace(/^['"]|['"]$/g, "");
+    process.env[key] = value;
+  }
+}
+
+loadEnvFile(path.join(ROOT_DIR, ".env.local"));
+loadEnvFile(path.join(ROOT_DIR, ".env"));
+
 const STRAPI_URL = process.env.STRAPI_URL?.trim()?.replace(/\/$/, "");
-const STRAPI_API_TOKEN = process.env.STRAPI_API_TOKEN?.trim();
+const STRAPI_API_TOKEN =
+  process.env.STRAPI_WRITE_API_TOKEN?.trim() || process.env.STRAPI_API_TOKEN?.trim();
 
 if (!STRAPI_URL || !STRAPI_API_TOKEN) {
-  console.error("Missing STRAPI_URL or STRAPI_API_TOKEN. Load your env vars and try again.");
+  console.error(
+    "Missing STRAPI_URL or STRAPI_WRITE_API_TOKEN / STRAPI_API_TOKEN. Add them to .env.local and try again."
+  );
   process.exit(1);
 }
 

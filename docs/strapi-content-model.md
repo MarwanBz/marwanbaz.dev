@@ -86,6 +86,8 @@
 
 ## Seed
 - After creating the content model, run `npm run seed:strapi`.
+- The seed script auto-loads `.env.local` from the repo root.
+- Use `STRAPI_WRITE_API_TOKEN` when you want a separate write-capable token for local seeding.
 - The seed script imports the current local MDX blog content from `content/blog` and the current project data from `src/data/index.ts`.
 - The script is idempotent by `slug`: existing entries are updated, new entries are created.
 
