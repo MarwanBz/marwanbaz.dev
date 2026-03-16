@@ -287,9 +287,11 @@ function normalizeProject(entity: unknown): CmsProject | null {
     return null;
   }
 
+  const mediaInitialDesigns = resolveMediaList(getEntityField(entity, "initialDesigns"));
   const initialDesigns =
-    resolveMediaList(getEntityField(entity, "initialDesigns")) ||
-    normalizeTextList(getEntityField(entity, "initialDesigns"));
+    mediaInitialDesigns.length > 0
+      ? mediaInitialDesigns
+      : normalizeTextList(getEntityField(entity, "initialDesigns"));
 
   const screenshots = unwrapEntityArray(getEntityField(entity, "screenshots"))
     .map(normalizeScreenshot)

@@ -19,6 +19,11 @@ export function toValidDate(value?: string | null) {
     return new Date();
   }
 
+  const parsedIso = parseISO(value);
+  if (isValid(parsedIso)) {
+    return parsedIso;
+  }
+
   const parsed = new Date(value);
   return isValid(parsed) ? parsed : new Date();
 }
