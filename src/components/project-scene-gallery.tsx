@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/dialog"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export interface ProjectScene {
   description?: string
@@ -31,6 +31,12 @@ export function ProjectSceneGallery({
   scenes: ProjectScene[]
 }) {
   const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    if (activeIndex >= scenes.length) {
+      setActiveIndex(0)
+    }
+  }, [activeIndex, scenes.length])
 
   if (scenes.length === 0) {
     return null
