@@ -14,6 +14,8 @@ import { ProjectCard } from "@/components/project-card"
 import { profileData } from "@/data"
 import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/strapi"
 
+export const dynamic = "force-dynamic"
+
 export const metadata: Metadata = {
   title: "Marwan Baz - Web Engineer  | Next.js & React ",
   description: "Explore the website of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies. View projects and learn about my skills in web development.",
