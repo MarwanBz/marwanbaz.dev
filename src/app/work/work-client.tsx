@@ -29,7 +29,9 @@ export function WorkClient({ projects }: { projects: CmsProject[] }) {
                 githubUrl={project.sourceCode || undefined}
                 liveUrl={project.liveDemo || undefined}
                 isFeatured={project.isFeatured}
-                projectUrl={`/work/${project.slug}`}
+                projectUrl={
+                  project.isFeatured ? `/work/${project.slug}` : undefined
+                }
               />
             ))}
           </div>
