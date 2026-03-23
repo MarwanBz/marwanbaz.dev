@@ -2,8 +2,82 @@ import { ExternalLink, Github } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ProjectSceneGallery, type ProjectScene } from "@/components/project-scene-gallery"
 import type { CmsProject } from "@/lib/cms/types"
-import Image from "next/image"
+
+const categoryLabels: Record<CmsProject["category"], string> = {
+  web: "Web app",
+  mobile: "Mobile app",
+}
+
+function normalizeAssetKey(url: string) {
+  return url.trim().replace(/\/+$/, "")
+}
+
+function buildScenes(project: CmsProject): ProjectScene[] {
+  const seenKeys = new Set<string>()
+  const scenes: ProjectScene[] = []
+
+  const pushScene = (scene: ProjectScene | null) => {
+    if (!scene) {
+      return
+    }
+
+    const assetKey = normalizeAssetKey(scene.url)
+    if (!assetKey || seenKeys.has(assetKey)) {
+      return
+    }
+
+    seenKeys.add(assetKey)
+    scenes.push(scene)
+  }
+
+  pushScene(
+    project.imageUrl
+      ? {
+          description: "",
+          label: "01",
+          title: "Overview",
+          url: project.imageUrl,
+        }
+      : null
+  )
+
+  project.screenshots.forEach((screenshot, index) => {
+    pushScene(
+      screenshot.url
+        ? {
+            description: screenshot.caption || "",
+            label: String(index + 2).padStart(2, "0"),
+            title: screenshot.caption || `Screen ${index + 1}`,
+            url: screenshot.url,
+          }
+        : null
+    )
+  })
+
+  return scenes
+}
+
+function CompactList({
+  items,
+}: {
+  items: string[]
+}) {
+  return (
+    <ul className="grid gap-3">
+      {items.map((item, index) => (
+        <li
+          key={`${item}-${index}`}
+          className="rounded-2xl border border-border/60 bg-background px-4 py-3 text-sm text-foreground shadow-sm"
+        >
+          {item}
+        </li>
+      ))}
+    </ul>
+  )
+}
 
 export function ProjectShowcase({ project }: { project: CmsProject }) {
   const {
@@ -12,156 +86,203 @@ export function ProjectShowcase({ project }: { project: CmsProject }) {
     coreFunctionalities,
     role,
     technologies,
+    category,
     liveDemo,
     sourceCode,
     purpose,
     expectedOutcome,
-    initialDesigns,
     spotlightFeature,
+    currentStatus,
     technicalChallenges,
     solutions,
-    currentStatus,
+    impact,
     lessonsLearned,
     frameworkExperience,
     accessibilityLearnings,
-    impact,
-    screenshots,
   } = project
 
+  const scenes = buildScenes(project)
+  const topMeta = [
+    { label: "Role", value: role },
+    { label: "Platform", value: categoryLabels[category] },
+    { label: "Status", value: currentStatus?.users || "" },
+  ].filter((item) => item.value)
+
   return (
-    <article className="max-w-4xl mx-auto space-y-8 p-6 pt-40 md:pt-48">
-      <header className="text-center">
-        <h1 className="text-4xl font-bold mb-4">{title}</h1>
-        <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">{summary}</p>
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
+    <article className="mx-auto max-w-6xl px-4 pb-24 pt-32 md:px-6 md:pt-40">
+      <header className="space-y-6">
+        <div className="space-y-4">
+          <Badge
+            variant="outline"
+            className="w-fit rounded-full border-border/80 px-3 py-1 uppercase tracking-[0.18em] text-[10px] text-muted-foreground"
+          >
+            {categoryLabels[category]}
+          </Badge>
+
+          <div className="space-y-4">
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
+              {summary}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
           {technologies.map((tech, index) => (
-            <Badge key={index} variant="secondary">
+            <Badge
+              key={`${tech}-${index}`}
+              variant="outline"
+              className="rounded-full border-border/70 bg-background px-3 py-1"
+            >
               {tech}
             </Badge>
           ))}
         </div>
-        <div className="flex justify-center gap-4">
+
+        <div className="flex flex-wrap gap-3">
           {liveDemo && (
-            <Button asChild>
+            <Button size="sm" asChild>
               <a href={liveDemo} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                <ExternalLink className="h-4 w-4" />
+                Live
               </a>
             </Button>
           )}
           {sourceCode && (
-            <Button variant="outline" asChild>
+            <Button size="sm" variant="outline" asChild>
               <a href={sourceCode} target="_blank" rel="noopener noreferrer">
-                <Github className="mr-2 h-4 w-4" /> Source Code
+                <Github className="h-4 w-4" />
+                Code
               </a>
             </Button>
           )}
         </div>
+
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {topMeta.map((item) => (
+            <div
+              key={item.label}
+              className="rounded-[24px] border border-border/70 bg-background px-5 py-4 shadow-sm"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                {item.label}
+              </p>
+              <p className="mt-2 text-sm font-medium text-foreground md:text-base">{item.value}</p>
+            </div>
+          ))}
+        </div>
       </header>
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Introduction</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          {coreFunctionalities.map((functionality, index) => (
-            <li key={index}>{functionality}</li>
-          ))}
-        </ul>
-        <p className="mt-4">
-          <strong>My Role:</strong> {role}
-        </p>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Purpose and Goal</h2>
-        <p className="mb-4">{purpose}</p>
-        <p className="mb-4">
-          <strong>Expected Outcome:</strong> {expectedOutcome}
-        </p>
-        <h3 className="text-xl font-semibold mb-2">Initial Designs</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {initialDesigns.map((design, index) => (
-            <Image
-              key={index}
-              src={design || "/placeholder.svg"}
-              alt={`Initial design ${index + 1}`}
-              width={400}
-              height={300}
-              className="rounded-lg shadow-md"
-            />
-          ))}
+      {scenes.length > 0 && (
+        <div className="mt-8">
+          <ProjectSceneGallery projectTitle={title} scenes={scenes} />
         </div>
-      </section>
-
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Spotlight Feature</h2>
-        <h3 className="text-xl font-semibold mb-2">{spotlightFeature.title}</h3>
-        <p>{spotlightFeature.description}</p>
-        <h3 className="text-xl font-semibold mt-4 mb-2">Technical Challenges</h3>
-        <ul className="list-disc pl-6 space-y-2">
-          {technicalChallenges.map((challenge, index) => (
-            <li key={index}>{challenge}</li>
-          ))}
-        </ul>
-        <h3 className="text-xl font-semibold mt-4 mb-2">Solutions</h3>
-        <ul className="list-disc pl-6 space-y-2">
-          {solutions.map((solution, index) => (
-            <li key={index}>{solution}</li>
-          ))}
-        </ul>
-      </section>
-
-      {currentStatus && (
-        <section>
-          <h2 className="text-2xl font-semibold mb-4">Current Status</h2>
-          <p>
-            <strong>Users:</strong> {currentStatus.users}
-          </p>
-          <p>
-            <strong>Feedback:</strong> {currentStatus.feedback}
-          </p>
-        </section>
       )}
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Lessons Learned</h2>
-        <ul className="list-disc pl-6 space-y-2">
-          {lessonsLearned.map((lesson, index) => (
-            <li key={index}>{lesson}</li>
-          ))}
-        </ul>
-        {frameworkExperience && (
-          <p className="mt-4">
-            <strong>Framework Experience:</strong> {frameworkExperience}
-          </p>
-        )}
-        {accessibilityLearnings && (
-          <p className="mt-4">
-            <strong>Accessibility Learnings:</strong> {accessibilityLearnings}
-          </p>
-        )}
-        <p className="mt-4">
-          <strong>Impact on Future Work:</strong> {impact}
-        </p>
-      </section>
+      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        <Card className="rounded-[28px] border-border/70 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl tracking-tight">Overview</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm leading-7 text-muted-foreground">
+            <p>{purpose}</p>
+            <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                Goal
+              </p>
+              <p className="mt-2 text-sm text-foreground">{expectedOutcome}</p>
+            </div>
+          </CardContent>
+        </Card>
 
-      <section>
-        <h2 className="text-2xl font-semibold mb-4">Project Gallery</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {screenshots.map((screenshot, index) => (
-            <figure key={index} className="space-y-2">
-              <Image
-                src={screenshot.url || "/placeholder.svg"}
-                alt={screenshot.caption}
-                width={600}
-                height={400}
-                className="rounded-lg shadow-md"
-              />
-              <figcaption className="text-sm text-center text-gray-600 dark:text-gray-400">
-                {screenshot.caption}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
+        <Card className="rounded-[28px] border-border/70 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl tracking-tight">What I Built</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {(spotlightFeature.title || spotlightFeature.description) && (
+              <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                {spotlightFeature.title && (
+                  <p className="text-sm font-medium text-foreground">{spotlightFeature.title}</p>
+                )}
+                {spotlightFeature.description && (
+                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
+                    {spotlightFeature.description}
+                  </p>
+                )}
+              </div>
+            )}
+            <CompactList items={coreFunctionalities} />
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-[28px] border-border/70 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl tracking-tight">Challenges</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CompactList items={technicalChallenges} />
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-[28px] border-border/70 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl tracking-tight">Solutions</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CompactList items={solutions} />
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-[28px] border-border/70 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl tracking-tight">Impact</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm leading-7 text-muted-foreground">
+            <p>{impact}</p>
+            {currentStatus?.feedback && (
+              <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                  Feedback
+                </p>
+                <p className="mt-2 text-sm text-foreground">{currentStatus.feedback}</p>
+              </div>
+            )}
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-[28px] border-border/70 shadow-sm">
+          <CardHeader>
+            <CardTitle className="text-2xl tracking-tight">What I Learned</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <CompactList items={lessonsLearned} />
+
+            {(frameworkExperience || accessibilityLearnings) && (
+              <div className="grid gap-4">
+                {frameworkExperience && (
+                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Framework
+                    </p>
+                    <p className="mt-2 text-sm text-foreground">{frameworkExperience}</p>
+                  </div>
+                )}
+                {accessibilityLearnings && (
+                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+                      Accessibility
+                    </p>
+                    <p className="mt-2 text-sm text-foreground">{accessibilityLearnings}</p>
+                  </div>
+                )}
+              </div>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </article>
   )
 }
