@@ -23,7 +23,8 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
   const reportHref = useMemo(() => {
     const currentUrl = typeof window === "undefined" ? "unknown" : window.location.href;
     const message = [
-      "Hi Marwan, I hit an unexpected issue on your website.",
+      "Jeez sorry for that 😅🫣",
+      "Plz report this bug to me directly.",
       "",
       `Page: ${currentUrl}`,
       `Digest: ${error.digest ?? "n/a"}`,
@@ -57,12 +58,10 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
               Global fallback active
             </div>
 
-            <h1 className="text-balance text-3xl font-semibold leading-tight text-white sm:text-4xl">
-              Something went wrong, but your session is still safe.
-            </h1>
+            <h1 className="text-balance text-3xl font-semibold leading-tight text-white sm:text-4xl">Jeez sorry for that 😅🫣</h1>
 
             <p className="mt-4 max-w-xl text-sm text-slate-300 sm:text-base">
-              This bug was unexpected. You can retry now, head back to the homepage, or send a quick report so I can fix it fast.
+              Plz report this bug to me directly. You can retry now, go back home, or send the report button below.
             </p>
 
             {error.digest ? (
@@ -95,7 +94,7 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
               >
                 <a href={reportHref} rel="noopener noreferrer" target="_blank">
                   <MessageCircleWarning className="h-4 w-4" />
-                  Report on WhatsApp
+                  Report this bug directly
                 </a>
               </Button>
             </div>
