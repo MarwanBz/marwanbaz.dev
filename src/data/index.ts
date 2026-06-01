@@ -776,7 +776,7 @@ export const marwanData: UnifiedData = {
         "React PDF",
       ],
       category: "web",
-      liveDemo: "https://www.tawreedplus.com/en",
+      liveDemo: "https://store.tawreedplus.com/",
       sourceCode: "",
       purpose:
         "Built the frontend for Tawreed Plus — a B2B supply chain marketplace for Saudi businesses. I worked across two surfaces: the customer-facing store app and the internal admin dashboard. Three languages: Arabic, English, and Urdu — with proper RTL layout for each.",
