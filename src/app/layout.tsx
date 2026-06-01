@@ -1,13 +1,8 @@
 import "./globals.css";
 
 import { Analytics } from "@vercel/analytics/react"
-import { AnimatedDotBackground } from "@/components/animated-dot-background";
-import { StructuredData } from "@/components/structured-data";
-import Loading from "./loading";
 import { SITE_URL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
-import Navbar from "@/components/navbar";
-import { Suspense } from "react";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
@@ -15,8 +10,8 @@ export const metadata: Metadata = {
     default: "Marwan Baz | Frontend Developer & Product Engineer",
     template: "%s | Marwan Baz"
   },
-  description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies. Software builder passionate about creating beautiful, performant web interfaces.",
-  keywords: ["Frontend Developer", "Product Engineer", "React", "Next.js", "TypeScript", "Software Builder", "Web Development", "Linux", "Techie", "Software Wizard"],
+  description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
+  keywords: ["Frontend Developer", "Product Engineer", "React", "Next.js", "TypeScript", "Web Development"],
   authors: [{ name: "Marwan Baz", url: SITE_URL }],
   creator: "Marwan Baz",
   metadataBase: new URL(SITE_URL),
@@ -25,28 +20,18 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     title: "Marwan Baz | Frontend Developer & Product Engineer",
-    description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies. Software builder passionate about creating beautiful, performant web interfaces.",
+    description: "Marwan Baz - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
     siteName: "Marwan Baz Portfolio"
   },
   twitter: {
     card: "summary_large_image",
     title: "Marwan Baz | Frontend Developer & Product Engineer",
-    description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
+    description: "Marwan Baz - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
     creator: "@marwanbaz"
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  other: {
-    'alternate-name': 'Marwan Bazghifan',
   },
 };
 
@@ -66,26 +51,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="apple-mobile-web-app-title" content="Marwan Baz" />
-        <StructuredData />
-      </head>
-      <body className="font-sans antialiased relative min-h-screen">
-        <AnimatedDotBackground className="min-h-screen">
+      <body className="font-sans antialiased min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-100">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          <Suspense fallback={<Loading />}>
-            {children}
-          </Suspense>
+          {children}
         </ThemeProvider>
-          </AnimatedDotBackground>
-          <Analytics />
+        <Analytics />
       </body>
     </html>
   );

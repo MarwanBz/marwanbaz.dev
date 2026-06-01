@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"  viewBox="0 0 1583 692.2">
+  <defs>
+    <linearGradient id="linear-gradient" x1="1.016" y1="0.546" x2="0" y2="0.54" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#95bae7"/>
+      <stop offset="1" stop-color="#ecaeca"/>
+    </linearGradient>
+  </defs>
+  <g id="wave-haikei" transform="translate(0 -374.983)">
+    <path id="Path_1804" data-name="Path 1804" d="M1583,600h0Z" transform="translate(0 466.183)" fill="#023"/>
+    <path id="Path_1803" data-name="Path 1803" d="M0,534.231l65.942,47.76c65.942,47.76,197.826,143.28,329.71,153.514S659.42,670.688,791.3,587.108s263.768-175.689,395.652-187.629,263.768,56.289,329.71,90.4L1582.608,524v566.3H0Z" transform="translate(0 -23.111)" opacity="0.3" fill="url(#linear-gradient)"/>
+  </g>
+</svg>
