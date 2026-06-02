@@ -252,3 +252,18 @@ var checkHeader = _.throttle(() => {
 
 // Run the checkHeader function every time you scroll
 window.addEventListener("scroll", checkHeader);
+
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    const name = contactForm.querySelector('input[name="name"]').value.trim();
+    const email = contactForm.querySelector('input[name="email"]').value.trim();
+    const message = contactForm.querySelector('input[name="message"]').value.trim();
+    const subject = encodeURIComponent("Portfolio Contact from " + (name || "Visitor"));
+    const body = encodeURIComponent(
+      "Name: " + (name || "N/A") + "\nEmail: " + (email || "N/A") + "\n\nMessage:\n" + (message || "N/A")
+    );
+    window.location.href = "mailto:marouane.bazghifan@gmail.com?subject=" + subject + "&body=" + body;
+  });
+}
