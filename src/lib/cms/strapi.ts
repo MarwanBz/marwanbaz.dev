@@ -200,6 +200,8 @@ function normalizeCurrentStatus(value: unknown): CmsCurrentStatus | null {
   return { users, feedback };
 }
 
+const CMS_REQUEST_TIMEOUT_MS = 5000;
+
 async function fetchStrapi<T>(
   pathname: string,
   searchParams: Record<string, string | number | undefined>,
@@ -227,14 +229,20 @@ async function fetchStrapi<T>(
     headers.Authorization = `Bearer ${config.apiToken}`;
   }
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), CMS_REQUEST_TIMEOUT_MS);
+
   try {
     const response = await fetch(url.toString(), {
       headers,
+      signal: controller.signal,
       next: {
         revalidate: CMS_REVALIDATE_SECONDS,
         tags,
       },
     });
+
+    clearTimeout(timeoutId);
 
     if (!response.ok) {
       console.error(`Strapi request failed: ${response.status} ${response.statusText}`, url.toString());
@@ -243,7 +251,12 @@ async function fetchStrapi<T>(
 
     return (await response.json()) as T;
   } catch (error) {
-    console.error(`Strapi request failed for ${url.toString()}`, error);
+    clearTimeout(timeoutId);
+    if (error instanceof Error && error.name === "AbortError") {
+      console.error(`Strapi request timed out after ${CMS_REQUEST_TIMEOUT_MS}ms`, url.toString());
+    } else {
+      console.error(`Strapi request failed for ${url.toString()}`, error);
+    }
     return null;
   }
 }
