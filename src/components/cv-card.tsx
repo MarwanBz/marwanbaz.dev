@@ -3,7 +3,6 @@
 import { Download, Eye } from 'lucide-react'
 
 import { CustomCard } from "./custom-card"
-import Link from 'next/link'
 import { motion } from "framer-motion"
 
 interface CVCardProps {
@@ -38,9 +37,9 @@ export function CVCard({ cvUrl,cvLink }: CVCardProps) {
               className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
               aria-label="Download CV"
             >
-                <Link href={cvUrl} download>
+                <a href={cvUrl} download aria-label="Download CV">
                 <Download height={40} width={40}/>
-              </Link>
+              </a>
             </div>
           </motion.div>
           <motion.div
@@ -52,9 +51,9 @@ export function CVCard({ cvUrl,cvLink }: CVCardProps) {
               className=" text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-transparent"
               aria-label="View CV"
             >
-              <Link href={cvLink} target="_blank" rel="noopener noreferrer">
+              <a href={cvLink} target="_blank" rel="noopener noreferrer" aria-label="View CV">
                 <Eye height={40} width={40} />
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
