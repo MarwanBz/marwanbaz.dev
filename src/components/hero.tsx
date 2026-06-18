@@ -77,7 +77,7 @@ function Hero() {
                 ))}
               </TextLoop>
             </div>
-            <p className="text-muted-foreground text-lg md:text-xl mt-4 text-center max-w-2xl">
+            <div className="text-muted-foreground text-lg md:text-xl mt-4 text-center max-w-2xl">
               <TextLoop
                 className="overflow-y-clip"
                 transition={textLoopTransition}
@@ -89,7 +89,7 @@ function Hero() {
                   </span>
                 ))}
               </TextLoop>
-            </p>
+            </div>
           </div>
           <div className="absolute bottom-14 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
             <motion.div

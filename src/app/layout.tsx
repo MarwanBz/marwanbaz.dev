@@ -3,6 +3,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/react"
 import { SITE_URL } from "@/lib/site";
 import type { Metadata, Viewport } from "next";
+import Navbar from "@/components/navbar";
 import { ThemeProvider } from "next-themes";
 
 export const metadata: Metadata = {
@@ -58,6 +59,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Navbar />
           {children}
         </ThemeProvider>
         <Analytics />
