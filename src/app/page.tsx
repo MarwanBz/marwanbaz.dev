@@ -62,10 +62,10 @@ export default async function Home() {
           <ConnectSection />
           <ExperienceSection experiences={profileData.experiences} />
         </div>
-        <BlogComponent posts={latestPosts} />
+        <BlogComponent posts={latestPosts ?? []} />
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {featuredProjects.map((project) => (
+          {(featuredProjects ?? []).map((project) => (
             <ProjectCard
               key={project.id}
               title={project.title}

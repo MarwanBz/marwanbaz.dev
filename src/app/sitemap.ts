@@ -33,13 +33,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     // Dynamic project pages
-    ...projects.map((project) => ({
+    ...(projects ?? []).map((project) => ({
       url: `${SITE_URL}/work/${project.slug}`,
       lastModified: toValidDate(project.updatedAt),
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     })),
-    ...posts.map((post) => ({
+    ...(posts ?? []).map((post) => ({
       url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: toValidDate(post.updatedAt || post.publishedAt || post.date),
       changeFrequency: 'monthly' as const,

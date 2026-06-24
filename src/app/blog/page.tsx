@@ -1,5 +1,6 @@
 import { getPosts } from '@/lib/cms/strapi'
 import { formatDateLabel } from '@/lib/date'
+import { CmsError } from '@/components/cms-error'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -12,6 +13,10 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   const posts = await getPosts()
+
+  if (posts === null) {
+    return <CmsError section="blog" />
+  }
 
   return (
     <main className="container mx-auto max-w-4xl px-4 pb-24 pt-36">

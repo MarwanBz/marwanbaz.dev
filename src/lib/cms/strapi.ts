@@ -377,7 +377,7 @@ function normalizeSingle<T>(
   return mapper(data);
 }
 
-export async function getPosts() {
+export async function getPosts(): Promise<CmsPost[] | null> {
   const payload = await fetchStrapi(
     "/api/posts",
     {
@@ -389,10 +389,14 @@ export async function getPosts() {
     [CMS_TAGS.posts, CMS_TAGS.sitemap]
   );
 
+  if (!payload) {
+    return null;
+  }
+
   return normalizeCollection(payload, normalizePost);
 }
 
-export async function getLatestPosts(limit = 6) {
+export async function getLatestPosts(limit = 6): Promise<CmsPost[] | null> {
   const payload = await fetchStrapi(
     "/api/posts",
     {
@@ -403,6 +407,10 @@ export async function getLatestPosts(limit = 6) {
     },
     [CMS_TAGS.posts, CMS_TAGS.home]
   );
+
+  if (!payload) {
+    return null;
+  }
 
   return normalizeCollection(payload, normalizePost);
 }
@@ -423,7 +431,7 @@ export async function getPostBySlug(slug: string) {
   return normalizeSingle(payload, normalizePost);
 }
 
-export async function getProjects() {
+export async function getProjects(): Promise<CmsProject[] | null> {
   const payload = await fetchStrapi(
     "/api/projects",
     {
@@ -435,10 +443,14 @@ export async function getProjects() {
     [CMS_TAGS.projects, CMS_TAGS.sitemap]
   );
 
+  if (!payload) {
+    return null;
+  }
+
   return normalizeCollection(payload, normalizeProject);
 }
 
-export async function getFeaturedProjects(limit = 6) {
+export async function getFeaturedProjects(limit = 6): Promise<CmsProject[] | null> {
   const payload = await fetchStrapi(
     "/api/projects",
     {
@@ -450,6 +462,10 @@ export async function getFeaturedProjects(limit = 6) {
     },
     [CMS_TAGS.projects, CMS_TAGS.home]
   );
+
+  if (!payload) {
+    return null;
+  }
 
   return normalizeCollection(payload, normalizeProject);
 }

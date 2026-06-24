@@ -1,4 +1,5 @@
 import { WorkClient } from './work-client'
+import { CmsError } from '@/components/cms-error'
 import { getProjects } from '@/lib/cms/strapi'
 import { createPageMetadata } from '@/lib/seo'
 
@@ -12,6 +13,10 @@ export const metadata = createPageMetadata({
 
 export default async function WorkPage() {
   const projects = await getProjects()
+
+  if (projects === null) {
+    return <CmsError section="work" />
+  }
 
   return <WorkClient projects={projects} />
 }
