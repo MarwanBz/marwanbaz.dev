@@ -10,6 +10,13 @@ import type {
   CmsScreenshot,
   CmsSpotlightFeature,
 } from "./types";
+import {
+  getFallbackFeaturedProjects,
+  getFallbackPostBySlug,
+  getFallbackPosts,
+  getFallbackProjectBySlug,
+  getFallbackProjects,
+} from "./fallback-content";
 
 const CMS_REVALIDATE_SECONDS = 300;
 
@@ -200,7 +207,7 @@ function normalizeCurrentStatus(value: unknown): CmsCurrentStatus | null {
   return { users, feedback };
 }
 
-const CMS_REQUEST_TIMEOUT_MS = 5000;
+const CMS_REQUEST_TIMEOUT_MS = 2000;
 
 async function fetchStrapi<T>(
   pathname: string,
@@ -390,7 +397,8 @@ export async function getPosts(): Promise<CmsPost[] | null> {
   );
 
   if (!payload) {
-    return null;
+    console.warn("Strapi unavailable for getPosts — serving local fallback content.");
+    return getFallbackPosts();
   }
 
   return normalizeCollection(payload, normalizePost);
@@ -409,7 +417,8 @@ export async function getLatestPosts(limit = 6): Promise<CmsPost[] | null> {
   );
 
   if (!payload) {
-    return null;
+    console.warn("Strapi unavailable for getLatestPosts — serving local fallback content.");
+    return getFallbackPosts().slice(0, limit);
   }
 
   return normalizeCollection(payload, normalizePost);
@@ -428,7 +437,16 @@ export async function getPostBySlug(slug: string) {
     [CMS_TAGS.posts, CMS_TAGS.post(decodedSlug), CMS_TAGS.sitemap]
   );
 
-  return normalizeSingle(payload, normalizePost);
+  const normalized = normalizeSingle(payload, normalizePost);
+  if (normalized) {
+    return normalized;
+  }
+
+  if (!payload) {
+    console.warn(`Strapi unavailable for getPostBySlug(${decodedSlug}) — serving local fallback.`);
+  }
+
+  return getFallbackPostBySlug(decodedSlug);
 }
 
 export async function getProjects(): Promise<CmsProject[] | null> {
@@ -444,7 +462,8 @@ export async function getProjects(): Promise<CmsProject[] | null> {
   );
 
   if (!payload) {
-    return null;
+    console.warn("Strapi unavailable for getProjects — serving local fallback content.");
+    return getFallbackProjects();
   }
 
   return normalizeCollection(payload, normalizeProject);
@@ -464,7 +483,8 @@ export async function getFeaturedProjects(limit = 6): Promise<CmsProject[] | nul
   );
 
   if (!payload) {
-    return null;
+    console.warn("Strapi unavailable for getFeaturedProjects — serving local fallback content.");
+    return getFallbackFeaturedProjects(limit);
   }
 
   return normalizeCollection(payload, normalizeProject);
@@ -483,5 +503,14 @@ export async function getProjectBySlug(slug: string) {
     [CMS_TAGS.projects, CMS_TAGS.project(decodedSlug), CMS_TAGS.sitemap]
   );
 
-  return normalizeSingle(payload, normalizeProject);
+  const normalized = normalizeSingle(payload, normalizeProject);
+  if (normalized) {
+    return normalized;
+  }
+
+  if (!payload) {
+    console.warn(`Strapi unavailable for getProjectBySlug(${decodedSlug}) — serving local fallback.`);
+  }
+
+  return getFallbackProjectBySlug(decodedSlug);
 }
