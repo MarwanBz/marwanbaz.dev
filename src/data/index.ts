@@ -1,5 +1,5 @@
 // Single source of truth for all Marwan's data
-import type { Experience } from "../types";
+import type { Experience } from "../types/index.ts";
 
 // Types for unified data structure
 export interface SocialLink {

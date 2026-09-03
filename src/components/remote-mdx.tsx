@@ -7,7 +7,7 @@ import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
 
 import { MatrixRain } from "@/components/matrix-rain";
-import { resolveMediaUrl } from "@/lib/cms/strapi";
+import { resolveMediaUrl } from "@/lib/cms/payload";
 
 function MdxImage(props: ComponentProps<"img">) {
   const { src = "", alt = "", ...rest } = props;
