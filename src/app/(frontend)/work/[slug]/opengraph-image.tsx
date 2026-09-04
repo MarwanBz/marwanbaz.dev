@@ -1,5 +1,5 @@
 import { ImageResponse } from 'next/og'
-import { getProjectBySlug } from '@/lib/cms/strapi'
+import { getProjectBySlug } from '@/lib/cms/payload'
 
 export const alt = 'Project'
 export const size = { width: 1200, height: 630 }

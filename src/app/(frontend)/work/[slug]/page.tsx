@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { ProjectShowcase } from '@/components/project-showcase'
 import { ProjectStructuredData } from '@/components/project-structured-data'
-import { getProjectBySlug } from '@/lib/cms/strapi'
+import { getProjectBySlug } from '@/lib/cms/payload'
 import { absoluteUrl } from '@/lib/site'
 import type { Metadata } from 'next'
 

@@ -3,7 +3,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import { ArrowLeft } from 'lucide-react'
 import { RemoteMdx } from '@/components/remote-mdx'
-import { getPostBySlug } from '@/lib/cms/strapi'
+import { getPostBySlug } from '@/lib/cms/payload'
 import { formatDateLabel } from '@/lib/date'
 import { absoluteUrl } from '@/lib/site'
 

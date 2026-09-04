@@ -1,4 +1,4 @@
-import { getPosts } from '@/lib/cms/strapi'
+import { getPosts } from '@/lib/cms/payload'
 import { formatDateLabel } from '@/lib/date'
 import { CmsError } from '@/components/cms-error'
 import Link from 'next/link'

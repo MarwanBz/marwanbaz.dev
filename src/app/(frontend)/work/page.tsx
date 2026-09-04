@@ -1,6 +1,6 @@
 import { WorkClient } from './work-client'
 import { CmsError } from '@/components/cms-error'
-import { getProjects } from '@/lib/cms/strapi'
+import { getProjects } from '@/lib/cms/payload'
 import { createPageMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'

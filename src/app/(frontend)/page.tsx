@@ -12,7 +12,7 @@ import { ProfileInfo } from "@/components/profile-info"
 // import { ProfileInfo } from "@/components/profile-card"
 import { ProjectCard } from "@/components/project-card"
 import { profileData } from "@/data"
-import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/strapi"
+import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/payload"
 
 export const dynamic = "force-dynamic"
 

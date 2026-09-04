@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next'
-import { getPosts, getProjects } from '@/lib/cms/strapi'
+import { getPosts, getProjects } from '@/lib/cms/payload'
 import { toValidDate } from '@/lib/date'
 import { SITE_URL } from '@/lib/site'
 
