@@ -2,7 +2,6 @@ import path from "node:path";
 
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
 import { buildConfig } from "payload";
-import sharp from "sharp";
 
 import { Posts } from "./src/collections/Posts.ts";
 import { Projects } from "./src/collections/Projects.ts";
@@ -31,6 +30,5 @@ export default buildConfig({
   },
   secret: process.env.PAYLOAD_SECRET || "",
   serverURL: process.env.NEXT_PUBLIC_SITE_URL,
-  sharp,
   telemetry: false,
 });
