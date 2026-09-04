@@ -78,6 +78,7 @@ is ever unreachable, so `/work` and `/blog` never render error screens.
 - `PAYLOAD_SECRET` — set on Production, Preview, Development in Vercel
 - `NEXT_PUBLIC_SITE_URL` — canonical site URL
 
-Note: set the Vercel project's Node version to 24.x (Dashboard → Settings →
-General → Node.js Version) so git-triggered builds pass; `vercel deploy
---prebuilt` works regardless.
+Git pushes deploy automatically via Vercel (npm install via `vercel.json`).
+
+Note: keep page imports pointing at `@/lib/cms/payload` (never `@/lib/cms/strapi`
+— the Strapi client is gone; a stray import breaks the Vercel git build).
