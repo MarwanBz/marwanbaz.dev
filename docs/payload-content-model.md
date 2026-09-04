@@ -62,6 +62,16 @@ secret headers — the CMS and the frontend are the same process.
 `src/lib/cms/fallback-content.ts` serves the same local sources if the database
 is ever unreachable, so `/work` and `/blog` never render error screens.
 
+## Media / Storage
+
+- Media collection (`media`) stores images in **Vercel Blob** (store `marwanbaz-media`).
+- Upload images in `/admin` under Media; copy the file URL into any image field
+  (`coverImage`, `image`, `screenshots[].url`, `initialDesigns[].url`) or markdown.
+- URLs are served from `https://*.public.blob.vercel-storage.com` — already allowlisted in `next.config.ts`.
+- Files in `public/` keep working as-is (no migration needed).
+- Provisioned with `vercel blob create-store marwanbaz-media --access public -e production -e preview -e development`.
+  Token `BLOB_READ_WRITE_TOKEN` is auto-injected into all environments (and pulled into `.env.local` locally).
+
 ## Environment
 
 - `DATABASE_URL` — Neon/Vercel Postgres, auto-injected by the integration

@@ -1,8 +1,10 @@
 import path from "node:path";
 
 import { vercelPostgresAdapter } from "@payloadcms/db-vercel-postgres";
+import { vercelBlobStorage } from "@payloadcms/storage-vercel-blob";
 import { buildConfig } from "payload";
 
+import { Media } from "./src/collections/Media.ts";
 import { Posts } from "./src/collections/Posts.ts";
 import { Projects } from "./src/collections/Projects.ts";
 import { Users } from "./src/collections/Users.ts";
@@ -19,7 +21,15 @@ export default buildConfig({
       baseDir: path.join(process.cwd(), "src", "app", "(payload)"),
     },
   },
-  collections: [Posts, Projects, Users],
+  collections: [Posts, Projects, Users, Media],
+  plugins: [
+    vercelBlobStorage({
+      collections: {
+        media: true,
+      },
+      token: process.env.BLOB_READ_WRITE_TOKEN,
+    }),
+  ],
   db: vercelPostgresAdapter({
     pool: {
       connectionString,
