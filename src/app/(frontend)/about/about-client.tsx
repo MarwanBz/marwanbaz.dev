@@ -61,14 +61,16 @@ export function AboutClient() {
 
         <CustomCard className="p-8 mb-8" >
           <div className="flex flex-col lg:flex-row gap-8 items-center">
-            <div className="w-full  lg:w-1/2">
-              <Image
-                src="/assets/marwan_img.png"
-                alt="Your Name"
-                width={600}
-                height={600}
-                className="rounded-full object-cover shadow-lg border"
-              />
+            <div className="w-full lg:w-1/2 flex justify-center">
+              <div className="group relative h-72 w-72 md:h-80 md:w-80 rounded-full bg-gradient-to-b from-gray-500 to-black dark:from-white dark:to-gray-500 shadow-xl">
+                <Image
+                  src="/assets/marwan_img.jpg"
+                  alt="Marwan Baz"
+                  width={400}
+                  height={400}
+                  className="absolute inset-[3px] rounded-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                />
+              </div>
             </div>
             <div className="w-full lg:w-1/2 space-y-4">
               <h1 className="text-4xl font-bold mb-4">About Me</h1>

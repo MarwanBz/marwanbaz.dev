@@ -79,7 +79,7 @@ export const marwanData: UnifiedData = {
   title: "Frontend Web Developer",
   description:
     "I'm a passionate web developer with expertise in modern web technologies. I specialize in building responsive, user-friendly web applications using React, Next.js, and TypeScript.",
-  imageUrl: "/assets/marwan_img.png",
+  imageUrl: "/assets/marwan_img.jpg",
   location: "127.0.0.1 | Remote",
   email: "marouane.bazghifan@gmail.com",
   availability: "Available for new opportunities",
@@ -149,7 +149,7 @@ export const marwanData: UnifiedData = {
       ],
     },
     {
-      role: "Frontend Web Developer Intern",
+      role: "Frontend Web Developer",
       company: "Haraka",
       period: "Nov 2024 - Apr 2025",
       description:
@@ -206,7 +206,7 @@ export const marwanData: UnifiedData = {
         "Instant report generation",
         "User-friendly interface with minimal learning curve",
       ],
-      role: "Frontend Web Developer Intern",
+      role: "Frontend Web Developer",
       technologies: [
         "NextJS",
         "React",
