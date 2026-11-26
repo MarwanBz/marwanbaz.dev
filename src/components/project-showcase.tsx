@@ -1,8 +1,6 @@
-import { ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, Github } from "lucide-react"
+import Link from "next/link"
 
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ProjectSceneGallery, type ProjectScene } from "@/components/project-scene-gallery"
 import type { CmsProject } from "@/lib/cms/types"
 
@@ -60,18 +58,55 @@ function buildScenes(project: CmsProject): ProjectScene[] {
   return scenes
 }
 
-function CompactList({
-  items,
+function MetaRow({ items }: { items: { label: string; value: string }[] }) {
+  if (items.length === 0) {
+    return null
+  }
+
+  return (
+    <dl className="flex flex-wrap gap-x-6 gap-y-2">
+      {items.map((item) => (
+        <div key={item.label}>
+          <dt className="text-xs uppercase tracking-wide text-muted-foreground">
+            {item.label}
+          </dt>
+          <dd className="mt-0.5 text-sm font-medium">{item.value}</dd>
+        </div>
+      ))}
+    </dl>
+  )
+}
+
+function Section({
+  heading,
+  children,
 }: {
-  items: string[]
+  heading: string
+  children: React.ReactNode
 }) {
   return (
-    <ul className="grid gap-3">
+    <section className="mt-16">
+      <h2 className="text-sm font-semibold tracking-wide">{heading}</h2>
+      <div className="mt-3 space-y-4 text-base leading-relaxed text-muted-foreground">
+        {children}
+      </div>
+    </section>
+  )
+}
+
+function BulletList({ items }: { items: string[] }) {
+  if (items.length === 0) {
+    return null
+  }
+
+  return (
+    <ul className="space-y-2">
       {items.map((item, index) => (
         <li
           key={`${item}-${index}`}
-          className="rounded-2xl border border-border/60 bg-background px-4 py-3 text-sm text-foreground shadow-sm"
+          className="flex gap-3 text-base leading-relaxed text-muted-foreground"
         >
+          <span aria-hidden className="mt-2.5 size-1 shrink-0 rounded-full bg-muted-foreground/60" />
           {item}
         </li>
       ))}
@@ -102,187 +137,142 @@ export function ProjectShowcase({ project }: { project: CmsProject }) {
   } = project
 
   const scenes = buildScenes(project)
-  const topMeta = [
-    { label: "Role", value: role },
-    { label: "Platform", value: categoryLabels[category] },
-    { label: "Status", value: currentStatus?.users || "" },
-  ].filter((item) => item.value)
 
   return (
-    <article className="mx-auto max-w-6xl px-4 pb-24 pt-32 md:px-6 md:pt-40">
-      <header className="space-y-6">
-        <div className="space-y-4">
-          <Badge
-            variant="outline"
-            className="w-fit rounded-full border-border/80 px-3 py-1 uppercase tracking-[0.18em] text-[10px] text-muted-foreground"
-          >
-            {categoryLabels[category]}
-          </Badge>
+    <article className="mx-auto w-full max-w-2xl px-6 pb-24">
+      <Link
+        href="/work"
+        className="group mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+      >
+        <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-0.5" />
+        Work
+      </Link>
 
-          <div className="space-y-4">
-            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-              {title}
-            </h1>
-            <p className="max-w-3xl text-base leading-7 text-muted-foreground md:text-lg">
-              {summary}
-            </p>
-          </div>
+      <header className="mt-8">
+        <h1 className="text-3xl font-semibold tracking-tight">{title}</h1>
+        <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+          {summary}
+        </p>
+
+        <div className="mt-6">
+          <MetaRow
+            items={[
+              { label: "Role", value: role },
+              { label: "Platform", value: categoryLabels[category] },
+              { label: "Stack", value: technologies.join(", ") },
+              currentStatus?.users
+                ? { label: "Status", value: currentStatus.users }
+                : { label: "", value: "" },
+            ].filter((item) => item.value)}
+          />
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {technologies.map((tech, index) => (
-            <Badge
-              key={`${tech}-${index}`}
-              variant="outline"
-              className="rounded-full border-border/70 bg-background px-3 py-1"
-            >
-              {tech}
-            </Badge>
-          ))}
-        </div>
-
-        <div className="flex flex-wrap gap-3">
-          {liveDemo && (
-            <Button size="sm" asChild>
-              <a href={liveDemo} target="_blank" rel="noopener noreferrer">
-                <ExternalLink className="h-4 w-4" />
+        {(liveDemo || sourceCode) && (
+          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
+            {liveDemo && (
+              <a
+                href={liveDemo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1 font-medium text-blue-600 dark:text-blue-400"
+              >
                 Live
+                <ArrowUpRight className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-            </Button>
-          )}
-          {sourceCode && (
-            <Button size="sm" variant="outline" asChild>
-              <a href={sourceCode} target="_blank" rel="noopener noreferrer">
-                <Github className="h-4 w-4" />
+            )}
+            {sourceCode && (
+              <a
+                href={sourceCode}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-1 font-medium text-blue-600 dark:text-blue-400"
+              >
+                <Github className="size-3.5" />
                 Code
               </a>
-            </Button>
-          )}
-        </div>
-
-        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
-          {topMeta.map((item) => (
-            <div
-              key={item.label}
-              className="rounded-[24px] border border-border/70 bg-background px-5 py-4 shadow-sm"
-            >
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {item.label}
-              </p>
-              <p className="mt-2 text-sm font-medium text-foreground md:text-base">{item.value}</p>
-            </div>
-          ))}
-        </div>
+            )}
+          </div>
+        )}
       </header>
 
       {scenes.length > 0 && (
-        <div className="mt-8">
+        <div className="mt-10">
           <ProjectSceneGallery projectTitle={title} scenes={scenes} />
         </div>
       )}
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-2">
-        <Card className="rounded-[28px] border-border/70 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl tracking-tight">Overview</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm leading-7 text-muted-foreground">
-            <p>{purpose}</p>
-            <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                Goal
-              </p>
-              <p className="mt-2 text-sm text-foreground">{expectedOutcome}</p>
-            </div>
-          </CardContent>
-        </Card>
+      {purpose && (
+        <Section heading="Overview">
+          <p>{purpose}</p>
+          {expectedOutcome && <p>{expectedOutcome}</p>}
+        </Section>
+      )}
 
-        <Card className="rounded-[28px] border-border/70 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl tracking-tight">What I Built</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            {(spotlightFeature.title || spotlightFeature.description) && (
-              <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
-                {spotlightFeature.title && (
-                  <p className="text-sm font-medium text-foreground">{spotlightFeature.title}</p>
-                )}
-                {spotlightFeature.description && (
-                  <p className="mt-2 text-sm leading-7 text-muted-foreground">
-                    {spotlightFeature.description}
-                  </p>
-                )}
-              </div>
-            )}
-            <CompactList items={coreFunctionalities} />
-          </CardContent>
-        </Card>
+      {(spotlightFeature.title || spotlightFeature.description) && (
+        <Section heading="Spotlight">
+          {spotlightFeature.title && (
+            <p className="font-medium text-foreground">
+              {spotlightFeature.title}
+            </p>
+          )}
+          {spotlightFeature.description && <p>{spotlightFeature.description}</p>}
+        </Section>
+      )}
 
-        <Card className="rounded-[28px] border-border/70 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl tracking-tight">Challenges</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CompactList items={technicalChallenges} />
-          </CardContent>
-        </Card>
+      {coreFunctionalities.length > 0 && (
+        <Section heading="What I built">
+          <BulletList items={coreFunctionalities} />
+        </Section>
+      )}
 
-        <Card className="rounded-[28px] border-border/70 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl tracking-tight">Solutions</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <CompactList items={solutions} />
-          </CardContent>
-        </Card>
+      {technicalChallenges.length > 0 && (
+        <Section heading="Challenges">
+          <BulletList items={technicalChallenges} />
+        </Section>
+      )}
 
-        <Card className="rounded-[28px] border-border/70 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl tracking-tight">Impact</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4 text-sm leading-7 text-muted-foreground">
-            <p>{impact}</p>
-            {currentStatus?.feedback && (
-              <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                  Feedback
+      {solutions.length > 0 && (
+        <Section heading="Solutions">
+          <BulletList items={solutions} />
+        </Section>
+      )}
+
+      {impact && (
+        <Section heading="Impact">
+          <p>{impact}</p>
+          {currentStatus?.feedback && (
+            <p className="text-sm text-muted-foreground/80">
+              {currentStatus.feedback}
+            </p>
+          )}
+        </Section>
+      )}
+
+      {lessonsLearned.length > 0 && (
+        <Section heading="What I learned">
+          <BulletList items={lessonsLearned} />
+          {(frameworkExperience || accessibilityLearnings) && (
+            <div className="mt-2 space-y-3 border-t border-border pt-4 text-sm leading-relaxed">
+              {frameworkExperience && (
+                <p>
+                  <span className="font-medium text-foreground">
+                    Framework:
+                  </span>{" "}
+                  {frameworkExperience}
                 </p>
-                <p className="mt-2 text-sm text-foreground">{currentStatus.feedback}</p>
-              </div>
-            )}
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-[28px] border-border/70 shadow-sm">
-          <CardHeader>
-            <CardTitle className="text-2xl tracking-tight">What I Learned</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <CompactList items={lessonsLearned} />
-
-            {(frameworkExperience || accessibilityLearnings) && (
-              <div className="grid gap-4">
-                {frameworkExperience && (
-                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      Framework
-                    </p>
-                    <p className="mt-2 text-sm text-foreground">{frameworkExperience}</p>
-                  </div>
-                )}
-                {accessibilityLearnings && (
-                  <div className="rounded-2xl border border-border/60 bg-muted/30 p-4">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                      Accessibility
-                    </p>
-                    <p className="mt-2 text-sm text-foreground">{accessibilityLearnings}</p>
-                  </div>
-                )}
-              </div>
-            )}
-          </CardContent>
-        </Card>
-      </div>
+              )}
+              {accessibilityLearnings && (
+                <p>
+                  <span className="font-medium text-foreground">
+                    Accessibility:
+                  </span>{" "}
+                  {accessibilityLearnings}
+                </p>
+              )}
+            </div>
+          )}
+        </Section>
+      )}
     </article>
   )
 }
