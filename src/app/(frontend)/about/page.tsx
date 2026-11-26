@@ -13,7 +13,7 @@ export const metadata = createPageMetadata({
 });
 
 const systems = [
-  { name: "Windows 98 & 2000", note: "hunting zero-days that never got patched" },
+  { name: "Windows 98, 2000 & XP", note: "hunting zero-days that never got patched" },
   { name: "Custom Windows 7 builds", note: "the tweaking years" },
   { name: "Kali Linux", note: "the curiosity phase" },
   { name: "Ubuntu", note: "my companion through software engineering" },
@@ -54,7 +54,7 @@ export default function AboutPage() {
         <div className="mt-3 space-y-4 text-base leading-relaxed text-muted-foreground">
           <p>
             I&apos;ve tried more than 10 operating systems. I&apos;m probably
-            the only Gen Z who has actually used Windows 98 and Windows 2000 —
+            the only Gen Z who has actually used Windows 98, 2000, and XP —
             I just wanted to find the zero-days that never got patched and
             exploit them (for the fun of it, I promise).
           </p>
