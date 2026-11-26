@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Marwan Baz | Frontend Developer & Product Engineer",
+    default: "Marwan Baz | Techie Who Loves Software",
     template: "%s | Marwan Baz"
   },
-  description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
-  keywords: ["Frontend Developer", "Product Engineer", "React", "Next.js", "TypeScript", "Web Development"],
+  description: "Marwan Baz — a techie who loves software systems, building web apps with React, Next.js, and TypeScript.",
+  keywords: ["Software Engineer", "Techie", "React", "Next.js", "TypeScript", "Web Development"],
   authors: [{ name: "Marwan Baz", url: SITE_URL }],
   creator: "Marwan Baz",
   metadataBase: new URL(SITE_URL),
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: "Marwan Baz | Frontend Developer & Product Engineer",
-    description: "Marwan Baz - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
-    siteName: "Marwan Baz Portfolio"
+    title: "Marwan Baz | Techie Who Loves Software",
+    description: "Marwan Baz — a techie who loves software systems, building web apps with React, Next.js, and TypeScript.",
+    siteName: "Marwan Baz"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marwan Baz | Frontend Developer & Product Engineer",
-    description: "Marwan Baz - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
+    title: "Marwan Baz | Techie Who Loves Software",
+    description: "Marwan Baz — a techie who loves software systems, building web apps with React, Next.js, and TypeScript.",
     creator: "@marwanbaz"
   },
   robots: {

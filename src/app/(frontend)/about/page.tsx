@@ -6,9 +6,9 @@ import { profileData } from "@/data";
 import { createPageMetadata } from "@/lib/seo";
 
 export const metadata = createPageMetadata({
-  title: "About Me | Frontend Developer",
+  title: "About Me",
   description:
-    "The story behind the code — Marwan Baz, a frontend developer who loves software systems: from hunting unpatched zero-days on old Windows to settling on macOS.",
+    "The story behind the code — Marwan Baz, a techie who loves software systems: from hunting unpatched zero-days on old Windows to settling on macOS.",
   path: "/about",
 });
 

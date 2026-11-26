@@ -11,11 +11,11 @@ import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/payload";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Marwan Baz — Web Engineer | Next.js & React",
+  title: "Marwan Baz — Techie Who Loves Software",
   description:
-    "Explore the website of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies. View projects and learn about my skills in web development.",
+    "Techie who loves software systems. I build web apps with React and Next.js, try every OS I can find, and write about how things work.",
   keywords: [
-    "Frontend Developer",
+    "Software Engineer",
     "Next.js",
     "React",
     "Portfolio",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "TypeScript",
   ],
   openGraph: {
-    title: "Marwan Baz — Frontend Developer Portfolio | Next.js Expert",
+    title: "Marwan Baz — Techie Who Loves Software",
     description:
-      "Explore the portfolio of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies.",
+      "Marwan Baz builds web apps with React and Next.js, and has been taking software apart since Windows 98.",
   },
 };
 
@@ -55,9 +55,9 @@ export default async function Home() {
           <h1 className="text-3xl font-semibold tracking-tight">Marwan Baz</h1>
         </div>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-          I&apos;m a frontend developer building fast, accessible web apps with
-          React and Next.js — currently at Wahadat, previously Haraka. I write
-          about how they&apos;re made.
+          I&apos;m a techie who loves software. By day I build web apps with
+          React and Next.js — currently at Wahadat, previously Haraka. The rest
+          of the time I&apos;m trying out every OS I can find.
         </p>
         <p className="mt-3 text-sm text-muted-foreground/70">
           {profileData.location} · {profileData.availability}
