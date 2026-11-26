@@ -8,9 +8,17 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "About Me | Frontend Developer",
   description:
-    "Learn more about Marwan Baz, a Frontend Developer with a product engineering mindset. Passionate about web development, UI design, animation, and creating exceptional user experiences.",
+    "The story behind the code — Marwan Baz, a frontend developer who loves software systems: from hunting unpatched zero-days on old Windows to settling on macOS.",
   path: "/about",
 });
+
+const systems = [
+  { name: "Windows 98 & 2000", note: "hunting zero-days that never got patched" },
+  { name: "Custom Windows 7 builds", note: "the tweaking years" },
+  { name: "Kali Linux", note: "the curiosity phase" },
+  { name: "Ubuntu", note: "my companion through software engineering" },
+  { name: "macOS", note: "where I finally settled" },
+];
 
 export default function AboutPage() {
   const { experiences, skills } = profileData;
@@ -29,20 +37,57 @@ export default function AboutPage() {
         />
         <div>
           <h1 className="text-3xl font-semibold tracking-tight">
-            Frontend developer with a product mindset.
+            I love software systems.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Hi, I&apos;m Marwan. I&apos;m a frontend developer who loves
-            creating beautiful, fast, and accessible web interfaces — turning
-            complex problems into simple, elegant solutions.
-          </p>
-          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-            My journey in tech has taken me through product teams, agencies, and
-            freelance work — from design systems to trilingual marketplaces. I
-            care about the craft: typography, motion, and the small details that
-            make software feel good to use.
+            Hi, I&apos;m Marwan. That love took me from &quot;I want to work
+            with computers&quot; to studying software engineering in college —
+            and to trying everything I could get my hands on: games, tweaks,
+            and breaking things to see how they work.
           </p>
         </div>
+      </section>
+
+      {/* My story */}
+      <section className="mt-16">
+        <h2 className="text-sm font-semibold tracking-wide">My story</h2>
+        <div className="mt-3 space-y-4 text-base leading-relaxed text-muted-foreground">
+          <p>
+            I&apos;ve tried more than 10 operating systems. I&apos;m probably
+            the only Gen Z who has actually used Windows 98 and Windows 2000 —
+            I just wanted to find the zero-days that never got patched and
+            exploit them (for the fun of it, I promise).
+          </p>
+          <p>
+            From there I went through custom Windows 7 builds, a stretch on
+            Kali Linux, and a long run on Ubuntu — especially once I got into
+            software engineering. These days I&apos;ve finally settled on
+            macOS, and that whole journey taught me a ton.
+          </p>
+          <p>
+            I&apos;m just a techie who loves digital stuff. I love trying it.
+          </p>
+        </div>
+      </section>
+
+      {/* Systems I've lived in */}
+      <section className="mt-16">
+        <h2 className="text-sm font-semibold tracking-wide">
+          Systems I&apos;ve lived in
+        </h2>
+        <ul className="mt-3">
+          {systems.map((system) => (
+            <li
+              key={system.name}
+              className="flex flex-wrap items-baseline justify-between gap-x-4 border-t border-border py-3 last:border-b"
+            >
+              <span className="font-medium">{system.name}</span>
+              <span className="text-sm text-muted-foreground">
+                {system.note}
+              </span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Experience */}
