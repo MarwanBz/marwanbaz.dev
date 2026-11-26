@@ -23,8 +23,8 @@ export default async function BlogPage() {
     <main className="mx-auto w-full max-w-2xl px-6 pb-24">
       <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
       <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-        My space on the internet where I share thoughts, principles, and
-        learnings from building things on the web.
+        This is my space on the internet where I share my weird thoughts,
+        opinions, principles, learnings, interests, and anything in between.
       </p>
 
       <ul className="mt-10">

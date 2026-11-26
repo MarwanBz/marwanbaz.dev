@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Marwan Baz — Techie Who Loves Software",
   description:
-    "Techie who loves software systems. I build web apps with React and Next.js, try every OS I can find, and write about how things work.",
+    "I am Marwan, a web dev and techie who loves to work with computers and software. I build web apps with React and Next.js.",
   keywords: [
     "Software Engineer",
     "Next.js",
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "TypeScript",
   ],
   openGraph: {
-    title: "Marwan Baz — Techie Who Loves Software",
+    title: "Marwan Baz — Web Dev & Techie",
     description:
-      "Marwan Baz builds web apps with React and Next.js, and has been taking software apart since Windows 98.",
+      "I am Marwan, a web dev and techie who loves to work with computers and software.",
   },
 };
 
@@ -55,9 +55,10 @@ export default async function Home() {
           <h1 className="text-3xl font-semibold tracking-tight">Marwan Baz</h1>
         </div>
         <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-          I&apos;m a techie who loves software. By day I build web apps with
-          React and Next.js — currently at Wahadat, previously Haraka. The rest
-          of the time I&apos;m trying out every OS I can find.
+          I am Marwan, a web dev and techie who loves to work with computers
+          and software. I build web apps with React and Next.js, currently at
+          Wahadat, before that Haraka. When I&apos;m not coding I&apos;m
+          probably trying some OS or software just for the fun of it :)
         </p>
         <p className="mt-3 text-sm text-muted-foreground/70">
           {profileData.location} · {profileData.availability}

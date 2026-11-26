@@ -24,8 +24,8 @@ export function WorkClient({ projects }: { projects: CmsProject[] }) {
     <main className="mx-auto w-full max-w-2xl px-6 pb-24">
       <h1 className="text-3xl font-semibold tracking-tight">Work</h1>
       <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-        A selection of products I&apos;ve helped build — web platforms, a mobile
-        app, and everything in between.
+        Web apps and a mobile app I built over the years, some with teams and
+        some on my own.
       </p>
 
       <div className="mt-8 flex gap-2" role="group" aria-label="Filter projects">

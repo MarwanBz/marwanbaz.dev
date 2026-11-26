@@ -21,11 +21,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Marwan Baz | Techie Who Loves Software",
+    default: "Marwan Baz | Web Dev & Techie",
     template: "%s | Marwan Baz"
   },
-  description: "Marwan Baz — a techie who loves software systems, building web apps with React, Next.js, and TypeScript.",
-  keywords: ["Software Engineer", "Techie", "React", "Next.js", "TypeScript", "Web Development"],
+  description: "I am Marwan, a web dev and techie who loves to work with computers and software. I build web apps with React, Next.js, and TypeScript.",
+  keywords: ["Web Developer", "Techie", "React", "Next.js", "TypeScript", "Web Development"],
   authors: [{ name: "Marwan Baz", url: SITE_URL }],
   creator: "Marwan Baz",
   metadataBase: new URL(SITE_URL),
@@ -33,14 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: "Marwan Baz | Techie Who Loves Software",
-    description: "Marwan Baz — a techie who loves software systems, building web apps with React, Next.js, and TypeScript.",
+    title: "Marwan Baz | Web Dev & Techie",
+    description: "I am Marwan, a web dev and techie who loves to work with computers and software.",
     siteName: "Marwan Baz"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marwan Baz | Techie Who Loves Software",
-    description: "Marwan Baz — a techie who loves software systems, building web apps with React, Next.js, and TypeScript.",
+    title: "Marwan Baz | Web Dev & Techie",
+    description: "I am Marwan, a web dev and techie who loves to work with computers and software.",
     creator: "@marwanbaz"
   },
   robots: {

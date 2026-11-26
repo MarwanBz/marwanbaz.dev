@@ -8,16 +8,16 @@ import { createPageMetadata } from "@/lib/seo";
 export const metadata = createPageMetadata({
   title: "About Me",
   description:
-    "The story behind the code — Marwan Baz, a techie who loves software systems: from hunting unpatched zero-days on old Windows to settling on macOS.",
+    "I tried more than 10 operating systems, from Windows 98 and XP to Kali Linux and macOS. This is my story, and what I build now with React and Next.js.",
   path: "/about",
 });
 
 const systems = [
-  { name: "Windows 98, 2000 & XP", note: "hunting zero-days that never got patched" },
-  { name: "Custom Windows 7 builds", note: "the tweaking years" },
-  { name: "Kali Linux", note: "the curiosity phase" },
-  { name: "Ubuntu", note: "my companion through software engineering" },
-  { name: "macOS", note: "where I finally settled" },
+  { name: "Windows 98, 2000 & XP", note: "tried to exploit the zero-days that didn't get patched" },
+  { name: "Custom Windows 7", note: "tweaking" },
+  { name: "Kali Linux", note: "tried it" },
+  { name: "Ubuntu", note: "a while, especially in software engineering" },
+  { name: "macOS", note: "where I finally settled down" },
 ];
 
 export default function AboutPage() {
@@ -40,40 +40,43 @@ export default function AboutPage() {
             I love software systems.
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-            Hi, I&apos;m Marwan. That love took me from &quot;I want to work
-            with computers&quot; to studying software engineering in college —
-            and to trying everything I could get my hands on: games, tweaks,
-            and breaking things to see how they work.
+            Hi, I am Marwan. My love for software took me from &quot;I wanna be
+            working with computers&quot; to studying it in college, and to
+            trying software, games, tweaking, everything I could get my hands
+            on.
           </p>
         </div>
       </section>
 
-      {/* My story */}
-      <section className="mt-16">
-        <h2 className="text-sm font-semibold tracking-wide">My story</h2>
-        <div className="mt-3 space-y-4 text-base leading-relaxed text-muted-foreground">
-          <p>
-            I&apos;ve tried more than 10 operating systems. I&apos;m probably
-            the only Gen Z who has actually used Windows 98, 2000, and XP —
-            I just wanted to find the zero-days that never got patched and
-            exploit them (for the fun of it, I promise).
-          </p>
-          <p>
-            From there I went through custom Windows 7 builds, a stretch on
-            Kali Linux, and a long run on Ubuntu — especially once I got into
-            software engineering. These days I&apos;ve finally settled on
-            macOS, and that whole journey taught me a ton.
-          </p>
-          <p>
-            I&apos;m just a techie who loves digital stuff. I love trying it.
-          </p>
-        </div>
-      </section>
-
-      {/* Systems I've lived in */}
+      {/* A little history about me */}
       <section className="mt-16">
         <h2 className="text-sm font-semibold tracking-wide">
-          Systems I&apos;ve lived in
+          A little history about me
+        </h2>
+        <div className="mt-3 space-y-4 text-base leading-relaxed text-muted-foreground">
+          <p>
+            I tried more than 10 OS versions between linux distros. I think I
+            am the only person from Gen Z who tried Windows 98, Windows 2000
+            and Windows XP, and I was just trying to know their zero day
+            vulnerabilities that didn&apos;t get patched, so I can exploit
+            them :D
+          </p>
+          <p>
+            I also tried custom versions of Windows 7, and linux from Kali
+            Linux to Ubuntu, especially when I got into software engineering.
+            Currently I finally settled down on macOS. From that journey I
+            learned a ton.
+          </p>
+          <p>
+            I am just a techie who loves digital stuff, I love to try them.
+          </p>
+        </div>
+      </section>
+
+      {/* OSes I've tried */}
+      <section className="mt-16">
+        <h2 className="text-sm font-semibold tracking-wide">
+          OSes I&apos;ve tried
         </h2>
         <ul className="mt-3">
           {systems.map((system) => (
@@ -127,8 +130,8 @@ export default function AboutPage() {
       <section className="mt-16">
         <h2 className="text-sm font-semibold tracking-wide">Let&apos;s connect</h2>
         <p className="mt-3 max-w-md text-base leading-relaxed text-muted-foreground">
-          I&apos;m always excited to collaborate on new projects or talk about
-          the latest in web development. Have something in mind?
+          I&apos;m always up for working on new projects or just talking tech.
+          Have something in mind?
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <CollaborateButton />
