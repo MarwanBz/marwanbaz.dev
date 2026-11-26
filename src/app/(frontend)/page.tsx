@@ -58,7 +58,8 @@ export default async function Home() {
           I am Marwan, a web dev and techie who loves to work with computers
           and software. I build web apps with React and Next.js, currently at
           Wahadat, before that Haraka. When I&apos;m not coding I&apos;m
-          probably trying some OS or software just for the fun of it :)
+          probably trying some OS or software just for the fun of it, and from
+          time to time I do some OSS: issues, enhancements, PRs :)
         </p>
         <p className="mt-3 text-sm text-muted-foreground/70">
           {profileData.location} · {profileData.availability}

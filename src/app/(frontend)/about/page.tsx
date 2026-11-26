@@ -69,6 +69,8 @@ export default function AboutPage() {
           </p>
           <p>
             I am just a techie who loves digital stuff, I love to try them.
+            From time to time I try to do some OSS too, opening issues,
+            enhancements, and PRs into open source projects.
           </p>
         </div>
       </section>
