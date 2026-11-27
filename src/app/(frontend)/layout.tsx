@@ -1,18 +1,31 @@
 import "./globals.css";
 
-import { Analytics } from "@vercel/analytics/react"
-import { SITE_URL } from "@/lib/site";
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata, Viewport } from "next";
-import Navbar from "@/components/navbar";
+import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
+
+import { SiteFooter } from "@/components/site-footer";
+import { SiteHeader } from "@/components/site-header";
+import { SITE_URL } from "@/lib/site";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   title: {
-    default: "Marwan Baz | Frontend Developer & Product Engineer",
+    default: "Marwan Baz | Web Dev & Techie",
     template: "%s | Marwan Baz"
   },
-  description: "Marwan Baz (Marwan Bazghifan) - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
-  keywords: ["Frontend Developer", "Product Engineer", "React", "Next.js", "TypeScript", "Web Development"],
+  description: "I am Marwan, a web dev and techie who loves to work with computers and software. I build web apps with React, Next.js, and TypeScript.",
+  keywords: ["Web Developer", "Techie", "React", "Next.js", "TypeScript", "Web Development"],
   authors: [{ name: "Marwan Baz", url: SITE_URL }],
   creator: "Marwan Baz",
   metadataBase: new URL(SITE_URL),
@@ -20,14 +33,14 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    title: "Marwan Baz | Frontend Developer & Product Engineer",
-    description: "Marwan Baz - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
-    siteName: "Marwan Baz Portfolio"
+    title: "Marwan Baz | Web Dev & Techie",
+    description: "I am Marwan, a web dev and techie who loves to work with computers and software.",
+    siteName: "Marwan Baz"
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marwan Baz | Frontend Developer & Product Engineer",
-    description: "Marwan Baz - Frontend Developer and Product Engineer specializing in React, Next.js, and modern web technologies.",
+    title: "Marwan Baz | Web Dev & Techie",
+    description: "I am Marwan, a web dev and techie who loves to work with computers and software.",
     creator: "@marwanbaz"
   },
   robots: {
@@ -52,15 +65,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sans antialiased min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-100">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased min-h-screen bg-background text-foreground`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <div className="flex min-h-screen flex-col">
+            <SiteHeader />
+            <div className="flex-1">{children}</div>
+            <SiteFooter />
+          </div>
         </ThemeProvider>
         <Analytics />
       </body>

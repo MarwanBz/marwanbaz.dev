@@ -1,85 +1,165 @@
-import { CVCard } from "@/components/cv-card"
-import { BlogComponent } from "@/components/blog-marque"
-import { ConnectSection } from "@/components/connect-section-card"
-import { EmailCard } from "@/components/email-card"
-import { ExperienceSection } from "@/components/experiance-card"
-import { GitHubLink } from "@/components/github-card"
-import Hero from "@/components/hero"
-import { HomeLoaderWrapper } from "@/components/home-loader-wrapper"
-import { LinkedInLink } from "@/components/linkedin-card"
-import type { Metadata } from 'next'
-import { ProfileInfo } from "@/components/profile-info"
-// import { ProfileInfo } from "@/components/profile-card"
-import { ProjectCard } from "@/components/project-card"
-import { profileData } from "@/data"
-import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/payload"
+import { ArrowRight, ArrowUpRight } from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
-export const dynamic = "force-dynamic"
+import { RevealOnScroll } from "@/components/reveal-on-scroll";
+import { profileData } from "@/data";
+import { formatDateLabel } from "@/lib/date";
+import { getFeaturedProjects, getLatestPosts } from "@/lib/cms/payload";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Marwan Baz - Web Engineer  | Next.js & React ",
-  description: "Explore the website of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies. View projects and learn about my skills in web development.",
-  keywords: ["Frontend Developer", "Next.js", "React", "Portfolio", "Web Development", "JavaScript", "TypeScript"],
+  title: "Marwan Baz — Techie Who Loves Software",
+  description:
+    "I am Marwan, a web dev and techie who loves to work with computers and software. I build web apps with React and Next.js.",
+  keywords: [
+    "Software Engineer",
+    "Next.js",
+    "React",
+    "Portfolio",
+    "Web Development",
+    "JavaScript",
+    "TypeScript",
+  ],
   openGraph: {
-    title: "Marwan Baz - Frontend Developer Portfolio | Next.js Expert",
-    description: "Explore the portfolio of Marwan Baz, a Frontend Developer specializing in Next.js, React, and modern web technologies.",
+    title: "Marwan Baz — Web Dev & Techie",
+    description:
+      "I am Marwan, a web dev and techie who loves to work with computers and software.",
   },
-}
+};
 
 export default async function Home() {
   const [featuredProjects, latestPosts] = await Promise.all([
-    getFeaturedProjects(6),
-    getLatestPosts(6),
-  ])
+    getFeaturedProjects(4),
+    getLatestPosts(4),
+  ]);
+
+  const projects = featuredProjects ?? [];
+  const posts = latestPosts ?? [];
 
   return (
-    <HomeLoaderWrapper>
-      <main className="container mx-auto px-4 py-8 space-y-12">
-        {/* Hero Section */}
-        <Hero />
-        
-        {/* Profile and Social Links Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-8 gap-6 justify-items-center items-center">
-          <div className="lg:col-span-5">
-            <ProfileInfo {...profileData} />
-          </div>
-          <div className="lg:col-span-3">
-            <div className="grid grid-cols-4 gap-4 align-items-end max-[400px]:grid-cols-1 max-[400px]:gap-0 max-[400px]:align-items-center max-[400px]:gap-y-2">
-              <div className="col-span-1">
-                <GitHubLink  />
-                <LinkedInLink  />
-              </div>
-              <div className="col-span-3 flex flex-col justify-center gap-2">
-                <CVCard cvUrl={profileData.cvUrl} cvLink={profileData.cvLink} />
-                <EmailCard email={profileData.email} />
-              </div>
-            </div>
-          </div>
+    <main className="mx-auto w-full max-w-2xl px-6 pb-24">
+      {/* Intro */}
+      <section>
+        <div className="flex items-center gap-5">
+          <Image
+            src={profileData.imageUrl}
+            alt="Portrait of Marwan Baz"
+            width={72}
+            height={72}
+            priority
+            className="size-[72px] rounded-full object-cover"
+          />
+          <h1 className="text-3xl font-semibold tracking-tight">Marwan Baz</h1>
         </div>
+        <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+          I am Marwan, a web dev and techie who loves to work with computers
+          and software. I build web apps with React and Next.js, currently at
+          Wahadat, before that Haraka. When I&apos;m not coding I&apos;m
+          probably trying some OS or software just for the fun of it, and from
+          time to time I do some OSS: issues, enhancements, PRs :)
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground/70">
+          {profileData.location} · {profileData.availability}
+        </p>
+      </section>
 
-        {/* Connect and Experience Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          <ConnectSection />
-          <ExperienceSection experiences={profileData.experiences} />
-        </div>
-        <BlogComponent posts={latestPosts ?? []} />
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {(featuredProjects ?? []).map((project) => (
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              isFeatured={project.isFeatured}
-              description={project.summary}
-              imageUrl={project.imageUrl}
-              technologies={project.technologies}
-              githubUrl={project.sourceCode || undefined}
-              liveUrl={project.liveDemo || undefined}
-              projectUrl={`/work/${project.slug}`}
-            />
-          ))}
-        </div>
-      </main>
-    </HomeLoaderWrapper>
-  )
+      {/* Featured work */}
+      {projects.length > 0 && (
+        <RevealOnScroll className="mt-16">
+          <section>
+            <div className="flex items-baseline justify-between">
+              <h2 className="text-sm font-semibold tracking-wide">Work</h2>
+              <Link
+                href="/work"
+                className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                All projects
+                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+            <ul className="mt-3">
+              {projects.map((project) => (
+                <li
+                  key={project.id}
+                  className="border-t border-border last:border-b"
+                >
+                  <Link
+                    href={`/work/${project.slug}`}
+                    className="group flex items-start gap-4 py-5"
+                  >
+                    {project.imageUrl ? (
+                      <Image
+                        src={project.imageUrl}
+                        alt=""
+                        width={64}
+                        height={64}
+                        className="mt-0.5 size-16 shrink-0 rounded-lg border border-border object-cover"
+                      />
+                    ) : null}
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-3">
+                        <h3 className="font-medium transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                          {project.title}
+                        </h3>
+                        <ArrowUpRight className="size-4 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+                      </div>
+                      <p className="mt-1 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
+                        {project.summary}
+                      </p>
+                      {project.technologies.length > 0 && (
+                        <p className="mt-2 text-xs text-muted-foreground/70">
+                          {project.technologies.slice(0, 3).join(" · ")}
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </RevealOnScroll>
+      )}
+
+      {/* Writing */}
+      {posts.length > 0 && (
+        <RevealOnScroll className="mt-16">
+          <section>
+            <div className="flex items-baseline justify-between">
+              <h2 className="text-sm font-semibold tracking-wide">Writing</h2>
+              <Link
+                href="/blog"
+                className="group inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              >
+                All posts
+                <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+              </Link>
+            </div>
+            <ul className="mt-3">
+              {posts.map((post) => (
+                <li
+                  key={post.id}
+                  className="border-t border-border last:border-b"
+                >
+                  <Link
+                    href={post.url}
+                    className="group flex items-baseline justify-between gap-4 py-4"
+                  >
+                    <span className="font-medium transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                      {post.title}
+                    </span>
+                    <time className="shrink-0 text-sm text-muted-foreground">
+                      {formatDateLabel(post.date)}
+                    </time>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        </RevealOnScroll>
+      )}
+    </main>
+  );
 }

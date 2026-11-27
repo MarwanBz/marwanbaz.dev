@@ -1,71 +1,65 @@
-import { getPosts } from '@/lib/cms/payload'
-import { formatDateLabel } from '@/lib/date'
-import { CmsError } from '@/components/cms-error'
-import Link from 'next/link'
-import type { Metadata } from 'next'
+import Link from "next/link";
+import type { Metadata } from "next";
 
-export const dynamic = 'force-dynamic'
+import { CmsError } from "@/components/cms-error";
+import { getPosts } from "@/lib/cms/payload";
+import { formatDateLabel } from "@/lib/date";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Read my latest thoughts on web development, React, Next.js, and more.',
-}
+  title: "Writing",
+  description: "Notes on web development, React, Next.js, and building products.",
+};
 
 export default async function BlogPage() {
-  const posts = await getPosts()
+  const posts = await getPosts();
 
   if (posts === null) {
-    return <CmsError section="blog" />
+    return <CmsError section="blog" />;
   }
 
   return (
-    <main className="container mx-auto max-w-4xl px-4 pb-24 pt-36">
-      <div className="mb-12">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Blog</h1>
-        <p className="mt-4 text-lg text-muted-foreground">
-          This is my space on the internet where I share my weird thoughts, opinions, principles, learnings, interests, and anything in between.
-        </p>
-      </div>
+    <main className="mx-auto w-full max-w-2xl px-6 pb-24">
+      <h1 className="text-3xl font-semibold tracking-tight">Writing</h1>
+      <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+        This is my space on the internet where I share my weird thoughts,
+        opinions, principles, learnings, interests, and anything in between.
+      </p>
 
-      <div className="flex flex-col gap-8">
+      <ul className="mt-10">
         {posts.map((post) => (
-          <article key={post.slug} className="group">
-            <Link href={post.url} className="block">
-              <div className="rounded-2xl border border-border/50 p-6 transition-all duration-300 hover:border-border hover:bg-accent/30 hover:shadow-lg">
-                <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                  <time dateTime={post.date}>
-                    {formatDateLabel(post.date)}
-                  </time>
-                  <span>·</span>
-                  <span>{post.readingTime.text}</span>
-                </div>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight group-hover:text-primary transition-colors">
+          <li key={post.id} className="border-t border-border last:border-b">
+            <Link
+              href={post.url}
+              className="group block py-5"
+            >
+              <div className="flex items-baseline justify-between gap-4">
+                <h2 className="font-medium transition-colors group-hover:text-blue-600 dark:group-hover:text-blue-400">
                   {post.title}
                 </h2>
-                <p className="mt-2 text-muted-foreground line-clamp-2">
+                <time
+                  dateTime={post.date}
+                  className="shrink-0 text-sm text-muted-foreground"
+                >
+                  {formatDateLabel(post.date)}
+                </time>
+              </div>
+              {post.summary && (
+                <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
                   {post.summary}
                 </p>
-                {post.tags.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {post.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full border border-border/60 px-3 py-1 text-xs text-muted-foreground"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                )}
-              </div>
+              )}
             </Link>
-          </article>
+          </li>
         ))}
-      </div>
+      </ul>
 
       {posts.length === 0 && (
-        <p className="text-center text-muted-foreground">No posts yet. Check back soon!</p>
+        <p className="mt-6 text-sm text-muted-foreground">
+          No posts yet. Check back soon!
+        </p>
       )}
     </main>
-  )
+  );
 }

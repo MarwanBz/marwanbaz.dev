@@ -54,21 +54,21 @@ export default async function BlogPostPage(
   }
 
   return (
-    <main className="container mx-auto max-w-3xl px-4 pb-24 pt-36">
+    <main className="mx-auto w-full max-w-2xl px-6 pb-24">
       <Link
         href="/blog"
-        className="group mb-10 flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        className="group mt-4 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-blue-600 dark:hover:text-blue-400"
       >
-        <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-        Back to Blog
+        <ArrowLeft className="size-4 transition-transform group-hover:-translate-x-0.5" />
+        Writing
       </Link>
 
-      <article>
-        <header className="mb-10">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+      <article className="mt-8">
+        <header>
+          <h1 className="text-3xl font-semibold tracking-tight">
             {post.title}
           </h1>
-          <div className="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
+          <div className="mt-3 flex items-center gap-3 text-sm text-muted-foreground">
             <time dateTime={post.date}>
               {formatDateLabel(post.date)}
             </time>
@@ -76,20 +76,13 @@ export default async function BlogPostPage(
             <span>{post.readingTime.text}</span>
           </div>
           {post.tags.length > 0 && (
-            <div className="mt-4 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-border/60 px-3 py-1 text-xs text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
+            <p className="mt-3 text-xs text-muted-foreground/70">
+              {post.tags.join(" · ")}
+            </p>
           )}
         </header>
 
-        <div className="prose prose-neutral dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-code:rounded prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-pre:rounded-xl prose-pre:border prose-pre:border-border/50 prose-img:rounded-xl">
+        <div className="prose prose-neutral dark:prose-invert mt-8 max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-blue-400 prose-code:rounded prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-pre:rounded-xl prose-pre:border prose-pre:border-border/50 prose-img:rounded-xl">
           <RemoteMdx source={post.bodyMdx} />
         </div>
       </article>
